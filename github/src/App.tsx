@@ -1,20 +1,14 @@
-import React from "react";
-function App(){
-  return(
+import Search from "./Search"
+import Results from "./Results"
+function App() {
+  return (
     <>
-    <section className="main">
+      <section className='main'>
+        <Search />
+        <Results />
+      </section>
+    </>
+  )
+}
 
-    </section>
-    </>
-  )
-}
-function Search(){
-  return(
-    <>
-    <div className="search"></div>
-    </>
-  )
-}
-function Results(){
-return()
-}
+export default App
