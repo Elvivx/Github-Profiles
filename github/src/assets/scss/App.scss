@@ -1,0 +1,95 @@
+section {
+  border: 2px solid red;
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  gap: 30px;
+  place-items: center;
+  transition: all 0.4s ease-in-out;
+  .search {
+    background-color: #1e3e62;
+    border: 2px solid #ff6500;
+    padding: 30px;
+    border-radius: 20px;
+    h1,
+    p {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 1.9rem;
+    }
+    p {
+      color: grey;
+    }
+    .input {
+      display: flex;
+      gap: 10px;
+      input {
+        border-radius: 10px;
+        background: 0;
+        outline: 0;
+        border: 1px solid #ff6500;
+        padding: 15px;
+        font-size: 1.1rem;
+      }
+      button {
+        background: #ff6500;
+        border: 1px solid #ff6500;
+        border-radius: 10px;
+        padding-top: 6px;
+      }
+    }
+  }
+  .result {
+    width: 375px;
+    border: 2px solid #ff6500;
+    border-radius: 20px;
+    padding: 30px;
+    .img {
+      border: 2px solid #ff6500;
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+    }
+    .location {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+    .info {
+      display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      margin: 20px 0;
+      p {
+        font-weight: 600;
+        margin: 0;
+      }
+      .followers,
+      .following {
+        width: fit-content;
+        background: #ae445a;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    }
+    .btn {
+      button {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 2px solid #ff6500;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        background: #000;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          background: #ff6500;
+        }
+      }
+    }
+  }
+}
