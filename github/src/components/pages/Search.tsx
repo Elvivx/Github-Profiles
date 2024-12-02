@@ -1,8 +1,10 @@
-import { useState } from "react"
-import { getUsers } from "../context/async"
+import { useState, useContext } from "react"
+// import { getUsers } from "../context/async"
+import { GitContext } from "../context/async"
 
 function Search() {
-  const [text, setText] = useState("")
+  const { getUsers, text, setText } = useContext(GitContext)
+  // const [text, setText] = useState("")
 
   const change = (e) => {
     console.log(e.target.value)
@@ -12,7 +14,7 @@ function Search() {
     console.log(text)
     e.preventDefault()
     setText("")
-    getUsers(text)
+    getUsers()
   }
   return (
     <>
