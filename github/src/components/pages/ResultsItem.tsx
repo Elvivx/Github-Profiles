@@ -2,9 +2,9 @@ function ResultItem({ user }) {
   return (
     <div className='result'>
       <div className='img'>
-        <img src='' alt='' />
+        <img src={user.avatar_url} alt={user.login} />
       </div>
-      <h1>Elvivx</h1>
+      <h1>{user.login}</h1>
       <span className='bio'>This is mine</span>
       <span className='location'>
         <svg height='28' viewBox='0 0 48 48' width='28' xmlns='http://www.w3.org/2000/svg'>
@@ -15,16 +15,16 @@ function ResultItem({ user }) {
       </span>
       <div className='info'>
         <div className='followers'>
-          <p>Followers: 34k</p>
+          <p>Followers: {user.folloers_url}</p>
           {/* <span>43</span> */}
         </div>
         {/* <hr /> */}
         <div className='following'>
-          <p>Following: 23</p>
+          <p>Following: 45</p>
           {/* <span>23</span> */}
         </div>
-        <div>Repositries: 38</div>
-        <div>Gist: 9</div>
+        <div>Repositries: 56</div>
+        <div>Gist: {user.gist_url}</div>
       </div>
       <div className='btn'>
         <button>Repos</button>
