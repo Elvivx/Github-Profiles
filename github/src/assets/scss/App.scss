@@ -45,7 +45,8 @@ section {
     }
   }
   .result {
-    width: 375px;
+    // width: 375px;
+    max-width: fit-content;
     border: 2px solid #ff6500;
     border-radius: 20px;
     padding: 30px;
@@ -63,18 +64,19 @@ section {
     .info {
       display: flex;
       //   align-items: center;
-      //   justify-content: center;
+      justify-content: space-between;
+      gap: 10px;
       margin: 20px 0;
       p {
         font-weight: 600;
         margin: 0;
       }
-      .followers,
-      .following {
+      div {
         width: fit-content;
         background: #ae445a;
-        padding: 10px;
-        border-radius: 10px;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-size: 0.8rem;
       }
     }
     .btn {
