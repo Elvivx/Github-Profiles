@@ -4,9 +4,11 @@ section {
   margin: auto;
   display: grid;
   gap: 30px;
-  place-items: center;
+  // place-items: center;
   transition: all 0.4s ease-in-out;
   .search {
+    // width: 100%;
+    text-align: center;
     background-color: #1e3e62;
     border: 2px solid #ff6500;
     padding: 30px;
@@ -22,9 +24,11 @@ section {
     p {
       color: grey;
     }
-    .input {
+    form {
       display: flex;
+
       gap: 10px;
+      // width: 100%;
       input {
         border-radius: 10px;
         background: 0;
@@ -32,6 +36,7 @@ section {
         border: 1px solid #ff6500;
         padding: 15px;
         font-size: 1.1rem;
+        width: 100%;
       }
       button {
         background: #ff6500;
