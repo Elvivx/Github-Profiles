@@ -3,6 +3,7 @@ function Results() {
   return (
     <>
       <div className='result'>
+        {}
         <ResultItem />
       </div>
     </>

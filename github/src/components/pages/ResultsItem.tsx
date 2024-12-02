@@ -17,11 +17,13 @@ function ResultItem() {
           <p>Followers: 34k</p>
           {/* <span>43</span> */}
         </div>
-        <hr />
+        {/* <hr /> */}
         <div className='following'>
           <p>Following: 23</p>
           {/* <span>23</span> */}
         </div>
+        <div>Repositries: 38</div>
+        <div>Gist: 9</div>
       </div>
       <div className='btn'>
         <button>Repos</button>
