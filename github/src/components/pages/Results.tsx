@@ -1,13 +1,10 @@
-import GithubContext from "../context/context"
+import ResultItem from "./ResultsItem"
 function Results() {
   return (
     <>
-      <GithubContext.Provider value={{}}>
-        <div className='result'>
-       fuck
-          </div>
-        </div>
-      </GithubContext.Provider>
+      <div className='result'>
+        <ResultItem />
+      </div>
     </>
   )
 }
