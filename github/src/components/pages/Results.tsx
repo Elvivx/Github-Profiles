@@ -3,9 +3,10 @@ import { useContext } from "react"
 import { GitContext } from "../context/async"
 function Results() {
   const { users } = useContext(GitContext)
+  if (users == "") return
   return (
     <>
-      <div className='result'>
+      <div className='results'>
         {users.map((user, index) => {
           return <ResultItem key={index} user={user} />
         })}

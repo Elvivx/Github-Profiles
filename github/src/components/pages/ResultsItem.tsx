@@ -1,6 +1,6 @@
 function ResultItem({ user }) {
   return (
-    <div className='item'>
+    <div className='result'>
       <div className='img'>
         <img src='' alt='' />
       </div>
