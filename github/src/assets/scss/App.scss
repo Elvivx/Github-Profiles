@@ -46,11 +46,12 @@ section {
   }
   .results {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    // place-items: center;
+    gap: 20px;
     .result {
       // width: 375px;
-      max-width: fit-content;
+      // max-width: fit-content;
       border: 2px solid #ff6500;
       border-radius: 20px;
       padding: 30px;
