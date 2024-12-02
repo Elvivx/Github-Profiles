@@ -1,11 +1,14 @@
 import ResultItem from "./ResultsItem"
-im
+import { useContext } from "react"
+import { GitContext } from "../context/async"
 function Results() {
+  const { users } = useContext(GitContext)
   return (
     <>
       <div className='result'>
-        {}
-        <ResultItem />
+        {users.map((user, index) => {
+          return <ResultItem key={index} user={user} />
+        })}
       </div>
     </>
   )

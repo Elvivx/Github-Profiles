@@ -1,4 +1,4 @@
-function ResultItem() {
+function ResultItem({ user }) {
   return (
     <div className='item'>
       <div className='img'>
