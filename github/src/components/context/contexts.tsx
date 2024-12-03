@@ -18,14 +18,28 @@ export const GitContextProvider = ({ children }) => {
     }, 3000)
   }
 
-  return <GitContext.Provider value={{ getUsers, text, setText, users, loading }}>{children}</GitContext.Provider>
+  const cliente_id = "82d4ed29477f68045158"
+  const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
+
+  const getUserInfos = async () => {
+    const data = await axios.get(`https://api.github.com/users/elvivx?client_id=${cliente_id}&client_secret=${cliente_secret}`)
+    console.log(data.data)
+    setUser(data.data)
+  }
+
+  const vals = {
+    text,
+    setText,
+    users,
+    setUsers,
+    user,
+    setUser,
+    loading,
+    getUsers,
+    getUserInfos,
+  }
+
+  return <GitContext.Provider value={vals}>{children}</GitContext.Provider>
 }
 
-const cliente_id = "82d4ed29477f68045158"
-const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
-
-const getUserInfos = async () => {
-  let data = await axios.get(`https://api.github.com/users/elvivx?client_id=${cliente_id}&client_secret=${cliente_secret}`)
-  console.log(data.data)
-}
 // getUserInfos()
