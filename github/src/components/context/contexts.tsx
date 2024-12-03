@@ -3,6 +3,7 @@ import { createContext, useState } from "react"
 
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
+  // states
   const [text, setText] = useState("")
   const [users, setUsers] = useState("")
   const [user, setUser] = useState("")
@@ -10,6 +11,15 @@ export const GitContextProvider = ({ children }) => {
   const [userStarred, setUserStarred] = useState("")
   const [userLangs, setUserLangs] = useState("")
   const [loading, setLoading] = useState(false)
+
+  // keys
+  const cliente_id = "82d4ed29477f68045158"
+  const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
+  const limite_repositorios = 4
+
+  // fuctions
+
+  // user
   const getUsers = async () => {
     if (text == "") return
     setLoading(true)
@@ -21,18 +31,19 @@ export const GitContextProvider = ({ children }) => {
     }, 3000)
   }
 
-  const cliente_id = "82d4ed29477f68045158"
-  const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
-
+  // user informations
   const userInfo = async (info) => {
     const user = await axios.get(`https://api.github.com/users/${info}?client_id=${cliente_id}&client_secret=${cliente_secret}`)
     console.log(user.data)
     setUser(user.data)
 
+    // user Repositories
     const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
-    console
+    console.log(repos.data)
 
-    const stars = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
+    // user starred repositories
+    const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
+    console.log(starred.data)
   }
 
   const vals = {
@@ -48,10 +59,4 @@ export const GitContextProvider = ({ children }) => {
   }
 
   return <GitContext.Provider value={vals}>{children}</GitContext.Provider>
-}
-
-// getUserInfos()
-
-const stared = async () => {
-  const star = await axios.get(`https://api.github.com/users/${usuario}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
 }
