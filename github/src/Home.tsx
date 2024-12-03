@@ -1,6 +1,7 @@
 import Search from "./components/pages/Search"
 import Results from "./components/pages/Results"
 import { Github } from "lucide-react"
+import User from "./components/pages/User"
 function Home() {
   return (
     <>
@@ -22,6 +23,7 @@ function Home() {
       </div>
       <Search />
       <Results />
+      <User />
     </>
   )
 }
