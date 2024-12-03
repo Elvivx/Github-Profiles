@@ -49,6 +49,7 @@ export const GitContextProvider = ({ children }) => {
     setUserStarred(starred.data)
 
     // const commits = await axios.get(`https://api.github.com/repos/${text}/${repo}/commits`)
+    // console.log(commits.data)
     // setCommits(commits.data)
   }
 

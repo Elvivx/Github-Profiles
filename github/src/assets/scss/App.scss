@@ -176,9 +176,17 @@ section {
           p {
             margin: 0;
           }
+          a {
+            text-decoration: none;
+          }
           .info {
             border: 2px solid blue;
+            // display: flex;
+            // flex-direction: column;
+            // gap: 10px;
+            cursor: pointer;
             h2 {
+              font-size: 1.8rem;
               color: #ae445a;
             }
             p {
@@ -186,14 +194,19 @@ section {
               font-size: 0.9rem;
             }
             .xtra {
-              border: 2px solid yellow;
+              // border: 2px solid yellow;
               display: flex;
               align-items: center;
-              width: 60%;
+              width: 40%;
               justify-content: space-between;
+              margin-top: 10px;
               span {
                 display: flex;
                 align-items: center;
+                color: #fff;
+                .icon {
+                  color: #ff6500;
+                }
               }
             }
           }
