@@ -1,5 +1,5 @@
 import { GitFork, GitCommit, GitBranch } from "lucide-react"
-function UserRepos({ repo }) {
+function UserStarred({ repo }) {
   return (
     <>
       <div className='info'>
@@ -34,4 +34,4 @@ function UserRepos({ repo }) {
     </>
   )
 }
-export default UserRepos
+export default UserStarred

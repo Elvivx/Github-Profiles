@@ -134,6 +134,7 @@ section {
     // border: 1px solid red;
     .item {
       border: 2px solid #fff;
+      padding: 10px;
       .top {
         .img {
           width: 100px;
@@ -149,6 +150,7 @@ section {
         }
         .btns {
           display: flex;
+          flex-wrap: wrap;
           gap: 10px;
           align-items: center;
           span {
@@ -184,6 +186,7 @@ section {
             // display: flex;
             // flex-direction: column;
             // gap: 10px;
+            padding: 10px 0;
             cursor: pointer;
             h2 {
               font-size: 1.8rem;
@@ -197,7 +200,8 @@ section {
               // border: 2px solid yellow;
               display: flex;
               align-items: center;
-              width: 40%;
+              // min-width: 40%;
+              max-width: 60%;
               justify-content: space-between;
               margin-top: 10px;
               span {

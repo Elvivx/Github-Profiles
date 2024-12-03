@@ -1,6 +1,6 @@
-// import { GitFork, GitCommit, GitBranch } from "lucide-react"
 import UserRepos from "./userRepos"
-function UserItem({ user, userStarred, userRepos }) {
+import UserStarred from "./userStarred"
+function UserItem({ user, userStarred, userRepos, nav, navs }) {
   return (
     <>
       <div className='item'>
@@ -35,42 +35,10 @@ function UserItem({ user, userStarred, userRepos }) {
         </div>
         <div className='bottom'>
           <div className='nav'>
-            <button>Repos</button>
-            <button>Starred</button>
-            <button>Languages</button>
+            <button onClick={navs}>Repos</button>
+            <button onClick={navs}>Starred</button>
           </div>
-          <div className='nav-info'>
-            {/* <div className='info'>
-              <a href='fuck'>
-                <h2>Repos</h2>
-                <p>React</p>
-                <p>12 dec 2020</p>
-                <div className='xtra'>
-                  <span>
-                    <span className='icon'>
-                      <GitFork />
-                    </span>
-                    32
-                  </span>
-                  <span>
-                    <span className='icon'>
-                      <GitCommit />
-                    </span>
-                    44
-                  </span>
-                  <span>
-                    <span className='icon'>
-                      <GitBranch />
-                    </span>
-                    master
-                  </span>
-                </div>
-              </a>
-            </div> */}
-            {userRepos.map((repo) => (
-              <UserRepos key={repo.id} repo={repo} />
-            ))}
-          </div>
+          <div className='nav-info'>{nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarred.map((star) => <UserStarred key={star.id} star={star} />)}</div>
         </div>
       </div>
     </>

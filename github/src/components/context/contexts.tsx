@@ -12,7 +12,7 @@ export const GitContextProvider = ({ children }) => {
   const [userStarred, setUserStarred] = useState([])
   const [userLangs, setUserLangs] = useState([])
   const [loading, setLoading] = useState(false)
-
+  const [nav, setNav] = useState(true)
   // keys
   const cliente_id = "82d4ed29477f68045158"
   const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
@@ -52,6 +52,9 @@ export const GitContextProvider = ({ children }) => {
     // console.log(commits.data)
     // setCommits(commits.data)
   }
+  const navs = (e) => {
+    return e.target.value == "repo" ? setNav(true) : setNav(false)
+  }
 
   const vals = {
     text,
@@ -65,6 +68,8 @@ export const GitContextProvider = ({ children }) => {
     userInfo,
     userStarred,
     userRepos,
+    nav,
+    navs,
   }
 
   return <GitContext.Provider value={vals}>{children}</GitContext.Provider>
