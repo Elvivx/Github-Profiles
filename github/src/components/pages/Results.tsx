@@ -7,7 +7,7 @@ function Results() {
   if (users == "") return
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <div className='results'>
         {loading ? (
           <Loader />
