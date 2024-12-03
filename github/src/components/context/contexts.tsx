@@ -4,13 +4,14 @@ import { createContext, useState } from "react"
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
   // states
+  const [page, setPages] = useState(true)
   const [text, setText] = useState("")
   const [users, setUsers] = useState("")
   const [user, setUser] = useState([])
-  const [commits, setCommits] = useState([])
+  // const [commits, setCommits] = useState([])
   const [userRepos, setUserRepos] = useState([])
   const [userStarred, setUserStarred] = useState([])
-  const [userLangs, setUserLangs] = useState([])
+  // const [userLangs, setUserLangs] = useState([])
   const [loading, setLoading] = useState(false)
   const [nav, setNav] = useState(true)
   // keys
@@ -39,8 +40,8 @@ export const GitContextProvider = ({ children }) => {
     setUser(user.data)
 
     // user Repositories
-    const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
-    // console.log(repos.data)
+    const repos = await axios.get(`https://api.github.com/users/${info}/repos${info}?client_id=${cliente_id}&client_secret=${cliente_secret}`)
+    console.log(repos.data)
     setUserRepos(repos.data)
 
     // user starred repositories
@@ -55,6 +56,9 @@ export const GitContextProvider = ({ children }) => {
   const navs = (e) => {
     console.log(e.target.value)
     return e.target.value == "repos" ? setNav(true) : setNav(false)
+  }
+  const flipPage = (ans) => {
+    setPages(ans)
   }
 
   const vals = {
@@ -71,6 +75,8 @@ export const GitContextProvider = ({ children }) => {
     userRepos,
     nav,
     navs,
+    page,
+    flipPage,
   }
 
   return <GitContext.Provider value={vals}>{children}</GitContext.Provider>

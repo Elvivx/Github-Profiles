@@ -3,11 +3,11 @@ import { GitContext } from "../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
 function User() {
-  const { user, userStarred, userRepos, nav, navs } = useContext(GitContext)
+  const { user, userStarred, userRepos, nav, navs , flipPage} = useContext(GitContext)
   return (
     <>
       <div className='user'>
-        <button className='back'>
+        <button className='back' onClick={()=>flipPage(true)}>
           <span>
             <StepBack />
           </span>

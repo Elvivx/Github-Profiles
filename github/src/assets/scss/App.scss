@@ -72,6 +72,7 @@ section {
       border-radius: 20px;
       padding: 30px;
       transition: all 0.2s ease-in-out;
+      height: fit-content;
       &:hover {
         box-shadow: 0 0 5px 10px rgba(255, 0, 0, 0.245);
         transform: scale(1.05);
@@ -131,10 +132,8 @@ section {
     }
   }
   .user {
-    // border: 1px solid red;
     .back {
       background: 0;
-      // border: 2px solid #ff6500;
       border: 0;
       border-radius: 50%;
       padding: 5px 12px;
@@ -142,12 +141,10 @@ section {
       justify-items: center;
       align-items: center;
       svg {
-        // fill: #ff6500;
         color: #ff6500;
       }
     }
     .item {
-      border: 2px solid #fff;
       padding: 10px;
       .top {
         .img {
