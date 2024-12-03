@@ -40,10 +40,12 @@ export const GitContextProvider = ({ children }) => {
     // user Repositories
     const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
     console.log(repos.data)
+    setUserRepos(repos.data)
 
     // user starred repositories
     const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
     console.log(starred.data)
+    setUserStarred(starred.data)
   }
 
   const vals = {

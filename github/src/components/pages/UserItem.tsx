@@ -23,6 +23,13 @@ function UserItem() {
             <button>Stars</button>
             <button>Languages</button>
           </div>
+          <div className='nav-info'>
+            <div className='info'>
+              <h2>Repos</h2>
+              <p>React</p>
+              <p>12 dec 2020</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
