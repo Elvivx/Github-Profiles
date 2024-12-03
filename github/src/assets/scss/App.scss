@@ -39,11 +39,14 @@ section {
       input {
         border-radius: 10px;
         background: 0;
-        outline: 0;
+
         border: 1px solid #ff6500;
         padding: 15px;
         font-size: 1.1rem;
         width: 100%;
+        &:focus {
+          outline: 2px solid #ff6500 !important;
+        }
       }
       button {
         background: #ff6500;
