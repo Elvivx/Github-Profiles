@@ -135,27 +135,41 @@ section {
     .item {
       border: 2px solid #fff;
       .top {
-      }
-      .img {
-        width: 100px;
-        height: 100px;
-        border: 2px solid #ff6500;
-        border-radius: 50%;
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        .img {
+          width: 100px;
+          height: 100px;
+          border: 2px solid #ff6500;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .btns {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          span {
+            background: #ae445a;
+            border-radius: 10px;
+            padding: 3px 8px;
+          }
         }
       }
-      .btns {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        span {
-          background: #ae445a;
-          border-radius: 10px;
-          padding: 3px 8px;
+      .bottom {
+        margin-top: 20px;
+        .nav {
+          display: flex;
+          gap: 10px;
+          button {
+            cursor: pointer;
+            padding: 5px 12px;
+            background: 0;
+            border: 0;
+            border-bottom: 2px solid #ff6500;
+          }
         }
       }
     }
