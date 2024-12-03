@@ -8,7 +8,9 @@ function User() {
     <>
       <div className='user'>
         <button className='back'>
-          <StepBack />
+          <span>
+            <StepBack />
+          </span>
         </button>
         <UserItem user={user} userStarred={userStarred} userRepos={userRepos} nav={nav} navs={navs} />
       </div>

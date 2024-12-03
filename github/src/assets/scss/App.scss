@@ -132,6 +132,20 @@ section {
   }
   .user {
     // border: 1px solid red;
+    .back {
+      background: 0;
+      // border: 2px solid #ff6500;
+      border: 0;
+      border-radius: 50%;
+      padding: 5px 12px;
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      svg {
+        // fill: #ff6500;
+        color: #ff6500;
+      }
+    }
     .item {
       border: 2px solid #fff;
       padding: 10px;
