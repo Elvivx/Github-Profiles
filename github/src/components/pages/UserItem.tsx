@@ -35,8 +35,12 @@ function UserItem({ user, userStarred, userRepos, nav, navs }) {
         </div>
         <div className='bottom'>
           <div className='nav'>
-            <button onClick={navs}>Repos</button>
-            <button onClick={navs}>Starred</button>
+            <button onClick={navs} value='repos'>
+              Repos
+            </button>
+            <button onClick={navs} value='starred'>
+              Starred
+            </button>
           </div>
           <div className='nav-info'>{nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarred.map((star) => <UserStarred key={star.id} star={star} />)}</div>
         </div>

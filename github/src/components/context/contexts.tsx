@@ -53,7 +53,8 @@ export const GitContextProvider = ({ children }) => {
     // setCommits(commits.data)
   }
   const navs = (e) => {
-    return e.target.value == "repo" ? setNav(true) : setNav(false)
+    console.log(e.target.value)
+    return e.target.value == "repos" ? setNav(true) : setNav(false)
   }
 
   const vals = {
