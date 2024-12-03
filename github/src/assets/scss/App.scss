@@ -59,6 +59,7 @@ section {
     height: 100%;
     overflow-y: scroll;
     cursor: pointer;
+    padding-top: 10px;
     &::-webkit-scrollbar {
       display: none;
     }
