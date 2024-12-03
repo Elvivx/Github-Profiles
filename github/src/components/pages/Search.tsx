@@ -14,7 +14,7 @@ function Search() {
     e.preventDefault() // Prevent page reload
     if (text.trim()) {
       getUsers()
-      setText("") // Clear input after submit
+      // setText("") // Clear input after submit
     }
   }
 

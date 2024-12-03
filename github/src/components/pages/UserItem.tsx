@@ -8,6 +8,7 @@ function UserItem() {
           </div>
           <h1>Elvis</h1>
           <p className='bio'>Hey there</p>
+          <p className='email'>ELvis@maail.co</p>
           <div className='btns'>
             <span>Followers</span>
             <span>Following</span>
