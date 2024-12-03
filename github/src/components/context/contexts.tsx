@@ -6,10 +6,11 @@ export const GitContextProvider = ({ children }) => {
   // states
   const [text, setText] = useState("")
   const [users, setUsers] = useState("")
-  const [user, setUser] = useState("")
-  const [userRepos, setUserRepos] = useState("")
-  const [userStarred, setUserStarred] = useState("")
-  const [userLangs, setUserLangs] = useState("")
+  const [user, setUser] = useState([])
+  const [commits, setCommits] = useState([])
+  const [userRepos, setUserRepos] = useState([])
+  const [userStarred, setUserStarred] = useState([])
+  const [userLangs, setUserLangs] = useState([])
   const [loading, setLoading] = useState(false)
 
   // keys
@@ -46,6 +47,9 @@ export const GitContextProvider = ({ children }) => {
     const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
     console.log(starred.data)
     setUserStarred(starred.data)
+
+    // const commits = await axios.get(`https://api.github.com/repos/${text}/${repo}/commits`)
+    // setCommits(commits.data)
   }
 
   const vals = {

@@ -1,3 +1,4 @@
+import { GitFork, GitCommit, GitBranch } from "lucide-react"
 function UserItem() {
   return (
     <>
@@ -28,6 +29,20 @@ function UserItem() {
               <h2>Repos</h2>
               <p>React</p>
               <p>12 dec 2020</p>
+              <div className='xtra'>
+                <span>
+                  <GitFork />
+                  32
+                </span>
+                <span>
+                  <GitCommit />
+                  44
+                </span>
+                <span>
+                  <GitBranch />
+                  master
+                </span>
+              </div>
             </div>
           </div>
         </div>
