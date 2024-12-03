@@ -15,7 +15,7 @@ function UserItem() {
             <span>Following</span>
             <span>Repos</span>
             <span>Stared</span>
-            <span>Gist</span>
+            <span>Commits</span>
           </div>
         </div>
         <div className='bottom'>

@@ -131,7 +131,7 @@ section {
     }
   }
   .user {
-    border: 1px solid red;
+    // border: 1px solid red;
     .item {
       border: 2px solid #fff;
       .top {
@@ -169,6 +169,33 @@ section {
             background: 0;
             border: 0;
             border-bottom: 2px solid #ff6500;
+          }
+        }
+        .nav-info {
+          h2,
+          p {
+            margin: 0;
+          }
+          .info {
+            border: 2px solid blue;
+            h2 {
+              color: #ae445a;
+            }
+            p {
+              color: rgb(178, 178, 178);
+              font-size: 0.9rem;
+            }
+            .xtra {
+              border: 2px solid yellow;
+              display: flex;
+              align-items: center;
+              width: 60%;
+              justify-content: space-between;
+              span {
+                display: flex;
+                align-items: center;
+              }
+            }
           }
         }
       }
