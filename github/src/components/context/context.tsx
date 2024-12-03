@@ -1,5 +1,16 @@
-import { createContext } from "react"
+import axios from "axios"
+import { createContext, useState } from "react"
 
-const githubContext = createContext()
+export const GitContext = createContext()
+export const GitContextProvider = ({ children }) => {
+  const [text, setText] = useState("")
+  const [users, setUsers] = useState("")
+  const getUsers = async () => {
+    if (text == "") return
+    const user = await axios.get(`https://api.github.com/search/users?q=${text}`)
+    console.log(user.data)
+    setUsers(user.data.items)
+  }
 
-export default githubContext
+  return <GitContext.Provider value={{ getUsers, text, setText, users }}>{children}</GitContext.Provider>
+}
