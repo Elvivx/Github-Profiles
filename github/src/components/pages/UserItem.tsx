@@ -1,45 +1,46 @@
-import { GitFork, GitCommit, GitBranch } from "lucide-react"
-function UserItem() {
+// import { GitFork, GitCommit, GitBranch } from "lucide-react"
+import UserRepos from "./userRepos"
+function UserItem({ user, userStarred, userRepos }) {
   return (
     <>
       <div className='item'>
         <div className='top'>
           <div className='img'>
-            <img src='#' alt='' />
+            <img src={user.avatar_url} alt={user.login} />
           </div>
-          <h1>Elvis</h1>
+          <h1>{user.name}</h1>
           <p>
-            <strong>Location:</strong>
-            Lag
+            <strong>Location: </strong>
+            {user.location || "N/A"}
           </p>
           <p>
-            <strong>Username:</strong>
-            Elvivx
+            <strong>Username: </strong>
+            {user.login}
           </p>
           <p className='bio'>
-            <strong>Bio:</strong>
-            Hey there
+            <strong>Bio: </strong>
+            {user.bio}
           </p>
           <p className='email'>
-            <strong>Email:</strong>
-            ELvis@maail.co
+            <strong>Email: </strong>
+            {user.email || "N/A"}
           </p>
           <div className='btns'>
-            <span>Followers</span>
-            <span>Following</span>
-            <span>Repos</span>
-            <span>Stared</span>
+            <span>Followers: {user.followers}</span>
+            <span>Following: {user.following}</span>
+            <span>Repos: {user.public_repos}</span>
+            <span>Starred: {userStarred.length}</span>
             <span>Commits</span>
           </div>
         </div>
         <div className='bottom'>
           <div className='nav'>
             <button>Repos</button>
-            <button>Stars</button>
+            <button>Starred</button>
             <button>Languages</button>
           </div>
           <div className='nav-info'>
-            <div className='info'>
+            {/* <div className='info'>
               <a href='fuck'>
                 <h2>Repos</h2>
                 <p>React</p>
@@ -65,7 +66,10 @@ function UserItem() {
                   </span>
                 </div>
               </a>
-            </div>
+            </div> */}
+            {userRepos.map((repo) => (
+              <UserRepos key={repo.id} repo={repo} />
+            ))}
           </div>
         </div>
       </div>

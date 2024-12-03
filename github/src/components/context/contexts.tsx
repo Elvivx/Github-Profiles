@@ -25,7 +25,7 @@ export const GitContextProvider = ({ children }) => {
     if (text == "") return
     setLoading(true)
     const user = await axios.get(`https://api.github.com/search/users?q=${text}`)
-    console.log(user.data)
+    // console.log(user.data)
     setUsers(user.data.items)
     setTimeout(() => {
       setLoading(false)
@@ -39,12 +39,12 @@ export const GitContextProvider = ({ children }) => {
     setUser(user.data)
 
     // user Repositories
-    const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
+    const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
     console.log(repos.data)
     setUserRepos(repos.data)
 
     // user starred repositories
-    const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
+    const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
     console.log(starred.data)
     setUserStarred(starred.data)
 
@@ -63,6 +63,8 @@ export const GitContextProvider = ({ children }) => {
     loading,
     getUsers,
     userInfo,
+    userStarred,
+    userRepos,
   }
 
   return <GitContext.Provider value={vals}>{children}</GitContext.Provider>
