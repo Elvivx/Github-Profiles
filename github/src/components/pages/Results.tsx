@@ -1,6 +1,6 @@
 import ResultItem from "./ResultsItem"
 import { useContext } from "react"
-import { GitContext } from "../context/async"
+import { GitContext } from "../context/contexts"
 function Results() {
   const { users } = useContext(GitContext)
   if (users == "") return

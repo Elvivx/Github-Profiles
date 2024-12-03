@@ -41,7 +41,7 @@ function ResultItem({ user }) {
         <div>Gist: {user.gist_url || "N/A"}</div>
       </div>
       <div className='btn'>
-        <button>Repos</button>
+        {/* <button>Repos</button> */}
         <button>Profile</button>
       </div>
     </div>
