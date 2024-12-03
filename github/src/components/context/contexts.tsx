@@ -16,7 +16,7 @@ export const GitContextProvider = ({ children }) => {
   // keys
   const cliente_id = "82d4ed29477f68045158"
   const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
-  const limite_repositorios = 4
+  // const limite_repositorios = 4
 
   // fuctions
 
@@ -35,17 +35,17 @@ export const GitContextProvider = ({ children }) => {
   // user informations
   const userInfo = async (info) => {
     const user = await axios.get(`https://api.github.com/users/${info}?client_id=${cliente_id}&client_secret=${cliente_secret}`)
-    console.log(user.data)
+    // console.log(user.data)
     setUser(user.data)
 
     // user Repositories
     const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
-    console.log(repos.data)
+    // console.log(repos.data)
     setUserRepos(repos.data)
 
     // user starred repositories
     const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
-    console.log(starred.data)
+    // console.log(starred.data)
     setUserStarred(starred.data)
 
     // const commits = await axios.get(`https://api.github.com/repos/${text}/${repo}/commits`)
