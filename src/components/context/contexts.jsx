@@ -15,6 +15,7 @@ export const GitContextProvider = ({ children }) => {
   // const [userLangs, setUserLangs] = useState([])
   const [loading, setLoading] = useState(false)
   const [nav, setNav] = useState(true)
+
   // keys
   const cliente_id = "82d4ed29477f68045158"
   const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
@@ -40,24 +41,25 @@ export const GitContextProvider = ({ children }) => {
     setUser(user.data)
 
     // user Repositories
-    const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
-    console.log(repos.data)
-    setUserRepos(repos.data)
+    // const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
+    // console.log(repos.data)
+    // setUserRepos(repos.data)
 
     // user starred repositories
-    const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
+    // const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
     // console.log(starred.data)
-    setUserStarreds(starred.data)
+    // setUserStarreds(starred.data)
 
     // const commits = await axios.get(`https://api.github.com/repos/${text}/${repo}/commits`)
     // console.log(commits.data)
     // setCommits(commits.data)
-
+    await userRepo(info)
+    await userStarred(info)
     setLoading(false)
   }
   // respos function
   const userRepo = async (info) => {
-    setLoading(true)
+    // setLoading(true)
     // user Repositories
     try {
       const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
@@ -66,11 +68,11 @@ export const GitContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error)
     }
-    setLoading(false)
+    // setLoading(false)
   }
   // starred fucntion
   const userStarred = async (info) => {
-    setLoading(true)
+    // setLoading(true)
     // user starred repositories
     try {
       const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
@@ -79,7 +81,7 @@ export const GitContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error)
     } finally {
-      setLoading(false)
+      // setLoading(false)
     }
   }
   // commits function
