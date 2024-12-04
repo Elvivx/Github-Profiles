@@ -3,7 +3,7 @@ import { GitContext } from "../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
 function User() {
-  const { user, userStarreds, userRepos, nav, navs, flipPage } = useContext(GitContext)
+  const { user, userStarreds, userRepos, nav, navs, flipPage, loading } = useContext(GitContext)
   return (
     <>
       <div className='user'>
@@ -12,7 +12,7 @@ function User() {
             <StepBack />
           </span>
         </button>
-        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} navs={navs} />
+        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} navs={navs} loading={loading} />
       </div>
     </>
   )

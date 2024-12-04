@@ -1,6 +1,6 @@
 import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
-function UserItem({ user, userStarreds, userRepos, nav, navs }) {
+function UserItem({ user, userStarreds, userRepos, nav, navs, loading }) {
   console.log(userStarreds)
   return (
     <>
