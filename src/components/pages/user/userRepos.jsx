@@ -10,13 +10,15 @@ function UserRepos({ repo }) {
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
     console.log(data.data.length)
+    console.log(data.data)
     console.log("shit")
     // return data.data.length
-    setCommits(data.data.length)
+    setCommits(data.data)
   }
-  // useEffect(() => {
-  //   repoData && getCommits()
-  // }, [])
+  useEffect(() => {
+    getCommits()
+    console.log(commits.length)
+  }, [])
   return (
     <>
       <div className='info'>
@@ -37,7 +39,7 @@ function UserRepos({ repo }) {
               <span className='icon'>
                 <GitCommit />
               </span>
-              {commits}
+              {commits.length || 0}
             </span>
             <span>
               <span className='icon'>
