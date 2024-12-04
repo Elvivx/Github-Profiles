@@ -9,7 +9,7 @@ export const GitContextProvider = ({ children }) => {
   const [text, setText] = useState("")
   const [users, setUsers] = useState("")
   const [user, setUser] = useState([])
-  // const [commits, setCommits] = useState([])
+  const [commits, setCommits] = useState([])
   const [userRepos, setUserRepos] = useState([])
   const [userStarreds, setUserStarreds] = useState([])
   // const [userLangs, setUserLangs] = useState([])
@@ -75,6 +75,11 @@ export const GitContextProvider = ({ children }) => {
     setLoading(false)
   }
 
+const getCommits = async () => {
+  const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
+  console.log(data.data)
+  setCommits(data.data)
+}
   const navs = (e) => {
     return e.target.value == "repos" ? setNav(true) : setNav(false)
   }
@@ -95,6 +100,7 @@ export const GitContextProvider = ({ children }) => {
     userInfo,
     userStarreds,
     userRepos,
+    getCommits,
     nav,
     navs,
     page,

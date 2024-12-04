@@ -2,7 +2,7 @@ import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import Error from "../helper/Error"
-function UserItem({ user, userStarreds, userRepos, nav, navs, loading }) {
+function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, navs, loading }) {
   console.log(userStarreds)
   return (
     <>
@@ -33,7 +33,7 @@ function UserItem({ user, userStarreds, userRepos, nav, navs, loading }) {
             <span>Following: {user.following}</span>
             <span>Repos: {user.public_repos}</span>
             <span>Starred: {userStarreds.length}</span>
-            <span>Commits</span>
+            <span>Commits : </span>
           </div>
         </div>
         <div className='bottom'>
@@ -47,7 +47,13 @@ function UserItem({ user, userStarreds, userRepos, nav, navs, loading }) {
           </div>
           <div className='nav-info'>
             {/* {error ? <Error /> : ""} */}
-            {loading ? <Loader /> : nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarreds.map((star) => <UserStarred key={star.id} star={star} />)}
+            {loading ? (
+              <Loader />
+            ) : nav ? (
+              userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} commits={commits} getCommits={getCommits} />)
+            ) : (
+              userStarreds.map((star) => <UserStarred key={star.id} star={star} />)
+            )}
           </div>
         </div>
       </div>

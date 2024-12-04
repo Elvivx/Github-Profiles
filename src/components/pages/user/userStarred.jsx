@@ -1,5 +1,19 @@
 import { GitFork, GitCommit, GitBranch } from "lucide-react"
+import { useState } from "react"
 function UserStarred({ star }) {
+  // const [commits, setCommits] = useState([])
+  // const getCommits = async () => {
+  //   const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
+  //   console.log(data.data.length)
+  //   console.log(data.data)
+  //   console.log("shit")
+  //   // return data.data.length
+  //   setCommits(data.data)
+  // }
+  useEffect(() => {
+    getCommits()
+    console.log(commits.length)
+  }, [])
   return (
     <>
       <div className='info'>
@@ -20,7 +34,7 @@ function UserStarred({ star }) {
               <span className='icon'>
                 <GitCommit />
               </span>
-              44
+              {/* {commits.length} */}
             </span>
             <span>
               <span className='icon'>
