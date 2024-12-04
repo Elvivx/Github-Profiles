@@ -1,4 +1,4 @@
-import User from "./components/pages/user/User"
+import User from "./user/User"
 function Profile() {
   return <User />
 }

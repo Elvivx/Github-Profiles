@@ -1,6 +1,6 @@
-import Search from "./components/pages/Search/Search"
-import Results from "./components/pages/Search/Results"
-import { GitContext } from "./components/context/contexts"
+import Search from "./pages/Search/Search"
+import Results from "./pages/Search/Results"
+import { GitContext } from "./context/contexts"
 import { useContext } from "react"
 import Profile from "./Profile"
 function Home() {
