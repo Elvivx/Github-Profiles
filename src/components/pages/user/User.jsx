@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { GitContext } from "../context/contexts"
+import { GitContext } from "../../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
 function User() {

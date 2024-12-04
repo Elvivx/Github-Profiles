@@ -79,6 +79,7 @@ export const GitContextProvider = ({ children }) => {
     return e.target.value == "repos" ? setNav(true) : setNav(false)
   }
   const flipPage = (ans) => {
+    nav && setPages(true)
     setPages(ans)
   }
 

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { GitContext } from "../context/contexts"
+import { GitContext } from "../../context/contexts"
 
 function Search() {
   const { getUsers, text, setText } = useContext(GitContext)

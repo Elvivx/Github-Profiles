@@ -1,8 +1,8 @@
 import { GitFork, GitCommit, GitBranch, Captions } from "lucide-react"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import Error from "./Error"
-import Loader from "./Loader"
+import Error from "../helper/Error"
+import Loader from "../helper/Loader"
 function UserRepos({ repo }) {
   // if (repo.length == 0) repoData = false
 
