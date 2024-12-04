@@ -10,10 +10,10 @@ function UserStarred({ star }) {
   //   // return data.data.length
   //   setCommits(data.data)
   // }
-  useEffect(() => {
-    getCommits()
-    console.log(commits.length)
-  }, [])
+  // useEffect(() => {
+  //   getCommits()
+  //   console.log(commits.length)
+  // }, [])
   return (
     <>
       <div className='info'>

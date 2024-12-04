@@ -19,7 +19,7 @@ export const GitContextProvider = ({ children }) => {
   // keys
   const cliente_id = "82d4ed29477f68045158"
   const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
-
+  const limite_repositorios = 10
   // fuctions
 
   // user
@@ -62,7 +62,10 @@ export const GitContextProvider = ({ children }) => {
     // setLoading(true)
     // user Repositories
     try {
-      const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
+      const repos = await axios.get(
+        //(`https://api.github.com/users/${info}/repos`)
+        `https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`
+      )
       console.log(repos.data)
       setUserRepos(repos.data)
     } catch (error) {
@@ -75,7 +78,10 @@ export const GitContextProvider = ({ children }) => {
     // setLoading(true)
     // user starred repositories
     try {
-      const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
+      const starred = await axios.get(
+        //(`https://api.github.com/users/${info}/starred`)
+        `https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`
+      )
       // console.log(starred.data)
       setUserStarreds(starred.data)
     } catch (error) {
@@ -116,8 +122,8 @@ export const GitContextProvider = ({ children }) => {
     userInfo,
     userStarreds,
     userRepos,
-    commits,
-    getCommits,
+    // commits,
+    // getCommits,
     nav,
     navs,
     page,

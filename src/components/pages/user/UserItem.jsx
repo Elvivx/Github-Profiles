@@ -55,7 +55,6 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, nav
             ) : (
               userStarreds.map((star) => <UserStarred key={star.id} star={star} />)
             )}
-            <Error />
           </div>
         </div>
       </div>
