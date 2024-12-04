@@ -26,7 +26,6 @@ export const GitContextProvider = ({ children }) => {
     if (text == "") return
     setLoading(true)
     const user = await axios.get(`https://api.github.com/search/users?q=${text}`)
-    // console.log(user.data)
     setUsers(user.data.items)
     setTimeout(() => {
       setLoading(false)
@@ -60,25 +59,38 @@ export const GitContextProvider = ({ children }) => {
   const userRepo = async (info) => {
     setLoading(true)
     // user Repositories
-    const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
-    console.log(repos.data)
-    setUserRepos(repos.data)
+    try {
+      const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
+      console.log(repos.data)
+      setUserRepos(repos.data)
+    } catch (error) {
+      console.log(error)
+    }
     setLoading(false)
   }
   // starred fucntion
-  const userStarred = async () => {
+  const userStarred = async (info) => {
     setLoading(true)
     // user starred repositories
-    const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
-    // console.log(starred.data)
-    setUserStarreds(starred.data)
-    setLoading(false)
+    try {
+      const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
+      // console.log(starred.data)
+      setUserStarreds(starred.data)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
   }
   // commits function
   const getCommits = async (Rlogin, Rname) => {
-    const data = await axios.get(`https://api.github.com/repos/${Rlogin}/${Rname}/commits`)
-    console.log(data.data)
-    setCommits(data.data)
+    try {
+      const data = await axios.get(`https://api.github.com/repos/${Rlogin}/${Rname}/commits`)
+      console.log(data.data)
+      setCommits(data.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
   // nav for repos and starred
   const navs = (e) => {
@@ -102,6 +114,7 @@ export const GitContextProvider = ({ children }) => {
     userInfo,
     userStarreds,
     userRepos,
+    commits,
     getCommits,
     nav,
     navs,
