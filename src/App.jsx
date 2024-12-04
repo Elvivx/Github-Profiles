@@ -1,6 +1,5 @@
 import { GitContextProvider } from "./components/context/contexts"
-import Home from "./Home"
-// import Profile from "./Profile"
+import Home from "./components/Home"
 import "./assets/scss/App.scss"
 
 function App() {
