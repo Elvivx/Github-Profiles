@@ -1,4 +1,4 @@
-import User from "./user/User"
+import User from "./pages/user/User"
 function Profile() {
   return <User />
 }
