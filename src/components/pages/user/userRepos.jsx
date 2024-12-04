@@ -3,51 +3,55 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Error from "../helper/Error"
 import Loader from "../helper/Loader"
-function UserRepos({ repo, commits, getCommits }) {
+function UserRepos({ repo }) {
+  console.log(!repo)
   const [commits, setCommits] = useState([])
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
-    console.log(data.data.length)
-    console.log(data.data)
-    console.log("shit")
+    // console.log(data.data.length)
+    // console.log(data.data)
+    // console.log("shit")
     // return data.data.length
     setCommits(data.data)
   }
   useEffect(() => {
-    getCommits(repo.owner.login, repo.name)
-    console.log(commits.length)
+    getCommits()
   }, [])
   return (
     <>
-      <div className='info'>
-        <a href={repo.git_url}>
-          <h2>{repo.name}</h2>
-          <p>
-            <strong>{repo.language || "N/A"}</strong>
-          </p>
-          <p>Last updated on {repo.updated_at}</p>
-          <div className='xtra'>
-            <span>
-              <span className='icon'>
-                <GitFork />
+      {!repo ? (
+        <Error />
+      ) : (
+        <div className='info'>
+          <a href={repo.git_url}>
+            <h2>{repo.name}</h2>
+            <p>
+              <strong>{repo.language || "N/A"}</strong>
+            </p>
+            <p>Last updated on {repo.updated_at}</p>
+            <div className='xtra'>
+              <span>
+                <span className='icon'>
+                  <GitFork />
+                </span>
+                {repo.forks}
               </span>
-              {repo.forks}
-            </span>
-            <span>
-              <span className='icon'>
-                <GitCommit />
+              <span>
+                <span className='icon'>
+                  <GitCommit />
+                </span>
+                {commits.length || 0}
               </span>
-              {commits.length || 0}
-            </span>
-            <span>
-              <span className='icon'>
-                <GitBranch />
+              <span>
+                <span className='icon'>
+                  <GitBranch />
+                </span>
+                {repo.default_branch}
               </span>
-              {repo.default_branch}
-            </span>
-          </div>
-        </a>
-      </div>
+            </div>
+          </a>
+        </div>
+      )}
     </>
   )
 }

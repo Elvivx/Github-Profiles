@@ -9,7 +9,7 @@ export const GitContextProvider = ({ children }) => {
   const [text, setText] = useState("")
   const [users, setUsers] = useState("")
   const [user, setUser] = useState([])
-  const [commits, setCommits] = useState([])
+  const [commits, setCommits] = useState("")
   const [userRepos, setUserRepos] = useState([])
   const [userStarreds, setUserStarreds] = useState([])
   // const [userLangs, setUserLangs] = useState([])
@@ -91,15 +91,15 @@ export const GitContextProvider = ({ children }) => {
     }
   }
   // commits function
-  const getCommits = async (Rlogin, Rname) => {
-    try {
-      const data = await axios.get(`https://api.github.com/repos/${Rlogin}/${Rname}/commits`)
-      console.log(data.data)
-      setCommits(data.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const getCommits = async (Rlogin, Rname) => {
+  //   try {
+  //     const data = await axios.get(`https://api.github.com/repos/${Rlogin}/${Rname}/commits`)
+  //     console.log(data.data)
+  //     setCommits(data.data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
   // nav for repos and starred
   const navs = (e) => {
     return e.target.value == "repos" ? setNav(true) : setNav(false)
@@ -122,8 +122,8 @@ export const GitContextProvider = ({ children }) => {
     userInfo,
     userStarreds,
     userRepos,
-    // commits,
-    // getCommits,
+    commits,
+    setCommits,
     nav,
     navs,
     page,

@@ -51,7 +51,7 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, nav
             ) : userRepos.length < 1 || userStarreds.length < 1 ? (
               <Error />
             ) : nav ? (
-              userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} commits={commits} getCommits={getCommits} />)
+              userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />)
             ) : (
               userStarreds.map((star) => <UserStarred key={star.id} star={star} />)
             )}
