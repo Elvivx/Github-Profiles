@@ -56,7 +56,7 @@ export const GitContextProvider = ({ children }) => {
 
     setLoading(false)
   }
-
+  // respos function
   const userRepo = async (info) => {
     setLoading(true)
     // user Repositories
@@ -65,7 +65,7 @@ export const GitContextProvider = ({ children }) => {
     setUserRepos(repos.data)
     setLoading(false)
   }
-
+  // starred fucntion
   const userStarred = async () => {
     setLoading(true)
     // user starred repositories
@@ -74,20 +74,22 @@ export const GitContextProvider = ({ children }) => {
     setUserStarreds(starred.data)
     setLoading(false)
   }
-
-const getCommits = async () => {
-  const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
-  console.log(data.data)
-  setCommits(data.data)
-}
+  // commits function
+  const getCommits = async (Rlogin, Rname) => {
+    const data = await axios.get(`https://api.github.com/repos/${Rlogin}/${Rname}/commits`)
+    console.log(data.data)
+    setCommits(data.data)
+  }
+  // nav for repos and starred
   const navs = (e) => {
     return e.target.value == "repos" ? setNav(true) : setNav(false)
   }
+  // button to go home or user
   const flipPage = (ans) => {
     nav && setPages(true)
     setPages(ans)
   }
-
+  // contexts exports
   const vals = {
     text,
     setText,

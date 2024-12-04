@@ -16,7 +16,7 @@ function UserRepos({ repo, commits, getCommits }) {
   //   setCommits(data.data)
   // }
   useEffect(() => {
-    getCommits()
+    getCommits(repo.owner.login, repo.name)
     console.log(commits.length)
   }, [])
   return (
