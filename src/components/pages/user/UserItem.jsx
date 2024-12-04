@@ -3,7 +3,7 @@ import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import Error from "../helper/Error"
 function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, navs, loading }) {
-  console.log(userStarreds)
+  console.log(userRepos.length < 1)
   return (
     <>
       <div className='item'>
@@ -46,14 +46,16 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, nav
             </button>
           </div>
           <div className='nav-info'>
-            {/* {error ? <Error /> : ""} */}
             {loading ? (
               <Loader />
+            ) : userRepos.length < 1 || userStarreds.length < 1 ? (
+              <Error />
             ) : nav ? (
               userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} commits={commits} getCommits={getCommits} />)
             ) : (
               userStarreds.map((star) => <UserStarred key={star.id} star={star} />)
             )}
+            <Error />
           </div>
         </div>
       </div>
