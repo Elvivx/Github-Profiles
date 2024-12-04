@@ -1,6 +1,7 @@
 import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
-function UserItem({ user, userStarred, userRepos, nav, navs }) {
+function UserItem({ user, userStarreds, userRepos, nav, navs }) {
+  console.log(userStarreds)
   return (
     <>
       <div className='item'>
@@ -8,7 +9,7 @@ function UserItem({ user, userStarred, userRepos, nav, navs }) {
           <div className='img'>
             <img src={user.avatar_url} alt={user.login} />
           </div>
-          <h1>{user.name}</h1>
+          <h1>{user.name || "N/A"}</h1>
           <p>
             <strong>Location: </strong>
             {user.location || "N/A"}
@@ -19,7 +20,7 @@ function UserItem({ user, userStarred, userRepos, nav, navs }) {
           </p>
           <p className='bio'>
             <strong>Bio: </strong>
-            {user.bio}
+            {user.bio || "N/A"}
           </p>
           <p className='email'>
             <strong>Email: </strong>
@@ -29,20 +30,20 @@ function UserItem({ user, userStarred, userRepos, nav, navs }) {
             <span>Followers: {user.followers}</span>
             <span>Following: {user.following}</span>
             <span>Repos: {user.public_repos}</span>
-            <span>Starred: {userStarred.length}</span>
+            <span>Starred: {userStarreds.length}</span>
             <span>Commits</span>
           </div>
         </div>
         <div className='bottom'>
           <div className='nav'>
-            <button onClick={navs} value='repos' style={navs ? { borderBottom: "2px solid #ff6500" } : {}}>
+            <button onClick={navs} value='repos' style={nav ? { borderBottom: "2px solid #ff6500" } : {}}>
               Repos
             </button>
-            <button onClick={navs} value='starred' style={navs ? {} : { borderBottom: "2px solid #ff6500" }}>
+            <button onClick={navs} value='starred' style={!nav ? { borderBottom: "2px solid #ff6500" } : {}}>
               Starred
             </button>
           </div>
-          <div className='nav-info'>{nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarred.map((star) => <UserStarred key={star.id} star={star} />)}</div>
+          <div className='nav-info'>{nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarreds.map((star) => <UserStarred key={star.id} star={star} />)}</div>
         </div>
       </div>
     </>

@@ -1,4 +1,5 @@
 import axios from "axios"
+import { FastForward } from "lucide-react"
 import { createContext, useState } from "react"
 
 export const GitContext = createContext()
@@ -10,14 +11,13 @@ export const GitContextProvider = ({ children }) => {
   const [user, setUser] = useState([])
   // const [commits, setCommits] = useState([])
   const [userRepos, setUserRepos] = useState([])
-  const [userStarred, setUserStarred] = useState([])
+  const [userStarreds, setUserStarreds] = useState([])
   // const [userLangs, setUserLangs] = useState([])
   const [loading, setLoading] = useState(false)
   const [nav, setNav] = useState(true)
   // keys
   const cliente_id = "82d4ed29477f68045158"
   const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
-  // const limite_repositorios = 4
 
   // fuctions
 
@@ -35,6 +35,7 @@ export const GitContextProvider = ({ children }) => {
 
   // user informations
   const userInfo = async (info) => {
+    setLoading(true)
     const user = await axios.get(`https://api.github.com/users/${info}?client_id=${cliente_id}&client_secret=${cliente_secret}`)
     // console.log(user.data)
     setUser(user.data)
@@ -47,12 +48,33 @@ export const GitContextProvider = ({ children }) => {
     // user starred repositories
     const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
     // console.log(starred.data)
-    setUserStarred(starred.data)
+    setUserStarreds(starred.data)
 
     // const commits = await axios.get(`https://api.github.com/repos/${text}/${repo}/commits`)
     // console.log(commits.data)
     // setCommits(commits.data)
+
+    setLoading(false)
   }
+
+  const userRepo = async (info) => {
+    setLoading(true)
+    // user Repositories
+    const repos = await axios.get(`https://api.github.com/users/${info}/repos`)
+    console.log(repos.data)
+    setUserRepos(repos.data)
+    setLoading(false)
+  }
+
+  const userStarred = async () => {
+    setLoading(true)
+    // user starred repositories
+    const starred = await axios.get(`https://api.github.com/users/${info}/starred`)
+    // console.log(starred.data)
+    setUserStarreds(starred.data)
+    setLoading(false)
+  }
+
   const navs = (e) => {
     return e.target.value == "repos" ? setNav(true) : setNav(false)
   }
@@ -70,7 +92,7 @@ export const GitContextProvider = ({ children }) => {
     loading,
     getUsers,
     userInfo,
-    userStarred,
+    userStarreds,
     userRepos,
     nav,
     navs,

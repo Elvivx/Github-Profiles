@@ -1,5 +1,6 @@
 import { GitContext } from "../context/contexts"
 import { useContext } from "react"
+import Loader from "./Loader"
 function ResultItem({ user }) {
   const { userInfo, flipPage } = useContext(GitContext)
   return (

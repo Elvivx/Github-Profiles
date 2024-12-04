@@ -1,7 +1,11 @@
-import { GitFork, GitCommit, GitBranch } from "lucide-react"
+import { GitFork, GitCommit, GitBranch, Captions } from "lucide-react"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import Error from "./Error"
+import Loader from "./Loader"
 function UserRepos({ repo }) {
+  // if (repo.length == 0) repoData = false
+
   const [commits, setCommits] = useState([])
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
@@ -10,9 +14,9 @@ function UserRepos({ repo }) {
     // return data.data.length
     setCommits(data.data.length)
   }
-  //   useEffect(() => {
-  //     getCommits()
-  //   }, [])
+  // useEffect(() => {
+  //   repoData && getCommits()
+  // }, [])
   return (
     <>
       <div className='info'>
