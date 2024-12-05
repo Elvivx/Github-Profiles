@@ -1,7 +1,7 @@
 import Search from "./pages/Search/Search"
 import Results from "./pages/Search/Results"
 import { GitContext } from "./context/contexts"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import Profile from "./Profile"
 function Home() {
   const { page } = useContext(GitContext)
