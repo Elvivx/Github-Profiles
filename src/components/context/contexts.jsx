@@ -16,9 +16,10 @@ export const GitContextProvider = ({ children }) => {
   const [nav, setNav] = useState(true)
 
   // keys
-  const cliente_id = "82d4ed29477f68045158"
-  const cliente_secret = "412bc1b12514bd61b5a46df0d6aeddd993701510"
+  const cliente_id = import.meta.env.VITE_GITHUB_CLIENT_ID
+  const cliente_secret = import.meta.env.VITE_GITHUB_CLIENT_SECRET
   const limite_repositorios = 10
+
   // fuctions
 
   // user
@@ -48,7 +49,6 @@ export const GitContextProvider = ({ children }) => {
     // user Repositories
     try {
       const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
-      console.log(repos.data)
       setUserRepos(repos.data)
     } catch (error) {
       console.log(error)

@@ -3,10 +3,8 @@ import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import { useEffect } from "react"
 function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, navs, loading }) {
-  console.log(userRepos.length < 1)
   useEffect(() => {
     document.title = user.name || user.login
-    console.log(`fuck shit`)
   }, [user])
   return (
     <>
