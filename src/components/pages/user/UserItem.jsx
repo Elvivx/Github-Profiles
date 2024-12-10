@@ -5,7 +5,7 @@ import { useEffect } from "react"
 function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, navs, loading }) {
   useEffect(() => {
     document.title = user.name || user.login
-  }, [user])
+  }, [])
   return (
     <>
       <div className='item'>

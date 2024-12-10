@@ -19,8 +19,8 @@ export const GitContextProvider = ({ children }) => {
   const cliente_id = import.meta.env.VITE_GITHUB_CLIENT_ID
   const cliente_secret = import.meta.env.VITE_GITHUB_CLIENT_SECRET
   const limite_repositorios = 10
-
-  // fuctions
+  console.log(cliente_id)
+  // functions
 
   // user
   const getUsers = async () => {
