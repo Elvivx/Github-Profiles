@@ -49,8 +49,6 @@ function Search() {
       // setRecents((prev) => [...prev, text])
       // dispatch({ type: "searches", payload: "" })
       getUsers()
-      // setText("") // Clear input after submit
-      // dispatch({ type: "typing", payload: "" })
     }
   }
 
