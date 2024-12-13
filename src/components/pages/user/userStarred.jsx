@@ -1,4 +1,4 @@
-import { GitFork, GitCommit, GitBranch } from "lucide-react"
+import { GitFork, GitBranch } from "lucide-react"
 import Error from "../helper/Error"
 function UserStarred({ star }) {
   return (
