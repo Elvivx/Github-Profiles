@@ -1,11 +1,10 @@
 import Search from "./pages/Search/Search"
 import Results from "./pages/Search/Results"
-import { GitContext } from "./context/contexts"
-import { useContext, useEffect } from "react"
-// import { Route, Broe } from "react-router"
+// import { GitContext } from "./context/contexts"
+// import { useContext, useEffect } from "react"
 import Profile from "./Profile"
 function Home() {
-  const { state, dispatch } = useContext(GitContext)
+  // const { state, dispatch } = useContext(GitContext)
   // console.log(state.text)
   return (
     <>
@@ -26,10 +25,6 @@ function Home() {
       </div>
       <Search />
       <Results />
-      {/* <Profile /> */}
-
-      {/* <Search />
-      <Results /> */}
     </>
   )
 }
