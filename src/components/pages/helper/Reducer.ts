@@ -27,6 +27,8 @@ export default (state: object, action: any) => {
       return { ...state, starred: [action.payload] }
     case "nav":
       return { ...state, nav: !state.nav }
+    case "page":
+      return { ...state, page: !state.page }
     case "storage":
       return { ...state, storage: action.payload }
     case "error":

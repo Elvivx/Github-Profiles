@@ -1,14 +1,14 @@
 import { GitContext } from "../../context/contexts"
 import { useContext } from "react"
 function ResultItem({ user }) {
-  const { state, dispatch } = useContext(GitContext)
+  const { state, dispatch, userInfo } = useContext(GitContext)
   return (
     <div
       className='result'
       onClick={() => {
-        dispatch({ type: "curUser", payload: user.login })
         userInfo(user.login)
-        flipPage(false)
+        // flipPage(false)
+        dispatch({ type: "page" })
       }}>
       <div className='img'>
         <img src={user.avatar_url} alt={user.login} />
