@@ -1,0 +1,41 @@
+.search {
+  max-height: 240px;
+  text-align: center;
+  background-color: #1e3e62;
+  border: 2px solid #ff6500;
+  padding: 30px;
+  border-radius: 20px;
+  h1,
+  p {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 1.9rem;
+  }
+  p {
+    color: grey;
+  }
+  form {
+    display: flex;
+    gap: 10px;
+    input {
+      border-radius: 10px;
+      background: 0;
+
+      border: 1px solid #ff6500;
+      padding: 15px;
+      font-size: 1.1rem;
+      width: 100%;
+      &:focus {
+        outline: 2px solid #ff6500 !important;
+      }
+    }
+    button {
+      background: #ff6500;
+      border: 1px solid #ff6500;
+      border-radius: 10px;
+      padding-top: 6px;
+    }
+  }
+}
