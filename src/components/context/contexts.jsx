@@ -38,19 +38,21 @@ export const GitContextProvider = ({ children }) => {
   }
   const [state, dispatch] = useReducer(Reducer, initialStates)
 
-  console.log(state)
+  // console.log(state)
 
   // functions
 
   // user
   const getUsers = async () => {
     console.log(state.text)
-    if (state.text == "") return
+    // if (state.text == "") return
     // setLoading(true)
     dispatch({ type: "isLoading" })
     const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
     // setUsers(user.data.items)
+    console.log(user)
     dispatch({ type: "users", payload: user.data.items })
+    dispatch({ type: "typing", payload: "" })
     setTimeout(() => {
       // setLoading(false)
       dispatch({ type: "loaded" })

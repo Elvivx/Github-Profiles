@@ -5,7 +5,7 @@ import { useContext, useEffect } from "react"
 import Profile from "./Profile"
 function Home() {
   const { state, dispatch } = useContext(GitContext)
-  console.log(state.text)
+  // console.log(state.text)
   return (
     <>
       {state.page ? (

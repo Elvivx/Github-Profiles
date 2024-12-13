@@ -45,12 +45,12 @@ function Search() {
   // Handle form submission
   const submit = (e) => {
     e.preventDefault() // Prevent page reload
-    if (state.text.trim()) {
+    if (text.trim()) {
       // setRecents((prev) => [...prev, text])
       // dispatch({ type: "searches", payload: "" })
       getUsers()
       // setText("") // Clear input after submit
-      dispatch({ type: "typing", payload: "" })
+      // dispatch({ type: "typing", payload: "" })
     }
   }
 
