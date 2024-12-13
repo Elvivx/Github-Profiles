@@ -4,16 +4,17 @@ import Reducer from "../pages/helper/Reducer"
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
   // states
-  const [page, setPages] = useState(true)
-  const [text, setText] = useState("")
-  const [users, setUsers] = useState("")
-  const [user, setUser] = useState([])
-  const [commits, setCommits] = useState("")
-  const [userRepos, setUserRepos] = useState([])
-  const [userStarreds, setUserStarreds] = useState([])
+  // const [page, setPages] = useState(true)
+  // const [text, setText] = useState("")
+  // const [users, setUsers] = useState("")
+  // const [user, setUser] = useState([])
+  // const [commits, setCommits] = useState("")
+  // const [userRepos, setUserRepos] = useState([])
+  // const [userStarreds, setUserStarreds] = useState([])
   // const [userLangs, setUserLangs] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [nav, setNav] = useState(true)
+  // const [loading, setLoading] = useState(false)
+  // const [nav, setNav] = useState(true)
+
   // Reducer state
   const initialStates = {
     // states
@@ -41,15 +42,16 @@ export const GitContextProvider = ({ children }) => {
   // user
   const getUsers = async () => {
     console.log(text)
-    if (text == "") return
+    if (state.text == "") return
     // setLoading(true)
     dispatch({ type: "isLoading" })
     const user = await axios.get(`https://api.github.com/search/users?q=${text}`)
-    setUsers(user.data.items)
+    // setUsers(user.data.items)
     dispatch({ type: "users", payload: user.data.items })
-    // setTimeout(() => {
-    //   setLoading(false)
-    // }, 3000)
+    setTimeout(() => {
+      // setLoading(false)
+      dispatch({ type: "loaded" })
+    }, 3000)
   }
 
   // user informations
@@ -97,32 +99,35 @@ export const GitContextProvider = ({ children }) => {
 
   // nav for repos and starred
   const navs = (e) => {
-    return e.target.value == "repos" ? setNav(true) : setNav(false)
+    return e.target.value == "repos" ? dispatch({ type: "nav" }) : setNav(false)
   }
   // button to go home or user
   const flipPage = (ans) => {
     nav && setPages(true)
     setPages(ans)
+    dispatch({ type: "page" })
   }
   // contexts exports
   const vals = {
-    text,
-    setText,
-    users,
-    setUsers,
-    user,
-    setUser,
-    loading,
-    getUsers,
-    userInfo,
-    userStarreds,
-    userRepos,
-    commits,
-    setCommits,
-    nav,
-    navs,
-    page,
-    flipPage,
+    // text,
+    // setText,
+    // users,
+    // setUsers,
+    // user,
+    // setUser,
+    // loading,
+    // getUsers,
+    // userInfo,
+    // userStarreds,
+    // userRepos,
+    // commits,
+    // setCommits,
+    // nav,
+    // navs,
+    // page,
+    // flipPage,
+    state,
+    dispatch,
   }
 
   return <GitContext.Provider value={vals}>{children}</GitContext.Provider>
