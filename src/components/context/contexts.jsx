@@ -18,6 +18,7 @@ export const GitContextProvider = ({ children }) => {
   // Reducer state
   const initialStates = {
     // states
+    requests: "",
     text: "",
     searchedUsers: [],
     user: "",
@@ -41,11 +42,11 @@ export const GitContextProvider = ({ children }) => {
 
   // user
   const getUsers = async () => {
-    console.log(text)
+    console.log(state.text)
     if (state.text == "") return
     // setLoading(true)
     dispatch({ type: "isLoading" })
-    const user = await axios.get(`https://api.github.com/search/users?q=${text}`)
+    const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
     // setUsers(user.data.items)
     dispatch({ type: "users", payload: user.data.items })
     setTimeout(() => {
@@ -116,7 +117,7 @@ export const GitContextProvider = ({ children }) => {
     // user,
     // setUser,
     // loading,
-    // getUsers,
+    getUsers,
     // userInfo,
     // userStarreds,
     // userRepos,

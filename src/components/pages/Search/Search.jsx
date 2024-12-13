@@ -5,11 +5,12 @@ import Recents from "./RecentSearches"
 
 function Search() {
   const {
-    state: { text },
+    state: { text, recents },
     dispatch,
+    getUsers,
   } = useContext(GitContext)
   // const [local, setLocal] = useLocalStorage("searches")
-  const [recents, setRecents] = useState([])
+  // const [recents, setRecents] = useState([])
 
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
@@ -44,10 +45,11 @@ function Search() {
   // Handle form submission
   const submit = (e) => {
     e.preventDefault() // Prevent page reload
-    if (text.trim()) {
-      setRecents((prev) => [...prev, text])
+    if (state.text.trim()) {
+      // setRecents((prev) => [...prev, text])
+      // dispatch({ type: "searches", payload: "" })
       getUsers()
-      setText("") // Clear input after submit
+      // setText("") // Clear input after submit
       dispatch({ type: "typing", payload: "" })
     }
   }
