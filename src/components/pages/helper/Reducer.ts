@@ -9,7 +9,7 @@ export default (state: object, action: any) => {
     case "user":
       return { ...state, user: [action.payload] }
     case "users":
-      return { ...state, searchedUsers: [action.payload] }
+      return { ...state, users: action.payload }
     case "commits":
       return { ...state, commits: [action.payload] }
     case "isLoading":

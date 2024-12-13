@@ -7,8 +7,9 @@ function Results() {
     state: { loading, users },
     dispatch,
   } = useContext(GitContext)
-  if (users == "") return
   console.log(users)
+  console.log(!users.length)
+  if (!users.length) return
   return (
     <>
       <div className='results'>
