@@ -38,4 +38,31 @@
       padding-top: 6px;
     }
   }
+  .recents {
+    border: 1px solid #ff6500;
+    padding: 10px;
+    cursor: default;
+    .recent {
+      display: flex;
+      justify-content: space-between;
+
+      .recent-left {
+        display: flex;
+        gap: 10px;
+        svg {
+          // fill: #ff6500;
+          circle,
+          polyline {
+            stroke: #ff6500;
+          }
+        }
+      }
+      .x {
+        cursor: pointer;
+        svg path {
+          fill: #ff6500;
+        }
+      }
+    }
+  }
 }

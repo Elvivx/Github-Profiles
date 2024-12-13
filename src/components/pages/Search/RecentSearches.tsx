@@ -1,5 +1,5 @@
 import React from "react"
-import { Clock } from "lucide-react"
+import { Clock, X } from "lucide-react"
 
 function Recents() {
   return (
@@ -11,7 +11,9 @@ function Recents() {
           </div>
           <div className='recent-text'>Recent</div>
         </div>
-        <div className='remove'></div>
+        <div className='x'>
+          <X />
+        </div>
       </div>
     </div>
   )

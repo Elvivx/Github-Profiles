@@ -1,8 +1,27 @@
-import { useContext } from "react"
+import { useContext, useRef, useEffect } from "react"
 import { GitContext } from "../../context/contexts"
+import Recents from "./RecentSearches"
 
 function Search() {
   const { getUsers, text, setText } = useContext(GitContext)
+
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    const checkFocus = () => {
+      if (inputRef.current === document.activeElement) {
+        console.log("Input has focus!")
+      } else {
+        console.log("Input does not have focus.")
+      }
+    }
+
+    document.addEventListener("click", checkFocus)
+
+    return () => {
+      document.removeEventListener("click", checkFocus)
+    }
+  }, [])
 
   // Handle input change
   const change = (e) => {
@@ -26,6 +45,7 @@ function Search() {
         <form onSubmit={submit}>
           {/* Search Input */}
           <input
+            ref={inputRef}
             type='text'
             placeholder='Search'
             value={text}
@@ -43,6 +63,9 @@ function Search() {
           </button>
         </form>
       </div>
+      <Recents />
+      <Recents />
+      <Recents />
     </div>
   )
 }
