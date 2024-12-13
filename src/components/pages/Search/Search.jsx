@@ -5,21 +5,22 @@ import useLocalStorage from "../helper/Api"
 
 function Search() {
   const { getUsers, text, setText } = useContext(GitContext)
-  const [recents, setRecents] = useState("")
-  const [local, setLocal] = useLocalStorage("searches")
+  // const [local, setLocal] = useLocalStorage("searches")
+  const [recents, setRecents] = useState([])
 
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
 
-  console.log(recents)
-
+  // console.log(recents)
+  // localStorage.setItem("searches", [recents])
   // focus effect
   useEffect(() => {
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
-        console.log(recents && setInputFocus(true))
-        console.log("nawa o")
+        console.log("Input has focus!")
+        recents.length !== 0 && setInputFocus(true)
       } else {
+        console.log("Input does not have focus.")
         setInputFocus(false)
       }
     }
@@ -29,14 +30,7 @@ function Search() {
     return () => {
       document.removeEventListener("click", checkFocus)
     }
-  }, [recents])
-  useEffect(() => {
-    console.log(local)
-    // setLocal(recents)
-  }, [])
-
-  // remove the oldest search
-  recents.length > 3 && setRecents(recents.slice(1, recents.length + 1))
+  }, [text])
 
   // Handle input change
   const change = (e) => {
@@ -55,12 +49,11 @@ function Search() {
 
   // recents click function
   const clickRecent = (e) => {
+    console.log(e.target.id)
     setText(e.target.id)
-    // getUsers()
+    getUsers()
     console.log("fams")
   }
-
-  useEffect(() => {})
 
   return (
     <div className='search'>
@@ -91,6 +84,9 @@ function Search() {
       {inputFocus && <Recents text={text} setText={setText} recents={recents} clickRecent={clickRecent} />}
       {/* <Recents />
       <Recents /> */}
+      <button id='elvivx' onClick={clickRecent}>
+        elvivx
+      </button>
     </div>
   )
 }
