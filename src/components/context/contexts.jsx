@@ -20,7 +20,7 @@ export const GitContextProvider = ({ children }) => {
     // states
     requests: "",
     text: "",
-    // searchedUsers: [],
+    recentSearches: [],
     user: "",
     users: [],
     commits: [],

@@ -5,40 +5,41 @@ import Recents from "./RecentSearches"
 
 function Search() {
   const {
-    state: { text, recents },
+    state: { text, recentSearches },
     dispatch,
     getUsers,
   } = useContext(GitContext)
   // const [local, setLocal] = useLocalStorage("searches")
   // const [recents, setRecents] = useState([])
-
+  console.log(recentSearches)
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
 
   // console.log(recents)
   // localStorage.setItem("searches", [recents])
+
   // focus effect
-  // useEffect(() => {
-  //   const checkFocus = () => {
-  //     if (inputRef.current === document.activeElement) {
-  //       console.log("Input has focus!")
-  //       recents.length !== 0 && setInputFocus(true)
-  //     } else {
-  //       console.log("Input does not have focus.")
-  //       setInputFocus(false)
-  //     }
-  //   }
+  useEffect(() => {
+    const checkFocus = () => {
+      if (inputRef.current === document.activeElement) {
+        console.log("Input has focus!")
+        console.log(recentSearches.length === 0)
+        if (recentSearches.length !== 0) setInputFocus(true)
+      } else {
+        console.log("Input does not have focus.")
+        setInputFocus(false)
+      }
+    }
 
-  //   document.addEventListener("click", checkFocus)
+    document.addEventListener("click", checkFocus)
 
-  //   return () => {
-  //     document.removeEventListener("click", checkFocus)
-  //   }
-  // }, [text])
+    return () => {
+      document.removeEventListener("click", checkFocus)
+    }
+  }, [text])
 
   // Handle input change
   const change = (e) => {
-    // setText(e.target.value)
     dispatch({ type: "typing", payload: e.target.value })
   }
 
@@ -47,7 +48,7 @@ function Search() {
     e.preventDefault() // Prevent page reload
     if (text.trim()) {
       // setRecents((prev) => [...prev, text])
-      // dispatch({ type: "searches", payload: "" })
+      dispatch({ type: "searches" })
       getUsers()
     }
   }
@@ -86,7 +87,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents text={text} setText={setText} recents={recents} clickRecent={clickRecent} />}
+      {inputFocus && <Recents text={text} setText={setText} recents={recentSearches} clickRecent={clickRecent} />}
       {/* <Recents />
       <Recents /> */}
       <button id='elvivx' onClick={clickRecent}>

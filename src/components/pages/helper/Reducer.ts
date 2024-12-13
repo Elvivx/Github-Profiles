@@ -5,7 +5,7 @@ export default (state: object, action: any) => {
     case "typing":
       return { ...state, text: action.payload }
     case "searches":
-      return { ...state, searches: [action.payload] }
+      return { ...state, recentSearches: [...state.recentSearches, state.text] }
     case "user":
       return { ...state, user: [action.payload] }
     case "users":
