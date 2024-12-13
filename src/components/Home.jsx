@@ -2,7 +2,7 @@ import Search from "./pages/Search/Search"
 import Results from "./pages/Search/Results"
 import { GitContext } from "./context/contexts"
 import { useContext, useEffect } from "react"
-import {Browser}
+// import { Route, Broe } from "react-router"
 import Profile from "./Profile"
 function Home() {
   const { state, dispatch } = useContext(GitContext)
