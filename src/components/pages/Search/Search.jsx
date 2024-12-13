@@ -9,15 +9,18 @@ function Search() {
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
 
+  console.log(recents)
   useEffect(() => {
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
         console.log("Input has focus!")
-        setInputFocus(true)
+        recents.length > 0 && setInputFocus(true)
+        // console.log(recents.length >= 1)
       } else {
         console.log("Input does not have focus.")
         setInputFocus(false)
       }
+      // inputRef.current === document.activeElement  ?
     }
 
     document.addEventListener("click", checkFocus)
@@ -28,7 +31,7 @@ function Search() {
   }, [inputFocus])
 
   // remove the oldest search
-  recents.length >= 3 && setRecents(recents.pop())
+  recents.length > 3 && setRecents(recents.slice(1, recents.length + 1))
 
   // Handle input change
   const change = (e) => {
@@ -39,8 +42,9 @@ function Search() {
   const submit = (e) => {
     e.preventDefault() // Prevent page reload
     if (text.trim()) {
+      setRecents((prev) => [...prev, text])
       getUsers()
-      // setText("") // Clear input after submit
+      setText("") // Clear input after submit
     }
   }
 
