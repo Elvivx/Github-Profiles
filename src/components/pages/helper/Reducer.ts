@@ -6,6 +6,8 @@ export default (state: object, action: any) => {
       return { ...state, text: action.payload }
     case "searches":
       return { ...state, recentSearches: [...state.recentSearches, state.text] }
+    case "recentClick":
+      return { ...state, text: action.payload }
     case "user":
       return { ...state, user: [action.payload] }
     case "users":

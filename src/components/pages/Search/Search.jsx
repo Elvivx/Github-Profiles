@@ -47,7 +47,6 @@ function Search() {
   const submit = (e) => {
     e.preventDefault() // Prevent page reload
     if (text.trim()) {
-      // setRecents((prev) => [...prev, text])
       dispatch({ type: "searches" })
       getUsers()
     }
@@ -56,9 +55,8 @@ function Search() {
   // recents click function
   const clickRecent = (e) => {
     console.log(e.target.id)
-    setText(e.target.id)
-    getUsers()
-    console.log("fams")
+    dispatch({ type: "recentClick", payload: e.target.id })
+    // getUsers()
   }
 
   return (
@@ -87,7 +85,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents text={text} dispatch={dispatch} recents={recentSearches} clickRecent={clickRecent} />}
+      {inputFocus && <Recents recents={recentSearches} clickRecent={clickRecent} />}
       <button id='elvivx' onClick={clickRecent}>
         elvivx
       </button>

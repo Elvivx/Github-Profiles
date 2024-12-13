@@ -1,7 +1,7 @@
 import React from "react"
 import { Clock, X } from "lucide-react"
 
-function Recents({ clickRecent, dispatch, recents }) {
+function Recents({ clickRecent, recents }) {
   return (
     <div className='recents'>
       {recents.map((item: string) => (
