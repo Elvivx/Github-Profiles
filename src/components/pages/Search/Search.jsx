@@ -4,6 +4,7 @@ import Recents from "./RecentSearches"
 
 function Search() {
   const { getUsers, text, setText } = useContext(GitContext)
+  const [recents, setRecents] = useState([])
 
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
@@ -25,6 +26,9 @@ function Search() {
       document.removeEventListener("click", checkFocus)
     }
   }, [inputFocus])
+
+  // remove the oldest search
+  recents.length >= 3 && setRecents(recents.pop())
 
   // Handle input change
   const change = (e) => {
@@ -66,7 +70,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents />}
+      {inputFocus && <Recents text={text} setText={setText} />}
       {/* <Recents />
       <Recents /> */}
     </div>

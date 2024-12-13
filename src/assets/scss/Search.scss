@@ -42,15 +42,15 @@
     border: 1px solid #ff6500;
     padding: 10px;
     cursor: default;
+    background: #1e3e62;
     .recent {
       display: flex;
       justify-content: space-between;
-
       .recent-left {
         display: flex;
         gap: 10px;
         svg {
-          // fill: #ff6500;
+          fill: #053472;
           circle,
           polyline {
             stroke: #ff6500;
