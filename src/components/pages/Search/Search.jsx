@@ -87,9 +87,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents text={text} setText={setText} recents={recentSearches} clickRecent={clickRecent} />}
-      {/* <Recents />
-      <Recents /> */}
+      {inputFocus && <Recents text={text} dispatch={dispatch} recents={recentSearches} clickRecent={clickRecent} />}
       <button id='elvivx' onClick={clickRecent}>
         elvivx
       </button>
