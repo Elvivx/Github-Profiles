@@ -12,6 +12,9 @@ export default (state: object, action: any) => {
       return { ...state, user: [action.payload] }
     case "users":
       return { ...state, users: action.payload }
+    case "curUser":
+      // userInfo()
+      return { ...state, curUser: action.payload }
     case "commits":
       return { ...state, commits: [action.payload] }
     case "isLoading":

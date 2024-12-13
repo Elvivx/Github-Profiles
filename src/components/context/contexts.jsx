@@ -22,6 +22,7 @@ export const GitContextProvider = ({ children }) => {
     text: "",
     recentSearches: [],
     user: "",
+    curUser: "",
     users: [],
     commits: [],
     userRepos: [],
@@ -46,7 +47,6 @@ export const GitContextProvider = ({ children }) => {
   const getUsers = async () => {
     dispatch({ type: "isLoading" })
     const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
-
     dispatch({ type: "users", payload: user.data.items })
     dispatch({ type: "typing", payload: "" })
     dispatch({ type: "loaded" })
@@ -59,12 +59,14 @@ export const GitContextProvider = ({ children }) => {
       dispatch({ type: "isLoading" })
       const user = await axios.get(`https://api.github.com/users/${info}?client_id=${cliente_id}&client_secret=${cliente_secret}`)
 
-      setUser(user.data)
+      // setUser(user.data)
       dispatch({ type: "user", payload: user.data })
 
       await userRepo(info)
       await userStarred(info)
-      setLoading(false)
+      // await dispatch({ type: "repos", payload: info })
+      // await dispatch({ type: "starred", payload: info })
+      // setLoading(false)
       dispatch({ type: "loaded" })
     } catch (error) {
       dispatch({ type: "error", payload: error.message })
@@ -75,7 +77,7 @@ export const GitContextProvider = ({ children }) => {
     // user Repositories
     try {
       const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
-      setUserRepos(repos.data)
+      // setUserRepos(repos.data)
       dispatch({ type: "repos", payload: repos.data })
     } catch (error) {
       console.log(error)
@@ -87,7 +89,7 @@ export const GitContextProvider = ({ children }) => {
     // user starred repositories
     try {
       const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
-      setUserStarreds(starred.data)
+      // setUserStarreds(starred.data)
       dispatch({ type: "starred", payload: starred.data })
     } catch (error) {
       console.log(error)
@@ -115,7 +117,7 @@ export const GitContextProvider = ({ children }) => {
     // setUser,
     // loading,
     getUsers,
-    // userInfo,
+    userInfo,
     // userStarreds,
     // userRepos,
     // commits,

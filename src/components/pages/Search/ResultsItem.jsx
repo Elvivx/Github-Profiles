@@ -1,11 +1,12 @@
 import { GitContext } from "../../context/contexts"
 import { useContext } from "react"
 function ResultItem({ user }) {
-  const { userInfo, flipPage } = useContext(GitContext)
+  const { state, dispatch } = useContext(GitContext)
   return (
     <div
       className='result'
       onClick={() => {
+        dispatch({ type: "curUser", payload: user.login })
         userInfo(user.login)
         flipPage(false)
       }}>
