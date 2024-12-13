@@ -4,10 +4,11 @@ import { GitContext } from "./context/contexts"
 import { useContext, useEffect } from "react"
 import Profile from "./Profile"
 function Home() {
-  const { page } = useContext(GitContext)
+  const { state, dispatch } = useContext(GitContext)
+  console.log(state.text)
   return (
     <>
-      {page ? (
+      {/* {page ? (
         <>
           <div className='logo'>
             <svg
@@ -29,7 +30,8 @@ function Home() {
         </>
       ) : (
         <Profile />
-      )}
+      )} */}
+      <Search />
     </>
   )
 }

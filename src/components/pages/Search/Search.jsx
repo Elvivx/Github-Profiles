@@ -1,10 +1,13 @@
 import { useContext, useRef, useEffect, useState } from "react"
 import { GitContext } from "../../context/contexts"
 import Recents from "./RecentSearches"
-import useLocalStorage from "../helper/Api"
+// import useLocalStorage from "../helper/Api"
 
 function Search() {
-  const { getUsers, text, setText } = useContext(GitContext)
+  const {
+    state: { text },
+    dispatch,
+  } = useContext(GitContext)
   // const [local, setLocal] = useLocalStorage("searches")
   const [recents, setRecents] = useState([])
 
@@ -34,7 +37,8 @@ function Search() {
 
   // Handle input change
   const change = (e) => {
-    setText(e.target.value)
+    // setText(e.target.value)
+    dispatch({ type: "typing", payload: e.target.value })
   }
 
   // Handle form submission
@@ -44,6 +48,7 @@ function Search() {
       setRecents((prev) => [...prev, text])
       getUsers()
       setText("") // Clear input after submit
+      dispatch({ type: "typing", payload: "" })
     }
   }
 

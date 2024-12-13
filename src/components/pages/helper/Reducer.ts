@@ -1,7 +1,7 @@
 export default (state: object, action: any) => {
   switch (action.type) {
     case "submit":
-      return {}
+      return { ...state }
     case "typing":
       return { ...state, text: action.payload }
     case "user":
