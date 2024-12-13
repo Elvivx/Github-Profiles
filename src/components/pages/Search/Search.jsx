@@ -70,7 +70,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents text={text} setText={setText} />}
+      {inputFocus && <Recents text={text} setText={setText} recents={recents} setRecents={setRecents} />}
       {/* <Recents />
       <Recents /> */}
     </div>
