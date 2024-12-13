@@ -3,8 +3,12 @@ import { useContext } from "react"
 import { GitContext } from "../../context/contexts"
 import Loader from "../helper/Loader"
 function Results() {
-  const { users, loading } = useContext(GitContext)
+  const {
+    state: { loading, users },
+    dispatch,
+  } = useContext(GitContext)
   if (users == "") return
+  console.log(users)
   return (
     <>
       <div className='results'>

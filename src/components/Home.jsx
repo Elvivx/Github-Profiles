@@ -8,7 +8,7 @@ function Home() {
   console.log(state.text)
   return (
     <>
-      {/* {page ? (
+      {state.page ? (
         <>
           <div className='logo'>
             <svg
@@ -30,9 +30,9 @@ function Home() {
         </>
       ) : (
         <Profile />
-      )} */}
-      <Search />
-      <Results />
+      )}
+      {/* <Search />
+      <Results /> */}
     </>
   )
 }

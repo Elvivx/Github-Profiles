@@ -18,23 +18,23 @@ function Search() {
   // console.log(recents)
   // localStorage.setItem("searches", [recents])
   // focus effect
-  useEffect(() => {
-    const checkFocus = () => {
-      if (inputRef.current === document.activeElement) {
-        console.log("Input has focus!")
-        recents.length !== 0 && setInputFocus(true)
-      } else {
-        console.log("Input does not have focus.")
-        setInputFocus(false)
-      }
-    }
+  // useEffect(() => {
+  //   const checkFocus = () => {
+  //     if (inputRef.current === document.activeElement) {
+  //       console.log("Input has focus!")
+  //       recents.length !== 0 && setInputFocus(true)
+  //     } else {
+  //       console.log("Input does not have focus.")
+  //       setInputFocus(false)
+  //     }
+  //   }
 
-    document.addEventListener("click", checkFocus)
+  //   document.addEventListener("click", checkFocus)
 
-    return () => {
-      document.removeEventListener("click", checkFocus)
-    }
-  }, [text])
+  //   return () => {
+  //     document.removeEventListener("click", checkFocus)
+  //   }
+  // }, [text])
 
   // Handle input change
   const change = (e) => {

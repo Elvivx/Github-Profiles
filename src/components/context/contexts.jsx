@@ -22,11 +22,13 @@ export const GitContextProvider = ({ children }) => {
     text: "",
     searchedUsers: [],
     user: "",
+    users: "",
     commits: [],
     userRepos: [],
     userStarreds: [],
     loading: false,
     nav: true,
+    page: true,
     // api
     api_url: "https://api.github.com",
     // keys
