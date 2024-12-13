@@ -1,26 +1,27 @@
 import { useContext, useRef, useEffect, useState } from "react"
 import { GitContext } from "../../context/contexts"
 import Recents from "./RecentSearches"
+import useLocalStorage from "../helper/Api"
 
 function Search() {
   const { getUsers, text, setText } = useContext(GitContext)
-  const [recents, setRecents] = useState([])
+  const [recents, setRecents] = useState("")
+  const [local, setLocal] = useLocalStorage("searches")
 
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
 
   console.log(recents)
+
+  // focus effect
   useEffect(() => {
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
-        console.log("Input has focus!")
-        recents.length > 0 && setInputFocus(true)
-        // console.log(recents.length >= 1)
+        console.log(recents && setInputFocus(true))
+        console.log("nawa o")
       } else {
-        console.log("Input does not have focus.")
         setInputFocus(false)
       }
-      // inputRef.current === document.activeElement  ?
     }
 
     document.addEventListener("click", checkFocus)
@@ -28,7 +29,11 @@ function Search() {
     return () => {
       document.removeEventListener("click", checkFocus)
     }
-  }, [inputFocus])
+  }, [recents])
+  useEffect(() => {
+    console.log(local)
+    // setLocal(recents)
+  }, [])
 
   // remove the oldest search
   recents.length > 3 && setRecents(recents.slice(1, recents.length + 1))
@@ -47,6 +52,15 @@ function Search() {
       setText("") // Clear input after submit
     }
   }
+
+  // recents click function
+  const clickRecent = (e) => {
+    setText(e.target.id)
+    // getUsers()
+    console.log("fams")
+  }
+
+  useEffect(() => {})
 
   return (
     <div className='search'>
@@ -74,7 +88,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents text={text} setText={setText} recents={recents} setRecents={setRecents} />}
+      {inputFocus && <Recents text={text} setText={setText} recents={recents} clickRecent={clickRecent} />}
       {/* <Recents />
       <Recents /> */}
     </div>

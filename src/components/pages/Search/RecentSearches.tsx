@@ -1,12 +1,11 @@
 import React from "react"
 import { Clock, X } from "lucide-react"
 
-function Recents({ text, setText, recents }) {
-  console.log(recents)
+function Recents({ clickRecent, setText, recents }) {
   return (
     <div className='recents'>
       {recents.map((item: string) => (
-        <div className='recent' key={item}>
+        <div className='recent' key={item} onClick={clickRecent} id={item}>
           <div className='recent-left'>
             <div className='recent-icon'>
               <Clock />

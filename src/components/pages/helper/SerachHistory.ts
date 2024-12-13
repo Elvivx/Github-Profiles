@@ -1,5 +1,6 @@
-import { GitContext } from "../../context/contexts"
-import { useContext } from "react"
-const { text } = useContext(GitContext)
-console.log(text)
-console.log(GitContext)
+export default (state: object, action: any) => {
+  switch (action.type) {
+    case "submit":
+      return {}
+  }
+}
