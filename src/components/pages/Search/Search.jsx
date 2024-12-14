@@ -11,7 +11,7 @@ function Search() {
   } = useContext(GitContext)
   // const [local, setLocal] = useLocalStorage("searches")
   // const [recents, setRecents] = useState([])
-  console.log(recentSearches)
+  // console.log(recentSearches)
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
 
@@ -22,11 +22,11 @@ function Search() {
   useEffect(() => {
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
-        console.log("Input has focus!")
+        // console.log("Input has focus!")
         console.log(recentSearches.length === 0)
         if (recentSearches.length !== 0) setInputFocus(true)
       } else {
-        console.log("Input does not have focus.")
+        // console.log("Input does not have focus.")
         setInputFocus(false)
       }
     }

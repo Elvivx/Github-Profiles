@@ -1,14 +1,16 @@
 import ResultItem from "./ResultsItem"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { GitContext } from "../../context/contexts"
 import Loader from "../helper/Loader"
 function Results() {
   const {
-    state: { loading, users },
+    state: { loading, users, curUser },
     dispatch,
   } = useContext(GitContext)
-  console.log(users)
-  console.log(!users.length)
+  // console.log(users)
+  // console.log(!users.length)
+  // console.log(curUser)
+  // useEffect(() => {}, [curUser])
   if (!users.length) return
   return (
     <>

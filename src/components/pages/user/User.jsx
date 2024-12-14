@@ -3,11 +3,16 @@ import { GitContext } from "../../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
 function User() {
-  const { user, userStarreds, userRepos, commits, getCommits, nav, navs, flipPage, loading } = useContext(GitContext)
+  const {
+    state: { user, userStarreds, userRepos, commits, nav, navs, loading, curUser },
+    userInfo,
+  } = useContext(GitContext)
   const back = () => {
     flipPage(true)
     document.title = `Github Profiles`
   }
+  console.log(curUser + "fuck")
+  // userInfo(curUser)
   return (
     <>
       <div className='user'>
@@ -16,7 +21,7 @@ function User() {
             <StepBack />
           </span>
         </button>
-        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} navs={navs} loading={loading} commits={commits} getcommits={getCommits} />
+        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} navs={navs} loading={loading} commits={commits} />
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { createContext, useReducer, useState } from "react"
 import Reducer from "../pages/helper/Reducer"
+import { useNavigate } from "react-router"
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
   // states
@@ -21,7 +22,7 @@ export const GitContextProvider = ({ children }) => {
     requests: "",
     text: "",
     recentSearches: [],
-    user: "",
+    user: [],
     curUser: "",
     users: [],
     commits: [],
@@ -54,21 +55,28 @@ export const GitContextProvider = ({ children }) => {
 
   // user informations
   const userInfo = async (info) => {
+    console.log(info)
+    // console.log(state.curUser)
+    // state.curUser && dispatch({ type: "curUser", payload: info })
+    console.log(state.curUser)
     try {
-      setLoading(true)
+      // setLoading(true)
       dispatch({ type: "isLoading" })
-      const user = await axios.get(`https://api.github.com/users/${info}?client_id=${cliente_id}&client_secret=${cliente_secret}`)
+      const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
 
       // setUser(user.data)
+      console.log(user)
       dispatch({ type: "user", payload: user.data })
-
+      console.log(state.user)
       await userRepo(info)
       await userStarred(info)
       // await dispatch({ type: "repos", payload: info })
       // await dispatch({ type: "starred", payload: info })
       // setLoading(false)
       dispatch({ type: "loaded" })
+      // useNavigate(`/profile`)
     } catch (error) {
+      console.log(error)
       dispatch({ type: "error", payload: error.message })
     }
   }
@@ -76,7 +84,7 @@ export const GitContextProvider = ({ children }) => {
   const userRepo = async (info) => {
     // user Repositories
     try {
-      const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
+      const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
       // setUserRepos(repos.data)
       dispatch({ type: "repos", payload: repos.data })
     } catch (error) {
@@ -88,7 +96,7 @@ export const GitContextProvider = ({ children }) => {
   const userStarred = async (info) => {
     // user starred repositories
     try {
-      const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${limite_repositorios}&client_id=${cliente_id}&client_secret=${cliente_secret}`)
+      const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
       // setUserStarreds(starred.data)
       dispatch({ type: "starred", payload: starred.data })
     } catch (error) {
