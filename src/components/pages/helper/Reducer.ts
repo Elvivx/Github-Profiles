@@ -13,7 +13,6 @@ export default (state: object, action: any) => {
     case "users":
       return { ...state, users: action.payload }
     case "curUser":
-      // userInfo()
       return { ...state, curUser: action.payload }
     case "commits":
       return { ...state, commits: action.payload }
@@ -29,8 +28,8 @@ export default (state: object, action: any) => {
       return { ...state, nav: !state.nav }
     case "btnNav":
       return { ...state, btnNav: !state.btnNav }
-    case "page":
-      return { ...state, page: !state.page }
+    // case "page":
+    //   return { ...state, page: !state.page }
     case "storage":
       return { ...state, storage: action.payload }
     case "removeRecentSearch":

@@ -3,8 +3,7 @@ import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import { useEffect } from "react"
 import { motion } from "framer-motion"
-import { div } from "framer-motion/client"
-import { Bookmark } from "lucide-react"
+import { Bookmark, Save, Share } from "lucide-react"
 function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
   useEffect(() => {
     document.title = user.name || user.login

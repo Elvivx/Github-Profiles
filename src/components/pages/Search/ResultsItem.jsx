@@ -9,13 +9,10 @@ function ResultItem({ user, i }) {
   const click = (e) => {
     e.preventDefault()
     userInfo(e.currentTarget.id)
-    // console.log(e.currentTarget.id)
     dispatch({ type: "curUser", payload: e.currentTarget.id })
     navigate(`/profile`)
   }
-  // useEffect(() => {
-  // console.log(state.curUser)
-  // }, [state.curUser])
+
   return (
     // <Link to={`/profile`}>
 

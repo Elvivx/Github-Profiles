@@ -21,7 +21,17 @@ function Results() {
         ) : (
           users.map((user, index) => {
             return (
-              <motion.div key={index} initial={{ y: index % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ y: 0, opacity: 1, scale: 1 }} transition={{ delay: index * 0.2 }}>
+              <motion.div
+                key={index}
+                initial={{ y: index % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.2 }}
+                // whileInView={{
+                //   y: 0,
+                //   scale: 1,
+                //   opacity: 1,
+                // }}
+              >
                 <ResultItem user={user} i={index} />
               </motion.div>
             )

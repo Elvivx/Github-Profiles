@@ -6,7 +6,6 @@ import { useNavigate } from "react-router"
 function User() {
   const {
     state: { user, userStarreds, userRepos, commits, nav, loading },
-    userInfo,
     btnNavs,
   } = useContext(GitContext)
   const navigate = useNavigate()
@@ -14,10 +13,7 @@ function User() {
     navigate(`/`)
     document.title = `Github Profiles`
   }
-  // console.log(curUser + "fuck")
-  // console.log(userStarreds)
 
-  // userInfo(curUser)
   return (
     <>
       <div className='user'>
