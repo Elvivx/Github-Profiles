@@ -22,9 +22,9 @@ export default (state: object, action: any) => {
     case "loaded":
       return { ...state, loading: false }
     case "repos":
-      return { ...state, repos: action.payload }
+      return { ...state, userRepos: action.payload }
     case "starred":
-      return { ...state, starred: action.payload }
+      return { ...state, userStarred: action.payload }
     case "nav":
       return { ...state, nav: !state.nav }
     case "page":
