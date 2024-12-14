@@ -11,7 +11,9 @@ function User() {
     flipPage(true)
     document.title = `Github Profiles`
   }
-  console.log(curUser + "fuck")
+  // console.log(curUser + "fuck")
+  // console.log(userStarreds)
+
   // userInfo(curUser)
   return (
     <>

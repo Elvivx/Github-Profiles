@@ -6,7 +6,7 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, nav
   useEffect(() => {
     document.title = user.name || user.login
   }, [])
-  console.log(nav, userRepos)
+  console.log(nav, userRepos, userStarreds)
   return (
     <>
       <div className='item'>
