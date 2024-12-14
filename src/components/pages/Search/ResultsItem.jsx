@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router"
 import { GitContext } from "../../context/contexts"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 function ResultItem({ user }) {
-  const { state, dispatch, userInfo } = useContext(GitContext)
+  const { dispatch, userInfo } = useContext(GitContext)
   const navigate = useNavigate()
   const click = (e) => {
     e.preventDefault()
     userInfo(e.currentTarget.id)
-    console.log(e.currentTarget.id)
+    // console.log(e.currentTarget.id)
     dispatch({ type: "curUser", payload: e.currentTarget.id })
     navigate(`/profile`)
   }

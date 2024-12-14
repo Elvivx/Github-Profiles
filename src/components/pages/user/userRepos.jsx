@@ -18,7 +18,7 @@ function UserRepos({ repo }) {
         <Error />
       ) : (
         <div className='info'>
-          <a href={repo.git_url}>
+          <a href={repo.html_url} target='blank'>
             <h2>{repo.name}</h2>
             <p>
               <strong>{repo.language || "N/A"}</strong>

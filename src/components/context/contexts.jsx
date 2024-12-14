@@ -1,7 +1,7 @@
 import axios from "axios"
 import { createContext, useReducer, useState } from "react"
 import Reducer from "../pages/helper/Reducer"
-import { useNavigate } from "react-router"
+import { userInfo, getUsers } from "../pages/helper/Api"
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
   // states

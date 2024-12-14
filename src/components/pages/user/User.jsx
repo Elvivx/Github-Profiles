@@ -2,14 +2,16 @@ import { useContext } from "react"
 import { GitContext } from "../../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
+import { useNavigate } from "react-router"
 function User() {
   const {
     state: { user, userStarreds, userRepos, commits, nav, loading, curUser },
     userInfo,
     btnNavs,
   } = useContext(GitContext)
+  const navigate = useNavigate()
   const back = () => {
-    flipPage(true)
+    navigate(`/`)
     document.title = `Github Profiles`
   }
   // console.log(curUser + "fuck")
