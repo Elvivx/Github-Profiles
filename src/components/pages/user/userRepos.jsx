@@ -5,12 +5,11 @@ import Error from "../helper/Error"
 import { GitContext } from "../../context/contexts"
 
 function UserRepos({ repo }) {
-  // const [commits, setCommits] = useState([])
   const {
-    state: { commits },
+    state: { commits, curUser },
     dispatch,
   } = useContext(GitContext)
-  console.log(commits)
+  console.log(curUser)
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
     // setCommits(data.data)
@@ -18,7 +17,7 @@ function UserRepos({ repo }) {
     console.log(data)
   }
   useEffect(() => {
-    getCommits()
+    // getCommits()
   }, [])
   return (
     <>

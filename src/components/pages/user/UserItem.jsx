@@ -48,7 +48,10 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, nav
             </button>
           </div>
           <div className='nav-info'>
-            {loading ? <Loader /> : nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarreds.map((star) => <UserStarred key={star.id} star={star} />)}
+            {loading && <Loader />}
+            {!loading && nav && <UserRepos />}
+            {!loading && !nav && <UserStarred />}
+            {/* {loading ? <Loader /> : nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarreds.map((star) => <UserStarred key={star.id} star={star} />)} */}
           </div>
         </div>
       </div>
