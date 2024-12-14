@@ -33,6 +33,8 @@ export default (state: object, action: any) => {
       return { ...state, page: !state.page }
     case "storage":
       return { ...state, storage: action.payload }
+    case "removeRecentSearch":
+      return { ...state, recentSearches: state.recentSearches.filter((item: string) => item !== action.payload) }
     case "error":
       return { ...state, errorMessage: action.payload }
   }

@@ -1,7 +1,6 @@
 import { useContext, useRef, useEffect, useState } from "react"
 import { GitContext } from "../../context/contexts"
 import Recents from "./RecentSearches"
-// import useLocalStorage from "../helper/Api"
 
 function Search() {
   const {
@@ -9,24 +8,16 @@ function Search() {
     dispatch,
     getUsers,
   } = useContext(GitContext)
-  // const [local, setLocal] = useLocalStorage("searches")
-  // const [recents, setRecents] = useState([])
-  // console.log(recentSearches)
+
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
-
-  // console.log(recents)
-  // localStorage.setItem("searches", [recents])
 
   // focus effect
   useEffect(() => {
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
-        // console.log("Input has focus!")
-        // console.log(recentSearches.length === 0)
         if (recentSearches.length !== 0) setInputFocus(true)
       } else {
-        // console.log("Input does not have focus.")
         setInputFocus(false)
       }
     }
@@ -45,7 +36,7 @@ function Search() {
 
   // Handle form submission
   const submit = (e) => {
-    e.preventDefault() // Prevent page reload
+    e.preventDefault()
     if (text.trim()) {
       dispatch({ type: "searches" })
       getUsers()
