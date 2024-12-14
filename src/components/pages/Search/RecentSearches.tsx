@@ -5,7 +5,7 @@ import { GitContext } from "../../context/contexts"
 function Recents({ clickRecent, recents }) {
   const { dispatch } = useContext(GitContext)
 
-  const remove = (id) => {
+  const remove = (id: string) => {
     console.log(id)
     dispatch({ type: "removeRecentSearch", payload: id })
   }
