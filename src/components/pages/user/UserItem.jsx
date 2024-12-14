@@ -6,7 +6,7 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, btn
   useEffect(() => {
     document.title = user.name || user.login
   }, [])
-  console.log(nav, btnNavs, userRepos, userStarreds)
+  console.log(nav, userRepos, userStarreds)
   return (
     <>
       <div className='item'>
@@ -49,8 +49,8 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, btn
           </div>
           <div className='nav-info'>
             {loading && <Loader />}
-            {!loading && nav && <UserRepos />}
-            {!loading && !nav && <UserStarred />}
+            {!loading && nav && userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />)}
+            {!loading && !nav && userStarreds.map((star) => <UserStarred key={star.id} star={star} />)}
             {/* {loading ? <Loader /> : nav ? userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />) : userStarreds.map((star) => <UserStarred key={star.id} star={star} />)} */}
           </div>
         </div>
