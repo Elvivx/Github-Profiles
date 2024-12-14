@@ -1,7 +1,9 @@
 import { Link, useNavigate } from "react-router"
 import { GitContext } from "../../context/contexts"
 import { useContext } from "react"
-function ResultItem({ user }) {
+import { motion } from "framer-motion"
+
+function ResultItem({ user, i }) {
   const { dispatch, userInfo } = useContext(GitContext)
   const navigate = useNavigate()
   const click = (e) => {
@@ -17,12 +19,19 @@ function ResultItem({ user }) {
   return (
     // <Link to={`/profile`}>
 
-    <div className='result' onClick={click} id={user.login}>
+    <motion.div
+      // initial={{ y: "10%", opacity: 0, scale: 0.5 }}
+      // animate={{ y: 0, opacity: 1, scale: 1 }}
+      // transition={{ duration: 0.2, ease: "easeIn" }}
+      whileHover={{ scale: 1.05, borderRadius: 0 }}
+      className='result'
+      onClick={click}
+      id={user.login}>
       <div className='img'>
         <img src={user.avatar_url} alt={user.login} />
       </div>
       <h1>{user.login}</h1>
-    </div>
+    </motion.div>
     // </Link>
   )
 }

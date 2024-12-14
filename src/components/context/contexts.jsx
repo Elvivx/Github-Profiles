@@ -57,9 +57,6 @@ export const GitContextProvider = ({ children }) => {
 
   // user informations
   const userInfo = async (info) => {
-    console.log(info)
-    // console.log(state.curUser)
-    // state.curUser && dispatch({ type: "curUser", payload: info })
     console.log(state.curUser)
     try {
       // setLoading(true)
@@ -72,11 +69,7 @@ export const GitContextProvider = ({ children }) => {
       console.log(state.user)
       await userRepo(info)
       await userStarred(info)
-      // await dispatch({ type: "repos", payload: info })
-      // await dispatch({ type: "starred", payload: info })
-      // setLoading(false)
       dispatch({ type: "loaded" })
-      // useNavigate(`/profile`)
     } catch (error) {
       console.log(error)
       dispatch({ type: "error", payload: error.message })

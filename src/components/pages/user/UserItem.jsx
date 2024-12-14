@@ -2,15 +2,20 @@ import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import { useEffect } from "react"
-function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, btnNavs, loading }) {
+import { motion } from "framer-motion"
+import { div } from "framer-motion/client"
+import { Bookmark } from "lucide-react"
+function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
   useEffect(() => {
     document.title = user.name || user.login
   }, [])
-  console.log(nav, userRepos, userStarreds)
   return (
     <>
       <div className='item'>
         <div className='top'>
+          <div className='bookmark'>
+            <Bookmark />
+          </div>
           <div className='img'>
             <img src={user.avatar_url} alt={user.login} />
           </div>
@@ -50,9 +55,21 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, btn
           <div className='nav-info'>
             {loading && <Loader />}
 
-            {!loading && nav && userRepos.map((repo) => <UserRepos key={repo.id} repo={repo} />)}
+            {!loading &&
+              nav &&
+              userRepos.map((repo, i) => (
+                <motion.div key={repo.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
+                  <UserRepos repo={repo} />
+                </motion.div>
+              ))}
 
-            {!loading && !nav && userStarreds.map((star) => <UserStarred key={star.id} star={star} />)}
+            {!loading &&
+              !nav &&
+              userStarreds.map((star, i) => (
+                <motion.div key={star.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
+                  <UserStarred key={star.id} star={star} />
+                </motion.div>
+              ))}
           </div>
         </div>
       </div>

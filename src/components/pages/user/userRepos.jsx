@@ -1,5 +1,6 @@
 import { GitFork, GitCommit, GitBranch, Captions } from "lucide-react"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import axios from "axios"
 import Error from "../helper/Error"
 
@@ -17,7 +18,7 @@ function UserRepos({ repo }) {
       {!repo ? (
         <Error />
       ) : (
-        <div className='info'>
+        <motion.div className='info'>
           <a href={repo.html_url} target='blank'>
             <h2>{repo.name}</h2>
             <p>
@@ -45,7 +46,7 @@ function UserRepos({ repo }) {
               </span>
             </div>
           </a>
-        </div>
+        </motion.div>
       )}
     </>
   )
