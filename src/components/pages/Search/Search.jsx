@@ -23,7 +23,7 @@ function Search() {
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
         // console.log("Input has focus!")
-        console.log(recentSearches.length === 0)
+        // console.log(recentSearches.length === 0)
         if (recentSearches.length !== 0) setInputFocus(true)
       } else {
         // console.log("Input does not have focus.")
@@ -86,9 +86,9 @@ function Search() {
         </form>
       </div>
       {inputFocus && <Recents recents={recentSearches} clickRecent={clickRecent} />}
-      <button id='elvivx' onClick={clickRecent}>
+      {/* <button id='elvivx' onClick={clickRecent}>
         elvivx
-      </button>
+      </button> */}
     </div>
   )
 }

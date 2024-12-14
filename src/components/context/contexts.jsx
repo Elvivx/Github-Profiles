@@ -1,7 +1,8 @@
 import axios from "axios"
 import { createContext, useReducer, useState } from "react"
 import Reducer from "../pages/helper/Reducer"
-import { userInfo, getUsers } from "../pages/helper/Api"
+// import { userInfo, getUsers } from "../pages/helper/Api"
+// import { getUsers } from "../pages/helper/Api"
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
   // states
@@ -108,7 +109,7 @@ export const GitContextProvider = ({ children }) => {
 
   // nav for repos and starred
   const btnNavs = (e) => {
-    return e.target.value == "repos" ? dispatch({ type: "nav", payload: true }) : dispatch({ type: "nav", payload: false })
+    return e.target.value == "repos" ? dispatch({ type: "nav" }) : dispatch({ type: "nav" })
   }
   // button to go home or user
   const flipPage = (ans) => {

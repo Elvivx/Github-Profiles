@@ -5,7 +5,7 @@ import UserItem from "./UserItem"
 import { useNavigate } from "react-router"
 function User() {
   const {
-    state: { user, userStarreds, userRepos, commits, nav, loading, curUser },
+    state: { user, userStarreds, userRepos, commits, nav, loading },
     userInfo,
     btnNavs,
   } = useContext(GitContext)

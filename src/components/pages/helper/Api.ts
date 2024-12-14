@@ -2,10 +2,10 @@ import { useContext } from "react"
 import { GitContext } from "../../context/contexts"
 import axios from "axios"
 
-const [state, dispatch] = useContext(GitContext)
-
+console.log(GitContext)
+const { state, dispatch } = useContext(GitContext)
 // Get users
-const getUsers = async () => {
+export const getUsers = async () => {
   dispatch({ type: "isLoading" })
   const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
   dispatch({ type: "users", payload: user.data.items })
@@ -63,4 +63,4 @@ const userStarred = async (info: string) => {
     dispatch({ type: "error", payload: error.message })
   }
 }
-export { userInfo, getUsers }
+// export { userInfo, getUsers }
