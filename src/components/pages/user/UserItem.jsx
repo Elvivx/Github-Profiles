@@ -2,11 +2,11 @@ import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import { useEffect } from "react"
-function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, navs, loading }) {
+function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, btnNavs, loading }) {
   useEffect(() => {
     document.title = user.name || user.login
   }, [])
-  console.log(nav, userRepos, userStarreds)
+  console.log(nav, btnNavs, userRepos, userStarreds)
   return (
     <>
       <div className='item'>
@@ -40,10 +40,10 @@ function UserItem({ user, userStarreds, userRepos, commits, getCommits, nav, nav
         </div>
         <div className='bottom'>
           <div className='nav'>
-            <button onClick={navs} value='repos' style={nav ? { borderBottom: "2px solid #ff6500" } : {}}>
+            <button onClick={btnNavs} value='repos' style={nav ? { borderBottom: "2px solid #ff6500" } : {}}>
               Repos
             </button>
-            <button onClick={navs} value='starred' style={!nav ? { borderBottom: "2px solid #ff6500" } : {}}>
+            <button onClick={btnNavs} value='starred' style={!nav ? { borderBottom: "2px solid #ff6500" } : {}}>
               Starred
             </button>
           </div>

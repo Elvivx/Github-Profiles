@@ -4,8 +4,9 @@ import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
 function User() {
   const {
-    state: { user, userStarreds, userRepos, commits, nav, navs, loading, curUser },
+    state: { user, userStarreds, userRepos, commits, nav, loading, curUser },
     userInfo,
+    btnNavs,
   } = useContext(GitContext)
   const back = () => {
     flipPage(true)
@@ -23,7 +24,7 @@ function User() {
             <StepBack />
           </span>
         </button>
-        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} navs={navs} loading={loading} commits={commits} />
+        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} btnNavs={btnNavs} loading={loading} commits={commits} />
       </div>
     </>
   )

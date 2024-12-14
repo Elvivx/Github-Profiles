@@ -30,6 +30,7 @@ export const GitContextProvider = ({ children }) => {
     userStarreds: [],
     loading: false,
     nav: true,
+    btnNav: true,
     page: true,
     // api
     api_url: "https://api.github.com",
@@ -106,12 +107,12 @@ export const GitContextProvider = ({ children }) => {
   }
 
   // nav for repos and starred
-  const navs = (e) => {
-    return e.target.value == "repos" ? dispatch({ type: "nav" }) : setNav(false)
+  const btnNavs = (e) => {
+    return e.target.value == "repos" ? dispatch({ type: "nav", payload: true }) : dispatch({ type: "nav", payload: false })
   }
   // button to go home or user
   const flipPage = (ans) => {
-    nav && setPages(true)
+    // nav && setPages(true)
     setPages(ans)
     dispatch({ type: "page" })
   }
@@ -131,7 +132,7 @@ export const GitContextProvider = ({ children }) => {
     // commits,
     // setCommits,
     // nav,
-    // navs,
+    btnNavs,
     // page,
     // flipPage,
     state,
