@@ -4,6 +4,7 @@ import Loader from "../helper/Loader"
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Bookmark } from "lucide-react"
+import UserStats from "./UserStats"
 function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispatch }) {
   useEffect(() => {
     document.title = user.name || user.login
@@ -70,6 +71,12 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispat
                   <UserStarred key={star.id} star={star} />
                 </motion.div>
               ))}
+
+            {!loading && nav == "stats" && (
+              <motion.div initial={{ x: "90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }}>
+                <UserStats name={user.login} />
+              </motion.div>
+            )}
           </div>
         </div>
       </div>
