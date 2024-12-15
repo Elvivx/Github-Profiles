@@ -25,7 +25,7 @@ export default (state: object, action: any) => {
     case "starred":
       return { ...state, userStarreds: action.payload }
     case "nav":
-      return { ...state, nav: !state.nav }
+      return { ...state, nav: action.payload }
     case "btnNav":
       return { ...state, btnNav: !state.btnNav }
     // case "page":

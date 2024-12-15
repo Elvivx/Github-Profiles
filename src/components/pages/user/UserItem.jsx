@@ -8,6 +8,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
   useEffect(() => {
     document.title = user.name || user.login
   }, [])
+  console.log(nav)
   return (
     <>
       <div className='item'>
@@ -44,7 +45,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
         </div>
         <div className='bottom'>
           <div className='nav'>
-            <button onClick={btnNavs} value='repos'>
+            <button onClick={btnNavs} value='repos' className={nav}>
               Repos
             </button>
             <button
