@@ -4,9 +4,10 @@ import Loader from "../helper/Loader"
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Bookmark } from "lucide-react"
-function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
+function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispatch }) {
   useEffect(() => {
     document.title = user.name || user.login
+    dispatch({ type: "nav", payload: "repos" })
   }, [])
   console.log(nav)
   return (

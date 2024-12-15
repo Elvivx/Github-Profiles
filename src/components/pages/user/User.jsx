@@ -7,12 +7,13 @@ function User() {
   const {
     state: { user, userStarreds, userRepos, commits, nav, loading },
     btnNavs,
+    dispatch,
   } = useContext(GitContext)
 
   useEffect(() => {
-    if (user.length == 0) navigate(`/`)
-  }, [user])
-
+    // if (user.length == 0) navigate(`/`)
+  }, [])
+  console.log(commits)
   const navigate = useNavigate()
   const back = () => {
     navigate(`/`)
@@ -26,7 +27,7 @@ function User() {
             <StepBack />
           </span>
         </button>
-        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} btnNavs={btnNavs} loading={loading} commits={commits} />
+        <UserItem user={user} userStarreds={userStarreds} userRepos={userRepos} nav={nav} btnNavs={btnNavs} loading={loading} dispatch={dispatch} />
       </div>
     </>
   )

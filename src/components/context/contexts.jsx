@@ -30,7 +30,7 @@ export const GitContextProvider = ({ children }) => {
     userRepos: [],
     userStarreds: [],
     loading: false,
-    nav: "starred",
+    nav: "repos",
     btnNav: true,
     page: true,
 
