@@ -3,9 +3,38 @@ import Results from "./pages/Search/Results"
 // import { GitContext } from "./context/contexts"
 // import { useContext, useEffect } from "react"
 import Profile from "./Profile"
+import { useEffect, useState } from "react"
 function Home() {
   // const { state, dispatch } = useContext(GitContext)
   // console.log(state.text)
+  function useDeviceTheme() {
+    // Initialize theme based on the device's current theme
+    const getInitialTheme = () => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+
+    const [theme, setTheme] = useState(getInitialTheme)
+
+    useEffect(() => {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+
+      const handleThemeChange = (e) => {
+        setTheme(e.matches ? "dark" : "light")
+      }
+
+      // Watch for changes in the device's theme preference
+      mediaQuery.addEventListener("change", handleThemeChange)
+
+      // Cleanup to prevent memory leaks
+      return () => {
+        mediaQuery.removeEventListener("change", handleThemeChange)
+      }
+    }, [])
+
+    return theme
+  }
+
+  const theme = useDeviceTheme()
+
+  console.log(theme)
   return (
     <>
       <div className='logo'>
