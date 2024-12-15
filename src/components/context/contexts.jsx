@@ -104,6 +104,7 @@ export const GitContextProvider = ({ children }) => {
   // nav for repos and starred
   const btnNavs = (e) => {
     let btns = e.currentTarget.childNodes
+
     btns.forEach((btn) => btn.classList.remove("active"))
     e.target.classList.add("active")
     // e.target.value == "repos" && dispatch({ type: "nav", payload: e.target.value })

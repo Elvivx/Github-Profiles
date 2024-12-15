@@ -44,7 +44,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
           </div>
         </div>
         <div className='bottom'>
-          <div className='nav'>
+          <div className='nav' onClick={btnNavs}>
             <button value='repos' className='active'>
               Repos
             </button>
