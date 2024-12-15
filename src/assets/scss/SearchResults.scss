@@ -17,7 +17,12 @@
     height: fit-content;
     &:hover {
       box-shadow: 0 0 5px 10px rgba(255, 0, 0, 0.245);
-      transform: scale(1.05);
+    }
+    h1 {
+      width: 165px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
     }
     .img {
       border: 2px solid #ff6500;
