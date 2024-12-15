@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { GitContext } from "../../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
@@ -8,13 +8,16 @@ function User() {
     state: { user, userStarreds, userRepos, commits, nav, loading },
     btnNavs,
   } = useContext(GitContext)
+
+  useEffect(() => {
+    if (user.length == 0) navigate(`/`)
+  }, [user])
+
   const navigate = useNavigate()
-  if (!user) return
   const back = () => {
     navigate(`/`)
     document.title = `Github Profiles`
   }
-
   return (
     <>
       <div className='user'>

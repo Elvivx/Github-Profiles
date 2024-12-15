@@ -52,7 +52,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
               onClick={btnNavs}
               value='starred'
               //  style={nav == "starred" && { borderBottom: "2px solid #ff6500" }}
-            >
+              className={nav}>
               Starred
             </button>
             <button onClick={btnNavs} value='stats'>
@@ -63,7 +63,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
             {loading && <Loader />}
 
             {!loading &&
-              nav &&
+              nav == "repos" &&
               userRepos.map((repo, i) => (
                 <motion.div key={repo.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
                   <UserRepos repo={repo} />
@@ -71,7 +71,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
               ))}
 
             {!loading &&
-              !nav &&
+              nav == "starred" &&
               userStarreds.map((star, i) => (
                 <motion.div key={star.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
                   <UserStarred key={star.id} star={star} />
