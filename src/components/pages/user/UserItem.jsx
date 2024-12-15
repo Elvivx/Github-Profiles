@@ -50,6 +50,9 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
             <button onClick={btnNavs} value='starred' style={!nav ? { borderBottom: "2px solid #ff6500" } : {}}>
               Starred
             </button>
+            <button onClick={btnNavs} value='starred' style={!nav ? { borderBottom: "2px solid #ff6500" } : {}}>
+              Stats
+            </button>
           </div>
           <div className='nav-info'>
             {loading && <Loader />}
