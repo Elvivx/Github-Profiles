@@ -32,8 +32,7 @@ export const GitContextProvider = ({ children }) => {
     loading: false,
     nav: "repos",
     btnNav: true,
-    page: true,
-
+    theme: "",
     // api
     api_url: "https://api.github.com",
     // keys

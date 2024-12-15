@@ -28,8 +28,8 @@ export default (state: object, action: any) => {
       return { ...state, nav: action.payload }
     case "btnNav":
       return { ...state, btnNav: !state.btnNav }
-    // case "page":
-    //   return { ...state, page: !state.page }
+    case "theme":
+      return { ...state, theme: action.payload }
     case "storage":
       return { ...state, storage: action.payload }
     case "removeRecentSearch":
