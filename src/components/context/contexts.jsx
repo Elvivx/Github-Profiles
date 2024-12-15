@@ -30,7 +30,7 @@ export const GitContextProvider = ({ children }) => {
     userRepos: [],
     userStarreds: [],
     loading: false,
-    nav: true,
+    nav: "repos",
     btnNav: true,
     page: true,
 
@@ -103,7 +103,9 @@ export const GitContextProvider = ({ children }) => {
 
   // nav for repos and starred
   const btnNavs = (e) => {
-    return e.target.value == "repos" ? dispatch({ type: "nav" }) : dispatch({ type: "nav" })
+    e.target.value == "repos" && dispatch({ type: "nav", payload: e.target.value })
+    e.target.value == "starred" && dispatch({ type: "nav", payload: e.target.value })
+    e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
   }
   // button to go home or user
   const flipPage = (ans) => {
