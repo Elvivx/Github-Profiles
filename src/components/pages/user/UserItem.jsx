@@ -15,9 +15,6 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispat
     <>
       <div className='item'>
         <div className='top'>
-          <div className='bookmark'>
-            <Bookmark />
-          </div>
           <div className='img'>
             <img src={user.avatar_url} alt={user.login} />
           </div>
