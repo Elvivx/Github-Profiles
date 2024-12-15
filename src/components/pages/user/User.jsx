@@ -9,6 +9,7 @@ function User() {
     btnNavs,
   } = useContext(GitContext)
   const navigate = useNavigate()
+  console.log(!user.length)
   const back = () => {
     navigate(`/`)
     document.title = `Github Profiles`

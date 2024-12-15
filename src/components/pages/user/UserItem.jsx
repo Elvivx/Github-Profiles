@@ -44,13 +44,17 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
         </div>
         <div className='bottom'>
           <div className='nav'>
-            <button onClick={btnNavs} value='repos' style={nav == "repos" && { borderBottom: "2px solid #ff6500" }}>
+            <button onClick={btnNavs} value='repos'>
               Repos
             </button>
-            <button onClick={btnNavs} value='starred' style={nav == "starred" && { borderBottom: "2px solid #ff6500" }}>
+            <button
+              onClick={btnNavs}
+              value='starred'
+              //  style={nav == "starred" && { borderBottom: "2px solid #ff6500" }}
+            >
               Starred
             </button>
-            <button onClick={btnNavs} value='stats' style={nav == "stats" && { borderBottom: "2px solid #ff6500" }}>
+            <button onClick={btnNavs} value='stats'>
               Stats
             </button>
           </div>
