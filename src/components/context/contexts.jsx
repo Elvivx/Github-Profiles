@@ -104,12 +104,12 @@ export const GitContextProvider = ({ children }) => {
   // nav for repos and starred
   const btnNavs = (e) => {
     let btns = e.currentTarget.childNodes
-
+    if (!e.target.value) return
     btns.forEach((btn) => btn.classList.remove("active"))
     e.target.classList.add("active")
-    // e.target.value == "repos" && dispatch({ type: "nav", payload: e.target.value })
-    // e.target.value == "starred" && dispatch({ type: "nav", payload: e.target.value })
-    // e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
+    e.target.value == "repos" && dispatch({ type: "nav", payload: e.target.value })
+    e.target.value == "starred" && dispatch({ type: "nav", payload: e.target.value })
+    e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
   }
   // button to go home or user
   const flipPage = (ans) => {
