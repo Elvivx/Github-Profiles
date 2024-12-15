@@ -44,8 +44,10 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
           </div>
         </div>
         <div className='bottom'>
-          <div className='nav' onClick={btnNavs}>
-            <button value='repos'>Repos</button>
+          <div className='nav'>
+            <button value='repos' className='active'>
+              Repos
+            </button>
             <button value='starred'>Starred</button>
             <button value='stats'>Stats</button>
           </div>
