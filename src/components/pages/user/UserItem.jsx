@@ -3,7 +3,7 @@ import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import { useEffect } from "react"
 import { motion } from "framer-motion"
-import { Bookmark, Save, Share } from "lucide-react"
+import { Bookmark } from "lucide-react"
 function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
   useEffect(() => {
     document.title = user.name || user.login
@@ -44,20 +44,10 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading }) {
           </div>
         </div>
         <div className='bottom'>
-          <div className='nav'>
-            <button onClick={btnNavs} value='repos' className={nav}>
-              Repos
-            </button>
-            <button
-              onClick={btnNavs}
-              value='starred'
-              //  style={nav == "starred" && { borderBottom: "2px solid #ff6500" }}
-              className={nav}>
-              Starred
-            </button>
-            <button onClick={btnNavs} value='stats'>
-              Stats
-            </button>
+          <div className='nav' onClick={btnNavs}>
+            <button value='repos'>Repos</button>
+            <button value='starred'>Starred</button>
+            <button value='stats'>Stats</button>
           </div>
           <div className='nav-info'>
             {loading && <Loader />}
