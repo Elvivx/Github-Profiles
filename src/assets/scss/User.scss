@@ -53,6 +53,7 @@
       }
       .active {
         border-bottom: 2px solid #ff6500 !important;
+        font-weight: 600;
       }
       .nav-info {
         h2,
@@ -83,10 +84,7 @@
             span {
               display: flex;
               align-items: center;
-              color: #fff;
-              // .icon {
-              //   color: #ff6500;
-              // }
+              // color: #fff;
             }
           }
         }

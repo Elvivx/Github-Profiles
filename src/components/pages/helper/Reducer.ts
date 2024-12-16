@@ -1,4 +1,4 @@
-export default (state: object, action: any) => {
+export default (state, action) => {
   switch (action.type) {
     case "submit":
       return { ...state }
