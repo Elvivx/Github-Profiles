@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router"
 import { GitContext } from "../../context/contexts"
 import { useContext } from "react"
 import { motion } from "framer-motion"
+import { Bookmark } from "lucide-react"
 
 function ResultItem({ user, i }) {
   const { dispatch, userInfo } = useContext(GitContext)
@@ -16,16 +17,10 @@ function ResultItem({ user, i }) {
   return (
     // <Link to={`/profile`}>
 
-    <motion.div
-      // initial={{ y: "10%", opacity: 0, scale: 0.5 }}
-      // animate={{ y: 0, opacity: 1, scale: 1 }}
-      // transition={{ duration: 0.2, ease: "easeIn" }}
-      whileHover={{ scale: 1.05, borderRadius: 0 }}
-      className='result'
-      onClick={click}
-      id={user.login}>
+    <motion.div whileHover={{ scale: 1.05, borderRadius: 0 }} className='result' onClick={click} id={user.login}>
       <div className='img'>
         <img src={user.avatar_url} alt={user.login} />
+        <Bookmark />
       </div>
       <h1>{user.login}</h1>
     </motion.div>
