@@ -24,6 +24,13 @@ function UserItem() {
 
   // console.log(reposErrorMessage + " +" + starredErrorMessage)
 
+  // Variants for reusable animation configurations
+  const variants = {
+    initial: { x: "100%", opacity: 0, scale: 0.5 },
+    animate: { x: 0, opacity: 1, scale: 1 },
+    exit: { x: "-100%", opacity: 0, scale: 0.5 },
+  }
+
   return (
     <>
       <div className='item'>
@@ -64,26 +71,27 @@ function UserItem() {
             <button value='stats'>Stats</button>
           </div>
           <div className='nav-info'>
-            <AnimatePresence>
+            {/* <AnimatePresence>
               {loading && <Loader />}
 
               {!loading && nav === "repos" && reposErrorMessage && <Error error={reposErrorMessage} />}
 
               {!loading && nav === "starred" && starredErrorMessage && <Error error={starredErrorMessage} />}
 
-              {!loading &&
-                nav === "repos" &&
-                !reposErrorMessage &&
-                userRepos.map((repo, i) => (
-                  <motion.div
-                    key={repo.id}
-                    initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
-                    animate={{ x: 0, opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
-                    transition={{ delay: i * 0.2 }}>
-                    <UserRepos repo={repo} />
-                  </motion.div>
-                ))}
+              {!loading && nav === "repos" && !reposErrorMessage && (
+                <AnimatePresence>
+                  {userRepos.map((repo, i) => (
+                    <motion.div
+                      key={repo.id}
+                      initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
+                      animate={{ x: 0, opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.5 }}
+                      transition={{ delay: i * 0.2 }}>
+                      <UserRepos repo={repo} />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              )}
 
               {!loading && nav === "starred" && !starredErrorMessage && (
                 <AnimatePresence>
@@ -102,6 +110,56 @@ function UserItem() {
 
               {!loading && nav === "stats" && (
                 <motion.div initial={{ x: "90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }}>
+                  <UserStats name={user.login} />
+                </motion.div>
+              )}
+            </AnimatePresence> */}
+
+            <AnimatePresence mode='wait'>
+              {!loading && nav === "repos" && reposErrorMessage && (
+                <motion.div key='repos-error' {...variants}>
+                  <Error error={reposErrorMessage} />
+                </motion.div>
+              )}
+
+              {!loading && nav === "starred" && starredErrorMessage && (
+                <motion.div key='starred-error' {...variants}>
+                  <Error error={starredErrorMessage} />
+                </motion.div>
+              )}
+
+              {!loading && nav === "repos" && !reposErrorMessage && (
+                <motion.div key='repos-list' {...variants}>
+                  {userRepos.map((repo, i) => (
+                    <motion.div
+                      key={repo.id}
+                      initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
+                      animate={{ x: 0, opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.5 }}
+                      transition={{ delay: i * 0.2 }}>
+                      <UserRepos repo={repo} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {!loading && nav === "starred" && !starredErrorMessage && (
+                <motion.div key='starred-list' {...variants}>
+                  {userStarreds.map((star, i) => (
+                    <motion.div
+                      key={star.id}
+                      initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
+                      animate={{ x: 0, opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.5 }}
+                      transition={{ delay: i * 0.2 }}>
+                      <UserStarred key={star.id} star={star} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {!loading && nav === "stats" && (
+                <motion.div key='stats' {...variants}>
                   <UserStats name={user.login} />
                 </motion.div>
               )}
