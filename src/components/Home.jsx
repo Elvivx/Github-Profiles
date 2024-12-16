@@ -57,7 +57,7 @@ function Home() {
         <div className='theme' onClick={themeMode}>
           {theme == "dark" && (
             <svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'>
-              <rect fill='none' height='256' width='256' />
+              <rect fill='none' />
               <circle cx='128' cy='128' r='68' />
               <path d='M128,44a8,8,0,0,0,8-8V16a8,8,0,0,0-16,0V36A8,8,0,0,0,128,44Z' />
               <path d='M57.3,68.6a8.1,8.1,0,0,0,11.3,0,8,8,0,0,0,0-11.3L54.5,43.1A8.1,8.1,0,1,0,43.1,54.5Z' />
@@ -71,7 +71,7 @@ function Home() {
           )}
 
           {theme == "light" && (
-            <svg height='512' viewBox='0 0 512 512' width='512' xmlns='http://www.w3.org/2000/svg'>
+            <svg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'>
               <title />
               <path d='M264,480A232,232,0,0,1,32,248C32,154,86,69.72,169.61,33.33a16,16,0,0,1,21.06,21.06C181.07,76.43,176,104.66,176,136c0,110.28,89.72,200,200,200,31.34,0,59.57-5.07,81.61-14.67a16,16,0,0,1,21.06,21.06C442.28,426,358,480,264,480Z' />
             </svg>

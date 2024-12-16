@@ -1,6 +1,15 @@
 @import url("./Search.scss");
 @import url("./SearchResults.scss");
 @import url("./User.scss");
+:root[data-theme="light"] {
+  --background-color: #fff;
+  --text-color: #000;
+}
+
+:root[data-theme="dark"] {
+  --background-color: #0b192c;
+  --text-color: #fff;
+}
 section {
   max-width: 1000px;
   margin: auto;
@@ -13,13 +22,26 @@ section {
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
-    svg {
-      width: 50px;
-      height: 50px;
+    align-items: center;
+    .logoIcon {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      svg {
+        width: 50px;
+        height: 50px;
+      }
     }
     .theme {
-      border: 1px solid red;
+      border: 1px solid #ff6500;
       border-radius: 50%;
+      height: fit-content;
+      padding: 2px 4px;
+      svg {
+        width: 30px;
+        height: 30px !important;
+        transform: translatey(2px);
+      }
     }
   }
 }
