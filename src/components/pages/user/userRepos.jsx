@@ -5,7 +5,7 @@ import axios from "axios"
 import Error from "../helper/Error"
 
 function UserRepos({ repo, error }) {
-  console.log(error)
+  // console.log(error)
   const [commits, setCommits] = useState("")
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
@@ -13,7 +13,7 @@ function UserRepos({ repo, error }) {
   }
   useEffect(() => {
     if (error) return
-    getCommits()
+    // getCommits()
   }, [])
   return (
     <>

@@ -1,17 +1,49 @@
 import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
-import { useEffect } from "react"
-import { motion } from "framer-motion"
+import { useContext, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Error from "../helper/Error"
-import { Bookmark } from "lucide-react"
+// import { Bookmark } from "lucide-react"
 import UserStats from "./UserStats"
-function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispatch, reposErrorMessage, starredErrorMessage }) {
+import { GitContext } from "../../context/contexts"
+
+function UserItem() {
+  const {
+    state: { user, userStarreds, userRepos, nav, loading, reposErrorMessage, starredErrorMessage },
+    dispatch,
+    btnNavs,
+  } = useContext(GitContext)
+
   useEffect(() => {
     document.title = user.name || user.login
-    dispatch({ type: "nav", payload: "repos" })
+    if (nav !== "repos") {
+      dispatch({ type: "nav", payload: "repos" })
+    }
   }, [user])
+
   // console.log(reposErrorMessage, starredErrorMessage)
+  const Repo = () => {
+    if (!loading && !reposErrorMessage && nav == "repos") {
+      console.log(reposErrorMessage)
+    }
+    if (reposErrorMessage) console.log("err")
+    // !loading && nav === "repos" && (
+    return (
+      <>
+        {userRepos.map((repo, i) => (
+          <motion.div
+            key={repo.id}
+            initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ delay: i * 0.2 }}>
+            <UserRepos repo={repo} />
+          </motion.div>
+        ))}
+      </>
+    )
+  }
   return (
     <>
       <div className='item'>
@@ -52,31 +84,52 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispat
             <button value='stats'>Stats</button>
           </div>
           <div className='nav-info'>
-            {loading && <Loader />}
+            <AnimatePresence>
+              {loading && <Loader />}
 
-            {(!loading && nav == "repos" && reposErrorMessage == "") || undefined ? (
-              <Error error={reposErrorMessage} />
-            ) : (
+              {!loading && nav === "repos" && reposErrorMessage && <Error error={reposErrorMessage} />}
+
+              {!loading && nav === "starred" && starredErrorMessage && <Error error={starredErrorMessage} />}
+
+              {/* {!loading &&
+              nav === "repos" &&
+              reposErrorMessage == "" &&
               userRepos.map((repo, i) => (
                 <motion.div key={repo.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
                   <UserRepos key={repo.id} repo={repo} />
                 </motion.div>
-              ))
-            )}
+              ))} */}
 
-            {!loading &&
-              nav == "starred" &&
-              userStarreds.map((star, i) => (
-                <motion.div key={star.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
-                  <UserStarred key={star.id} star={star} />
+              {!loading &&
+                nav === "repos" &&
+                !reposErrorMessage &&
+                userRepos.map((repo, i) => (
+                  <motion.div
+                    key={repo.id}
+                    initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }}
+                    animate={{ x: 0, opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ delay: i * 0.2 }}>
+                    <UserRepos repo={repo} />
+                  </motion.div>
+                ))}
+
+              {/* <Repo />  */}
+              {!loading &&
+                nav == "starred" &&
+                !starredErrorMessage &&
+                userStarreds.map((star, i) => (
+                  <motion.div key={star.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
+                    <UserStarred key={star.id} star={star} />
+                  </motion.div>
+                ))}
+
+              {!loading && nav == "stats" && (
+                <motion.div initial={{ x: "90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }}>
+                  <UserStats name={user.login} />
                 </motion.div>
-              ))}
-
-            {!loading && nav == "stats" && (
-              <motion.div initial={{ x: "90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }}>
-                <UserStats name={user.login} />
-              </motion.div>
-            )}
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>

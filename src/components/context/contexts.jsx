@@ -35,7 +35,7 @@ export const GitContextProvider = ({ children }) => {
     theme: "",
     // api
     api_url: "https://api.github.com",
-    reposErrorMessage: "",
+    reposErrorMessage: "ef",
     starredErrorMessage: "",
     searchErrorMessage: "",
     // keys
@@ -90,7 +90,7 @@ export const GitContextProvider = ({ children }) => {
   const userRepo = async (info) => {
     // user Repositories
     try {
-      dispatch({ type: "repoError", payload: "" })
+      // dispatch({ type: "repoError", payload: "" })
       const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
 
       if (repos.data.length < 1) {
