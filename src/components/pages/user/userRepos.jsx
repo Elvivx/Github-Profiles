@@ -11,7 +11,7 @@ function UserRepos({ repo }) {
     setCommits(data.data)
   }
   useEffect(() => {
-    // getCommits()
+    getCommits()
   }, [])
   return (
     <>

@@ -1,10 +1,9 @@
 import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
-import Loader from "../helper/Loader"
+// import Loader from "../helper/Loader"
 import { useContext, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Error from "../helper/Error"
-// import { Bookmark } from "lucide-react"
 import UserStats from "./UserStats"
 import { GitContext } from "../../context/contexts"
 
