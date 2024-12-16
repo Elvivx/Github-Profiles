@@ -2,6 +2,7 @@ import { GitFork, GitCommit, GitBranch } from "lucide-react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import axios from "axios"
+import PropTypes from "prop-types"
 
 function UserRepos({ repo }) {
   const [commits, setCommits] = useState("")
@@ -45,5 +46,18 @@ function UserRepos({ repo }) {
       </motion.div>
     </>
   )
+}
+UserRepos.propTypes = {
+  repo: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    html_url: PropTypes.string.isRequired,
+    language: PropTypes.string,
+    updated_at: PropTypes.string.isRequired,
+    forks: PropTypes.number.isRequired,
+    default_branch: PropTypes.string.isRequired,
+    owner: PropTypes.shape({
+      login: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 export default UserRepos
