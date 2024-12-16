@@ -5,9 +5,8 @@ import { localStore } from "../helper/localStorage"
 
 function Recents({ clickRecent, recents }) {
   const { dispatch } = useContext(GitContext)
-  localStore()
+  // localStore()
   const remove = (id: string) => {
-    console.log(id)
     dispatch({ type: "removeRecentSearch", payload: id })
   }
   return (

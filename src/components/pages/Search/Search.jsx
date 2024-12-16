@@ -45,9 +45,7 @@ function Search() {
 
   // recents click function
   const clickRecent = (e) => {
-    console.log(e.target.id)
     dispatch({ type: "recentClick", payload: e.target.id })
-    // getUsers()
   }
 
   return (
