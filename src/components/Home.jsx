@@ -5,14 +5,6 @@ import useDeviceTheme from "./pages/helper/useDeviceTheme"
 import { motion } from "framer-motion"
 import { useContext, useEffect, useRef } from "react"
 
-// Variants for reusable animation configurations
-const variants = {
-  initial: { x: "100%", opacity: 0, scale: 0.5 },
-  animate: { x: 0, opacity: 1, scale: 1 },
-  exit: { x: "-100%", opacity: 0, scale: 0.5 },
-  transition: { type: "spring", duration: 0.3 },
-}
-
 function Home() {
   const {
     state: { theme },
@@ -40,7 +32,7 @@ function Home() {
   }
 
   return (
-    <motion.div>
+    <>
       <div className='logo'>
         <div className='logoIcon'>
           <svg enableBackground='new 0 0 212.4575 186.23' id='github' version='1.1' viewBox='0 0 212.4575 186.23' xmlns='http://www.w3.org/2000/svg'>
@@ -85,7 +77,7 @@ function Home() {
       </div>
       <Search />
       <Results />
-    </motion.div>
+    </>
   )
 }
 export default Home
