@@ -1,7 +1,7 @@
 import Search from "./pages/Search/Search"
 import Results from "./pages/Search/Results"
 import { GitContext } from "./context/contexts"
-import useDeviceTheme, { themer } from "./pages/helper/useDeviceTheme"
+import useDeviceTheme from "./pages/helper/useDeviceTheme"
 import { useContext, useEffect, useRef } from "react"
 
 function Home() {
@@ -15,9 +15,9 @@ function Home() {
   useEffect(() => {
     // if (theme !== "") return
     dispatch({ type: "theme", payload: appTheme })
-    app.classList.add(theme)
+    app.current.classList.add(appTheme)
   }, [])
-  // console.log(appTheme)
+
   const themeMode = () => {
     console.log(app.current.classList)
     if (theme === "light") {
