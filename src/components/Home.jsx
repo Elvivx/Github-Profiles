@@ -19,7 +19,6 @@ function Home() {
   }, [])
 
   const themeMode = () => {
-    console.log(app.current.classList)
     if (theme === "light") {
       app.current.classList.replace("dark", "light")
       dispatch({ type: "theme", payload: "dark" })

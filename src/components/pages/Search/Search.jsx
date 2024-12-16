@@ -16,7 +16,7 @@ function Search() {
   useEffect(() => {
     setInputFocus(false)
     if (recentSearches.length === 0) return
-    console.log(recentSearches.length === 0)
+
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
         if (recentSearches.length !== 0) {

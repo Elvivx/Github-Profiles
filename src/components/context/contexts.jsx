@@ -35,7 +35,7 @@ export const GitContextProvider = ({ children }) => {
     theme: "",
     // api
     api_url: "https://api.github.com",
-    reposErrorMessage: "ef",
+    reposErrorMessage: "",
     starredErrorMessage: "",
     searchErrorMessage: "",
     // keys
@@ -45,11 +45,6 @@ export const GitContextProvider = ({ children }) => {
   }
   const [state, dispatch] = useReducer(Reducer, initialStates)
 
-  // console.log(state)
-
-  // functions
-
-  // user
   const getUsers = async () => {
     try {
       dispatch({ type: "searchError", payload: "" })
@@ -70,7 +65,6 @@ export const GitContextProvider = ({ children }) => {
     }
   }
 
-  // user informations
   const userInfo = async (info) => {
     console.log(state.curUser)
     try {
@@ -86,11 +80,10 @@ export const GitContextProvider = ({ children }) => {
       console.log(error)
     }
   }
-  // respos function
+
   const userRepo = async (info) => {
-    // user Repositories
     try {
-      // dispatch({ type: "repoError", payload: "" })
+      dispatch({ type: "repoError", payload: "" })
       const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
 
       if (repos.data.length < 1) {
@@ -102,7 +95,7 @@ export const GitContextProvider = ({ children }) => {
       dispatch({ type: "repoError", payload: error.message })
     }
   }
-  // starred fucntion
+
   const userStarred = async (info) => {
     // user starred repositories
     try {
@@ -130,31 +123,11 @@ export const GitContextProvider = ({ children }) => {
     e.target.value == "starred" && dispatch({ type: "nav", payload: e.target.value })
     e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
   }
-  // button to go home or user
-  // const flipPage = (ans) => {
-  //   // nav && setPages(true)
-  //   setPages(ans)
-  //   dispatch({ type: "page" })
-  // }
-  // contexts exports
+
   const vals = {
-    // text,
-    // setText,
-    // users,
-    // setUsers,
-    // user,
-    // setUser,
-    // loading,
     getUsers,
     userInfo,
-    // userStarreds,
-    // userRepos,
-    // commits,
-    // setCommits,
-    // nav,
     btnNavs,
-    // page,
-    // flipPage,
     state,
     dispatch,
   }
