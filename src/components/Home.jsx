@@ -2,7 +2,6 @@ import Search from "./pages/Search/Search"
 import Results from "./pages/Search/Results"
 import { GitContext } from "./context/contexts"
 import useDeviceTheme from "./pages/helper/useDeviceTheme"
-import { motion } from "framer-motion"
 import { useContext, useEffect, useRef } from "react"
 
 function Home() {
