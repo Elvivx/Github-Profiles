@@ -23,6 +23,7 @@ export const GitContextProvider = ({ children }) => {
     theme: "",
     // // api
     // api_url: "https://api.github.com",
+    // errorMessages
     reposErrorMessage: "",
     starredErrorMessage: "",
     searchErrorMessage: "",
