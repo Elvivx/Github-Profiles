@@ -2,6 +2,14 @@
   background: #0b192c;
   .search {
     background-color: #1e3e62;
+    .recents {
+      background: #1e3e62;
+      .recent {
+        &:hover {
+          background: #053472;
+        }
+      }
+    }
   }
   .user {
     .btns {
@@ -50,6 +58,15 @@
     p,
     input::placeholder {
       color: #fff;
+    }
+    .recents {
+      background: #ffffff;
+      .recent {
+        color: #000;
+        &:hover {
+          background: #d9e7fa;
+        }
+      }
     }
   }
   .user {
