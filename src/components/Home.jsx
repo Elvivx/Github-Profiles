@@ -2,7 +2,7 @@ import Search from "./pages/Search/Search"
 import Results from "./pages/Search/Results"
 import { GitContext } from "./context/contexts"
 import useDeviceTheme from "./pages/helper/useDeviceTheme"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useRef } from "react"
 
 function Home() {
   const {
@@ -11,6 +11,7 @@ function Home() {
   } = useContext(GitContext)
 
   const appTheme = useDeviceTheme()
+  const app = useRef(document.querySelector(".main"))
   useEffect(() => {
     if (theme !== "") return
     dispatch({ type: "theme", payload: appTheme })
@@ -18,8 +19,16 @@ function Home() {
   }, [theme])
   // console.log(appTheme)
   const themeMode = () => {
-    theme === "light" && dispatch({ type: "theme", payload: "dark" })
-    theme === "dark" && dispatch({ type: "theme", payload: "light" })
+    console.log(app.current.classList)
+    if (theme === "light") {
+      app.current.classList.replace("dark", "light")
+      dispatch({ type: "theme", payload: "dark" })
+    }
+
+    if (theme === "dark") {
+      app.current.classList.replace("light", "dark")
+      dispatch({ type: "theme", payload: "light" })
+    }
   }
   return (
     <>

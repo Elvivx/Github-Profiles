@@ -3,11 +3,12 @@ import Home from "./components/Home"
 import "./assets/scss/App.scss"
 import { BrowserRouter, Routes, Route } from "react-router"
 import Profile from "./components/Profile"
+
 function App() {
   return (
     <GitContextProvider>
       <BrowserRouter>
-        <section className='main'>
+        <section className='main dark'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/profile' element={<Profile />} />
