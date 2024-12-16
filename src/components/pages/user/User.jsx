@@ -1,5 +1,3 @@
-import { useContext, useEffect } from "react"
-import { GitContext } from "../../context/contexts"
 import { StepBack } from "lucide-react"
 import UserItem from "./UserItem"
 import { useNavigate } from "react-router"
