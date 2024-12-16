@@ -3,6 +3,14 @@
   .search {
     background-color: #1e3e62;
   }
+  .user {
+    .btns {
+      span {
+        background: #ae445a;
+        color: #fff;
+      }
+    }
+  }
 }
 .light {
   background: #d9eafd;
@@ -21,8 +29,39 @@
       color: #fff;
     }
   }
+  .user {
+    .btns {
+      span {
+        background: #ff6500;
+        color: #fff;
+      }
+    }
+    .bottom {
+      .nav {
+        button {
+          color: #000;
+        }
+      }
+    }
+    .nav-info {
+      .info a {
+        h2 {
+          color: #ff6500 !important;
+        }
+        p {
+          color: #606060 !important;
+        }
+        .xtra span {
+          color: #000 !important;
+          svg {
+            color: #ff6500;
+          }
+        }
+      }
+    }
+  }
   .load {
-    border-color: #ff6500 !important;
-    border-bottom-color: transparent;
+    border: 3px solid #ff6500;
+    border-left: 3px solid transparent;
   }
 }
