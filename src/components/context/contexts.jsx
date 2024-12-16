@@ -54,19 +54,14 @@ export const GitContextProvider = ({ children }) => {
   }
 
   const userInfo = async (info) => {
-    console.log(state.curUser)
-    try {
-      dispatch({ type: "isLoading" })
-      const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
-      console.log(user)
-      dispatch({ type: "user", payload: user.data })
-      console.log(state.user)
-      await userRepo(info)
-      await userStarred(info)
-      dispatch({ type: "loaded" })
-    } catch (error) {
-      console.log(error)
-    }
+    dispatch({ type: "isLoading" })
+    const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
+    console.log(user)
+    dispatch({ type: "user", payload: user.data })
+    console.log(state.user)
+    await userRepo(info)
+    await userStarred(info)
+    dispatch({ type: "loaded" })
   }
 
   const userRepo = async (info) => {
@@ -79,13 +74,11 @@ export const GitContextProvider = ({ children }) => {
       }
       dispatch({ type: "repos", payload: repos.data })
     } catch (error) {
-      console.log(error)
       dispatch({ type: "repoError", payload: error.message })
     }
   }
 
   const userStarred = async (info) => {
-    // user starred repositories
     try {
       dispatch({ type: "starredError", payload: "" })
       const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
@@ -94,9 +87,7 @@ export const GitContextProvider = ({ children }) => {
         throw new Error("No Starred Repos Found")
       }
       dispatch({ type: "starred", payload: starred.data })
-      console.log(starred.data)
     } catch (error) {
-      console.log(error)
       dispatch({ type: "starredError", payload: error.message })
     }
   }
