@@ -8,7 +8,7 @@ function App() {
   return (
     <GitContextProvider>
       <BrowserRouter>
-        <section className='main dark'>
+        <section className='main'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/profile' element={<Profile />} />

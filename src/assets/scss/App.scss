@@ -2,6 +2,14 @@
 @import url("./SearchResults.scss");
 @import url("./User.scss");
 
+.dark {
+  background: #0b192c;
+}
+.light {
+  background: #cdc1ff;
+  color: #000;
+}
+
 section {
   max-width: 1000px;
   margin: auto;
