@@ -34,8 +34,6 @@ export default (state, action) => {
       return { ...state, storage: action.payload }
     case "removeRecentSearch":
       return { ...state, recentSearches: state.recentSearches.filter((item: string) => item !== action.payload) }
-    case "error":
-      return { ...state, errorMessage: action.payload }
     case "searchError":
       return { ...state, searchErrorMessage: action.payload }
     case "repoError":
