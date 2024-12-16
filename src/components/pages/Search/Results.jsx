@@ -6,17 +6,16 @@ import Loader from "../helper/Loader"
 import Error from "../helper/Error"
 function Results() {
   const {
-    state: { loading, users, errorMessage },
+    state: { loading, users, searchErrorMessage },
   } = useContext(GitContext)
-  console.log(errorMessage)
-  // if (!users.length) returns
+  console.log(searchErrorMessage)
 
   return (
     <>
       <div className='results'>
         {loading && <Loader />}
-        {errorMessage ? (
-          <Error errorMessage={errorMessage} />
+        {searchErrorMessage ? (
+          <Error errorMessage={searchErrorMessage} />
         ) : (
           users.map((user, index) => {
             return (

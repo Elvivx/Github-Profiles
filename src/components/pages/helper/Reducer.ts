@@ -36,5 +36,11 @@ export default (state: object, action: any) => {
       return { ...state, recentSearches: state.recentSearches.filter((item: string) => item !== action.payload) }
     case "error":
       return { ...state, errorMessage: action.payload }
+    case "searchError":
+      return { ...state, searchErrorMessage: action.payload }
+    case "repoError":
+      return { ...state, reposErrorMessage: action.payload }
+    case "starredError":
+      return { ...state, starredErrorMessage: action.payload }
   }
 }

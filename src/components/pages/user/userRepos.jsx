@@ -5,17 +5,19 @@ import axios from "axios"
 import Error from "../helper/Error"
 
 function UserRepos({ repo }) {
+  console.log(repo)
   const [commits, setCommits] = useState("")
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
     setCommits(data.data)
   }
   useEffect(() => {
+    if (repo.length < 1) return
     getCommits()
   }, [])
   return (
     <>
-      {!repo ? (
+      {repo.length < 1 ? (
         <Error />
       ) : (
         <motion.div className='info'>

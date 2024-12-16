@@ -35,7 +35,9 @@ export const GitContextProvider = ({ children }) => {
     theme: "",
     // api
     api_url: "https://api.github.com",
-    errorMessage: "",
+    reposErrorMessage: "",
+    starredErrorMessage: "",
+    searchErrorMessage: "",
     // keys
     cliente_id: import.meta.env.VITE_GITHUB_CLIENT_ID,
     cliente_secret: import.meta.env.VITE_GITHUB_CLIENT_SECRET,
@@ -50,7 +52,7 @@ export const GitContextProvider = ({ children }) => {
   // user
   const getUsers = async () => {
     try {
-      dispatch({ type: "error", payload: "" })
+      dispatch({ type: "searchError", payload: "" })
       dispatch({ type: "users", payload: [] })
       dispatch({ type: "isLoading" })
       const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
@@ -64,7 +66,7 @@ export const GitContextProvider = ({ children }) => {
       dispatch({ type: "loaded" })
     } catch (error) {
       dispatch({ type: "loaded" })
-      dispatch({ type: "error", payload: error.message })
+      dispatch({ type: "searchError", payload: error.message })
     }
   }
 
@@ -82,31 +84,39 @@ export const GitContextProvider = ({ children }) => {
       dispatch({ type: "loaded" })
     } catch (error) {
       console.log(error)
-      dispatch({ type: "error", payload: error.message })
     }
   }
   // respos function
   const userRepo = async (info) => {
     // user Repositories
     try {
+      dispatch({ type: "repoError", payload: "" })
       const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
-      // setUserRepos(repos.data)
+
+      if (repos.data.length < 1) {
+        throw new Error("No Repos Found")
+      }
       dispatch({ type: "repos", payload: repos.data })
     } catch (error) {
       console.log(error)
-      dispatch({ type: "error", payload: error.message })
+      dispatch({ type: "repoError", payload: error.message })
     }
   }
   // starred fucntion
   const userStarred = async (info) => {
     // user starred repositories
     try {
+      dispatch({ type: "starredError", payload: "" })
       const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
-      // setUserStarreds(starred.data)
+
+      if (starred.data.length < 1) {
+        throw new Error("No Starred Repos Found")
+      }
       dispatch({ type: "starred", payload: starred.data })
+      console.log(starred.data)
     } catch (error) {
       console.log(error)
-      dispatch({ type: "error", payload: error.message })
+      dispatch({ type: "starredError", payload: error.message })
     }
   }
 
