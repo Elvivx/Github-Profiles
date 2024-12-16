@@ -7,6 +7,6 @@ function Error({ error }) {
   )
 }
 export default Error
-Error.propType = {
+Error.propTypes = {
   error: PropTypes.string.isRequired,
 }

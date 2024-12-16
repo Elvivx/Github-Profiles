@@ -1,4 +1,5 @@
 import { GitFork, GitBranch } from "lucide-react"
+import PropTypes from "prop-types"
 function UserStarred({ star }) {
   return (
     <>
@@ -31,3 +32,13 @@ function UserStarred({ star }) {
   )
 }
 export default UserStarred
+UserStarred.propTypes = {
+  star: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    html_url: PropTypes.string.isRequired,
+    language: PropTypes.string,
+    updated_at: PropTypes.string.isRequired,
+    forks: PropTypes.number.isRequired,
+    default_branch: PropTypes.string.isRequired,
+  }).isRequired,
+}

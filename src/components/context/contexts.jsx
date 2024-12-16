@@ -1,22 +1,10 @@
 import axios from "axios"
 import { createContext, useReducer } from "react"
 import Reducer from "../pages/helper/Reducer"
-// import { userInfo, getUsers } from "../pages/helper/Api"
-// import { getUsers } from "../pages/helper/Api"
+import PropTypes from "prop-types"
+
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
-  // states
-  // const [page, setPages] = useState(true)
-  // const [text, setText] = useState("")
-  // const [users, setUsers] = useState("")
-  // const [user, setUser] = useState([])
-  // const [commits, setCommits] = useState("")
-  // const [userRepos, setUserRepos] = useState([])
-  // const [userStarreds, setUserStarreds] = useState([])
-  // const [userLangs, setUserLangs] = useState([])
-  // const [loading, setLoading] = useState(false)
-  // const [nav, setNav] = useState(true)
-
   // Reducer state
   const initialStates = {
     // states
@@ -133,4 +121,7 @@ export const GitContextProvider = ({ children }) => {
   }
 
   return <GitContext.Provider value={vals}>{children}</GitContext.Provider>
+}
+GitContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 }

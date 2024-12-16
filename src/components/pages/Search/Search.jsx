@@ -53,19 +53,12 @@ function Search() {
 
   return (
     <div className='search'>
-      <h1>Search for Profile 🙂</h1>
+      <h1>Search for Profile 🔍</h1>
       <p>Get the repository of your favorite developer..!</p>
       <div className='input'>
         <form onSubmit={submit}>
-          {/* Search Input */}
-          <input
-            ref={inputRef}
-            type='text'
-            placeholder='Search'
-            value={text}
-            onChange={change} // Update text state
-          />
-          {/* Submit Button */}
+          <input ref={inputRef} type='text' placeholder='Search' value={text} onChange={change} />
+
           <button type='submit'>
             <svg height='32' viewBox='0 0 512 512' width='32' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'>
               <title>Search</title>
@@ -78,9 +71,6 @@ function Search() {
         </form>
       </div>
       {inputFocus && <Recents recents={recentSearches} clickRecent={clickRecent} />}
-      {/* <button id='elvivx' onClick={clickRecent}>
-        elvivx
-      </button> */}
     </div>
   )
 }
