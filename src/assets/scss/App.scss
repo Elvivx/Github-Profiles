@@ -1,15 +1,7 @@
 @import url("./Search.scss");
 @import url("./SearchResults.scss");
 @import url("./User.scss");
-:root[data-theme="light"] {
-  --background-color: #fff;
-  --text-color: #000;
-}
 
-:root[data-theme="dark"] {
-  --background-color: #0b192c;
-  --text-color: #fff;
-}
 section {
   max-width: 1000px;
   margin: auto;
@@ -41,6 +33,7 @@ section {
         width: 30px;
         height: 30px !important;
         transform: translatey(2px);
+        fill: #ae445a;
       }
     }
   }

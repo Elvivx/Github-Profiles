@@ -9,7 +9,7 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispat
   useEffect(() => {
     document.title = user.name || user.login
     dispatch({ type: "nav", payload: "repos" })
-  }, [])
+  }, [user])
   console.log(nav)
   return (
     <>
