@@ -15,15 +15,17 @@ function Results() {
     <>
       <div className='results'>
         {loading && <Loader />}
-        {errorMessage && <Error errorMessage={errorMessage} />}
-        {errorMessage !== "" &&
+        {errorMessage ? (
+          <Error errorMessage={errorMessage} />
+        ) : (
           users.map((user, index) => {
             return (
               <motion.div key={index} initial={{ y: index % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ y: 0, opacity: 1, scale: 1 }} transition={{ delay: index * 0.2 }}>
                 <ResultItem user={user} i={index} />
               </motion.div>
             )
-          })}
+          })
+        )}
       </div>
     </>
   )

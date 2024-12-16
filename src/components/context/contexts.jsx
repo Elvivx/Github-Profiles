@@ -50,15 +50,21 @@ export const GitContextProvider = ({ children }) => {
   // user
   const getUsers = async () => {
     try {
+      dispatch({ type: "error", payload: "" })
+      dispatch({ type: "users", payload: [] })
       dispatch({ type: "isLoading" })
       const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
+
+      if (user.data.items.length < 1) {
+        throw new Error("No User with username")
+      }
+
       dispatch({ type: "users", payload: user.data.items })
       dispatch({ type: "typing", payload: "" })
       dispatch({ type: "loaded" })
     } catch (error) {
       dispatch({ type: "loaded" })
       dispatch({ type: "error", payload: error.message })
-      console.log(error.message)
     }
   }
 
@@ -66,11 +72,8 @@ export const GitContextProvider = ({ children }) => {
   const userInfo = async (info) => {
     console.log(state.curUser)
     try {
-      // setLoading(true)
       dispatch({ type: "isLoading" })
       const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
-
-      // setUser(user.data)
       console.log(user)
       dispatch({ type: "user", payload: user.data })
       console.log(state.user)
