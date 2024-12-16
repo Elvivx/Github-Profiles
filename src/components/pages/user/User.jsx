@@ -13,7 +13,7 @@ function User() {
   useEffect(() => {
     // if (user.length == 0) navigate(`/`)
   }, [])
-  console.log(commits)
+  // console.log(commits)
   const navigate = useNavigate()
   const back = () => {
     navigate(`/`)

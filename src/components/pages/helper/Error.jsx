@@ -1,7 +1,7 @@
-function Error({ errorMessage }) {
+function Error({ error }) {
   return (
     <>
-      <h1 className='error'>⛔{errorMessage}</h1>
+      <h1 className='error'>⛔{error}</h1>
     </>
   )
 }

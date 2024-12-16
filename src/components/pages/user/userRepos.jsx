@@ -4,20 +4,20 @@ import { motion } from "framer-motion"
 import axios from "axios"
 import Error from "../helper/Error"
 
-function UserRepos({ repo }) {
-  console.log(repo)
+function UserRepos({ repo, error }) {
+  console.log(error)
   const [commits, setCommits] = useState("")
   const getCommits = async () => {
     const data = await axios.get(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`)
     setCommits(data.data)
   }
   useEffect(() => {
-    if (repo.length < 1) return
+    if (error) return
     getCommits()
   }, [])
   return (
     <>
-      {repo.length < 1 ? (
+      {error ? (
         <Error />
       ) : (
         <motion.div className='info'>

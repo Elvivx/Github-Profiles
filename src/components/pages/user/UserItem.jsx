@@ -3,14 +3,15 @@ import UserStarred from "./userStarred"
 import Loader from "../helper/Loader"
 import { useEffect } from "react"
 import { motion } from "framer-motion"
+import Error from "../helper/Error"
 import { Bookmark } from "lucide-react"
 import UserStats from "./UserStats"
-function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispatch }) {
+function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispatch, reposErrorMessage, starredErrorMessage }) {
   useEffect(() => {
     document.title = user.name || user.login
     dispatch({ type: "nav", payload: "repos" })
   }, [user])
-  console.log(nav)
+  // console.log(reposErrorMessage, starredErrorMessage)
   return (
     <>
       <div className='item'>
@@ -53,13 +54,15 @@ function UserItem({ user, userStarreds, userRepos, nav, btnNavs, loading, dispat
           <div className='nav-info'>
             {loading && <Loader />}
 
-            {!loading &&
-              nav == "repos" &&
+            {(!loading && nav == "repos" && reposErrorMessage == "") || undefined ? (
+              <Error error={reposErrorMessage} />
+            ) : (
               userRepos.map((repo, i) => (
                 <motion.div key={repo.id} initial={{ x: i % 2 ? "90%" : "-90%", opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }}>
-                  <UserRepos repo={repo} />
+                  <UserRepos key={repo.id} repo={repo} />
                 </motion.div>
-              ))}
+              ))
+            )}
 
             {!loading &&
               nav == "starred" &&

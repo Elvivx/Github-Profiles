@@ -1,11 +1,8 @@
 import { GitFork, GitBranch } from "lucide-react"
-import Error from "../helper/Error"
 function UserStarred({ star }) {
   return (
     <>
-      {!star ? (
-        <Error />
-      ) : (
+      {
         <div className='info'>
           <a href={star.html_url}>
             <h2>{star.name}</h2>
@@ -29,7 +26,7 @@ function UserStarred({ star }) {
             </div>
           </a>
         </div>
-      )}
+      }
     </>
   )
 }
