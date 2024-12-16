@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createContext, useReducer, useState } from "react"
+import { createContext, useReducer } from "react"
 import Reducer from "../pages/helper/Reducer"
 // import { userInfo, getUsers } from "../pages/helper/Api"
 // import { getUsers } from "../pages/helper/Api"
@@ -35,6 +35,7 @@ export const GitContextProvider = ({ children }) => {
     theme: "",
     // api
     api_url: "https://api.github.com",
+    errorMessage: "",
     // keys
     cliente_id: import.meta.env.VITE_GITHUB_CLIENT_ID,
     cliente_secret: import.meta.env.VITE_GITHUB_CLIENT_SECRET,
@@ -48,11 +49,17 @@ export const GitContextProvider = ({ children }) => {
 
   // user
   const getUsers = async () => {
-    dispatch({ type: "isLoading" })
-    const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
-    dispatch({ type: "users", payload: user.data.items })
-    dispatch({ type: "typing", payload: "" })
-    dispatch({ type: "loaded" })
+    try {
+      dispatch({ type: "isLoading" })
+      const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
+      dispatch({ type: "users", payload: user.data.items })
+      dispatch({ type: "typing", payload: "" })
+      dispatch({ type: "loaded" })
+    } catch (error) {
+      dispatch({ type: "loaded" })
+      dispatch({ type: "error", payload: error.message })
+      console.log(error.message)
+    }
   }
 
   // user informations
@@ -111,11 +118,11 @@ export const GitContextProvider = ({ children }) => {
     e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
   }
   // button to go home or user
-  const flipPage = (ans) => {
-    // nav && setPages(true)
-    setPages(ans)
-    dispatch({ type: "page" })
-  }
+  // const flipPage = (ans) => {
+  //   // nav && setPages(true)
+  //   setPages(ans)
+  //   dispatch({ type: "page" })
+  // }
   // contexts exports
   const vals = {
     // text,

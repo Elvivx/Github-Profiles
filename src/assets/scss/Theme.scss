@@ -10,6 +10,29 @@
         color: #fff;
       }
     }
+    .bottom {
+      .nav {
+        button {
+          color: #fff;
+        }
+      }
+    }
+    .nav-info {
+      .info a {
+        h2 {
+          color: #ae445a !important;
+        }
+        p {
+          color: #a5a5a5 !important;
+        }
+        .xtra span {
+          color: #fff !important;
+          svg {
+            color: #ae445a;
+          }
+        }
+      }
+    }
   }
 }
 .light {
