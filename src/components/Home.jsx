@@ -11,7 +11,7 @@ function Home() {
   } = useContext(GitContext)
 
   const appTheme = useDeviceTheme()
-  const app = useRef(document.querySelector("#root"))
+  const app = useRef(document.querySelector("body"))
   useEffect(() => {
     if (theme !== "") return
     dispatch({ type: "theme", payload: appTheme })
