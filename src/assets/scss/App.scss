@@ -1,33 +1,10 @@
 @import url("./Search.scss");
 @import url("./SearchResults.scss");
 @import url("./User.scss");
+@import url("./Theme.scss");
 
 #root {
   transition: all 0.2s ease-in-out;
-}
-.dark {
-  background: #0b192c;
-  .search {
-    background-color: #1e3e62;
-  }
-}
-.light {
-  background: #d9eafd;
-  color: #000;
-  .theme {
-    border-bottom: 2px solid #ff6500 !important;
-    svg {
-      fill: #ff6500 !important;
-    }
-  }
-  .search {
-    background-color: #a294f9;
-    h1,
-    p,
-    input::placeholder {
-      color: #fff;
-    }
-  }
 }
 
 section {
