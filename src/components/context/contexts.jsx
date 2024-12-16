@@ -56,9 +56,7 @@ export const GitContextProvider = ({ children }) => {
   const userInfo = async (info) => {
     dispatch({ type: "isLoading" })
     const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
-    console.log(user)
     dispatch({ type: "user", payload: user.data })
-    console.log(state.user)
     await userRepo(info)
     await userStarred(info)
     dispatch({ type: "loaded" })
