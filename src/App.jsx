@@ -1,29 +1,3 @@
-// import { GitContextProvider } from "./components/context/contexts"
-// import Home from "./components/Home"
-// import "./assets/scss/App.scss"
-// import { BrowserRouter, Routes, Route } from "react-router"
-// import Profile from "./components/Profile"
-// import { AnimatePresence } from "framer-motion"
-
-// function App() {
-//   return (
-//     <GitContextProvider>
-//       <AnimatePresence mode='popLayout'>
-//         <BrowserRouter>
-//           <section className='main'>
-//             <Routes>
-//               <Route path='/' element={<Home key='home' />} />
-//               <Route path='/profile' element={<Profile key='profile' />} />
-//             </Routes>
-//           </section>
-//         </BrowserRouter>
-//       </AnimatePresence>
-//     </GitContextProvider>
-//   )
-// }
-
-// export default App
-
 import { GitContextProvider } from "./components/context/contexts"
 import Home from "./components/Home"
 import "./assets/scss/App.scss"
