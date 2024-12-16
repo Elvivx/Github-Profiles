@@ -25,14 +25,15 @@ section {
       }
     }
     .theme {
-      border: 1px solid #ff6500;
-      border-radius: 50%;
+      // border: 1px solid #ff6500;
+      // border-radius: 50%;
+      border-bottom: 2px solid #ae445a;
       height: fit-content;
       padding: 2px 4px;
       svg {
-        width: 30px;
-        height: 30px !important;
-        transform: translatey(2px);
+        width: 25px;
+        height: 25px !important;
+        // transform: translatey(2px);
         fill: #ae445a;
       }
     }

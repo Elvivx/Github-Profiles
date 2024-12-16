@@ -15,7 +15,7 @@ function Home() {
     if (theme !== "") return
     dispatch({ type: "theme", payload: appTheme })
     console.log(appTheme + "fit")
-  }, [])
+  }, [theme])
   // console.log(appTheme)
   const themeMode = () => {
     theme === "light" && dispatch({ type: "theme", payload: "dark" })
