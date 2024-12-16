@@ -14,20 +14,23 @@ function Search() {
 
   // focus effect
   useEffect(() => {
+    setInputFocus(false)
+    if (recentSearches.length === 0) return
+    console.log(recentSearches.length === 0)
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
-        if (recentSearches.length !== 0) setInputFocus(true)
+        if (recentSearches.length !== 0) {
+          setInputFocus(true)
+        }
       } else {
         setInputFocus(false)
       }
     }
-
     document.addEventListener("click", checkFocus)
-
     return () => {
       document.removeEventListener("click", checkFocus)
     }
-  }, [text])
+  }, [text, recentSearches])
 
   // Handle input change
   const change = (e) => {
