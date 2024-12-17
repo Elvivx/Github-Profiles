@@ -33,12 +33,10 @@ function Search() {
     }
   }, [text, recentSearches])
 
-  // Handle input change
   const change = (e) => {
     dispatch({ type: "typing", payload: e.target.value })
   }
 
-  // Handle form submission
   const submit = (e) => {
     e.preventDefault()
     if (text.trim()) {
@@ -46,16 +44,15 @@ function Search() {
       getUsers()
     }
   }
+
   const clear = () => {
     setRecent([])
-    console.log("gi")
+    dispatch({ type: "clearSavedSearch" })
   }
   //set recent if there is recent content
   useEffect(() => {
     if (recentSearches.length !== 0) {
-      console.log(recentSearches)
       setRecent(recentSearches)
-      console.log("reloade")
     }
   }, [recent, recentSearches])
 
@@ -67,7 +64,6 @@ function Search() {
     }
   }, [])
 
-  // recents click function
   const clickRecent = (e) => {
     dispatch({ type: "recentClick", payload: e.target.id })
   }
