@@ -11,7 +11,7 @@ function Recents({ clickRecent, recents }) {
   return (
     <div className='recents'>
       <button>Clear All</button>
-      <div>
+      <div className='recent-btns'>
         {recents.map((item: string) => (
           <div className='recent' key={item}>
             <div className='recent-left' onClick={clickRecent} id={item}>

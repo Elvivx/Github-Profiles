@@ -45,32 +45,34 @@
     margin-top: 10px;
     border-radius: 10px;
     cursor: default;
-    display: flex;
-    flex-direction: column-reverse;
-    .recent {
-      padding: 7px 10px;
-      color: #d7d7d7;
-      position: relative;
+    .recent-btns {
+      display: flex;
+      flex-direction: column-reverse;
+      .recent {
+        padding: 7px 10px;
+        color: #d7d7d7;
+        position: relative;
 
-      .recent-left {
-        display: flex;
-        gap: 10px;
-        svg {
-          fill: transparent;
-          circle,
-          polyline {
-            stroke: #ff6500;
+        .recent-left {
+          display: flex;
+          gap: 10px;
+          svg {
+            fill: transparent;
+            circle,
+            polyline {
+              stroke: #ff6500;
+            }
           }
         }
-      }
-      .x {
-        z-index: 4;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        cursor: pointer;
-        svg path {
-          fill: #ff6500;
+        .x {
+          z-index: 4;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
+          svg path {
+            fill: #ff6500;
+          }
         }
       }
     }
