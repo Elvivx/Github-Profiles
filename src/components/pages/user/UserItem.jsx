@@ -38,7 +38,7 @@ function UserItem() {
             <img src={user.avatar_url} alt={user.login} />
           </div>
           <h1>
-            <a href='#' target='_blank' rel='noopener noreferrer'>
+            <a href={user.html_url} target='_blank' rel='noopener noreferrer'>
               {user.name || "N/A"} {<LinkIcon />}
             </a>
           </h1>
