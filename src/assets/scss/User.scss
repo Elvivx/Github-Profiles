@@ -16,6 +16,10 @@
     .top {
       h1 a {
         text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
         svg {
           width: 20px;
           height: 20px;
