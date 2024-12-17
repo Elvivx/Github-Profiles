@@ -16,7 +16,7 @@ function UserRepos({ repo }) {
   return (
     <>
       <motion.div className='info'>
-        <a href={repo.html_url} target='blank'>
+        <a href={repo.html_url} target='_blank'>
           <h2>{repo.name}</h2>
           <p>
             <strong>{repo.language || "N/A"}</strong>

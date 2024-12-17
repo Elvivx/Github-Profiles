@@ -5,7 +5,7 @@ function UserStarred({ star }) {
     <>
       {
         <div className='info'>
-          <a href={star.html_url}>
+          <a href={star.html_url} target='_blank'>
             <h2>{star.name}</h2>
             <p>
               <strong>{star.language || "N/A"}</strong>
