@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Error from "../helper/Error"
 import UserStats from "./UserStats"
 import { GitContext } from "../../context/contexts"
+import { LinkIcon } from "lucide-react"
 
 // Variants for reusable animation configurations
 const variants = {
@@ -36,7 +37,10 @@ function UserItem() {
           <div className='img'>
             <img src={user.avatar_url} alt={user.login} />
           </div>
-          <h1>{user.name || "N/A"}</h1>
+          <h1>
+            {user.name || "N/A"}
+            {<LinkIcon />}
+          </h1>
           <p>
             <strong>Location: </strong>
             {user.location || "N/A"}
