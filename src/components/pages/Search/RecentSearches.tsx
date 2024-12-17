@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { Clock, X } from "lucide-react"
 import { GitContext } from "../../context/contexts"
 
-function Recents({ clickRecent, recents }) {
+function Recents({ clickRecent, recents, clear }) {
   const { dispatch } = useContext(GitContext)
 
   const remove = (id: string) => {
@@ -10,7 +10,7 @@ function Recents({ clickRecent, recents }) {
   }
   return (
     <div className='recents'>
-      <button>Clear All</button>
+      <button onClick={clear}>Clear All</button>
       <div className='recent-btns'>
         {recents.map((item: string) => (
           <div className='recent' key={item}>

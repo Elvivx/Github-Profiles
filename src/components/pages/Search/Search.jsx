@@ -46,11 +46,16 @@ function Search() {
       getUsers()
     }
   }
-
+  const clear = () => {
+    setRecent([])
+    console.log("gi")
+  }
   //set recent if there is recent content
   useEffect(() => {
     if (recentSearches.length !== 0) {
+      console.log(recentSearches)
       setRecent(recentSearches)
+      console.log("reloade")
     }
   }, [recent, recentSearches])
 
@@ -58,6 +63,7 @@ function Search() {
   useEffect(() => {
     if (recentSearches.length === 0) {
       dispatch({ type: "savedSearches", payload: recent })
+      console.log("once")
     }
   }, [])
 
@@ -85,7 +91,7 @@ function Search() {
           </button>
         </form>
       </div>
-      {inputFocus && <Recents recents={recentSearches} clickRecent={clickRecent} />}
+      {inputFocus && <Recents recents={recentSearches} clickRecent={clickRecent} clear={clear} />}
     </div>
   )
 }

@@ -8,6 +8,8 @@ export default (state, action) => {
       return { ...state, recentSearches: action.payload }
     case "searches":
       return state.recentSearches.includes(state.text) ? { ...state } : { ...state, recentSearches: [...state.recentSearches, state.text] }
+    case "clearSaved":
+      return { ...state, recentSearches: [] }
     case "recentClick":
       return { ...state, text: action.payload }
     case "user":
