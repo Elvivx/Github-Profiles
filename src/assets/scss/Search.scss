@@ -1,12 +1,12 @@
 .search {
   max-height: 240px;
-  text-align: center;
   border: 2px solid #ff6500;
   padding: 30px;
   border-radius: 20px;
   transition: all 0.3s ease;
   h1,
   p {
+    text-align: center;
     margin: 0;
     margin-bottom: 20px;
   }
@@ -83,7 +83,9 @@
       font-size: 1.1rem;
       color: orange;
       cursor: pointer;
-      display: flex;
+      text-align: end;
+      display: block;
+      margin: 5px 10px 5px auto;
     }
   }
 }
