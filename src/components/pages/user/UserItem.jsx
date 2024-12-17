@@ -38,8 +38,7 @@ function UserItem() {
             <img src={user.avatar_url} alt={user.login} />
           </div>
           <h1>
-            {user.name || "N/A"}
-            {<LinkIcon />}
+            {user.name || "N/A"} {<LinkIcon />}
           </h1>
           <p>
             <strong>Location: </strong>
