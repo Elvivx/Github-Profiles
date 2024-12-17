@@ -11,19 +11,21 @@ function Recents({ clickRecent, recents }) {
   return (
     <div className='recents'>
       <button>Clear All</button>
-      {recents.map((item: string) => (
-        <div className='recent' key={item}>
-          <div className='recent-left' onClick={clickRecent} id={item}>
-            <div className='recent-icon'>
-              <Clock />
+      <div>
+        {recents.map((item: string) => (
+          <div className='recent' key={item}>
+            <div className='recent-left' onClick={clickRecent} id={item}>
+              <div className='recent-icon'>
+                <Clock />
+              </div>
+              <div className='recent-text'>{item}</div>
             </div>
-            <div className='recent-text'>{item}</div>
+            <div className='x' onClick={() => remove(item)}>
+              <X />
+            </div>
           </div>
-          <div className='x' onClick={() => remove(item)}>
-            <X />
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
