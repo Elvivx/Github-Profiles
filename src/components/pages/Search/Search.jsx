@@ -18,7 +18,6 @@ function Search() {
   useEffect(() => {
     setInputFocus(false)
     if (recentSearches.length === 0) return
-
     const checkFocus = () => {
       if (inputRef.current === document.activeElement) {
         if (recentSearches.length !== 0) {
@@ -47,10 +46,21 @@ function Search() {
       getUsers()
     }
   }
+
+  //set recent if there is recent content
   useEffect(() => {
-    setRecent(recentSearches)
-    console.log(recent)
-  }, [recentSearches])
+    if (recentSearches.length !== 0) {
+      setRecent(recentSearches)
+    }
+  }, [recent, recentSearches])
+
+  // set recentSearches on load from localStorage
+  useEffect(() => {
+    if (recentSearches.length === 0) {
+      dispatch({ type: "savedSearches", payload: recent })
+      console.log(recent)
+    }
+  }, [])
 
   // recents click function
   const clickRecent = (e) => {

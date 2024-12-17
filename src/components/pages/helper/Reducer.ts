@@ -4,6 +4,8 @@ export default (state, action) => {
       return { ...state }
     case "typing":
       return { ...state, text: action.payload }
+    case "savedSearches":
+      return { ...state, recentSearches: action.payload }
     case "searches":
       return state.recentSearches.includes(state.text) ? { ...state } : { ...state, recentSearches: [...state.recentSearches, state.text] }
     case "recentClick":

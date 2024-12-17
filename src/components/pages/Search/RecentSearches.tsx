@@ -8,12 +8,12 @@ function Recents({ clickRecent, recents }) {
     state: { recentSearches },
     dispatch,
   } = useContext(GitContext)
-  const [recent, setRecent] = useLocalStorage("recentSearch", [])
+  // const [recent, setRecent] = useLocalStorage("recentSearch", [])
 
-  useEffect(() => {
-    setRecent(recentSearches)
-    console.log(recent)
-  }, [recentSearches])
+  // useEffect(() => {
+  //   setRecent(recentSearches)
+  //   console.log(recent)
+  // }, [recentSearches])
 
   const remove = (id: string) => {
     dispatch({ type: "removeRecentSearch", payload: id })
