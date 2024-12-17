@@ -2,6 +2,7 @@ import axios from "axios"
 import { createContext, useReducer } from "react"
 import Reducer from "../pages/helper/Reducer"
 import PropTypes from "prop-types"
+import apiCalls from "../pages/helper/Api"
 
 export const GitContext = createContext()
 export const GitContextProvider = ({ children }) => {
