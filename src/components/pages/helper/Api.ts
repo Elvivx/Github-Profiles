@@ -4,6 +4,7 @@ import axios from "axios"
 
 console.log(GitContext)
 console.log(axios.create({ baseURL: `https://api.github.com`, headers: { Authorization: `Bearer ${import.meta.env.VITE_GITHUB_CLIENT_ID}` } }))
+
 const { dispatch } = useContext(GitContext)
 
 const getUsers = async () => {
@@ -62,3 +63,5 @@ const userStarred = async (info) => {
     dispatch({ type: "starredError", payload: error.message })
   }
 }
+
+export { getUsers, userInfo }
