@@ -5,20 +5,20 @@ import { GitContext } from "../../context/contexts"
 //   state: { recentSearches },
 // } = useContext(GitContext)
 
-function useLocalStorage(key: string, item) {
+function useLocalStorage(key: string, initialValue) {
   const [value, setValue] = useState(() => {
     const stored = localStorage.getItem(key)
     if (stored) {
       return JSON.parse(stored)
     }
-    return item
+    return initialValue
   })
 
   useEffect(() => {
     // const store = localStorage.setItem("recentSearches", recentSearches)
     localStorage.setItem(key, JSON.stringify(value))
-  }, [key, item])
+  }, [key, value])
 
-  return value
+  return [value, setValue]
 }
 export default useLocalStorage
