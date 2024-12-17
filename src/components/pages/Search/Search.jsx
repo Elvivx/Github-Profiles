@@ -58,7 +58,6 @@ function Search() {
   useEffect(() => {
     if (recentSearches.length === 0) {
       dispatch({ type: "savedSearches", payload: recent })
-      console.log(recent)
     }
   }, [])
 
