@@ -1,16 +1,16 @@
 import React, { useContext, useEffect } from "react"
 import { Clock, X } from "lucide-react"
 import { GitContext } from "../../context/contexts"
-import { useLocalStorage } from "../helper/localStorage"
+import useLocalStorage from "../helper/localStorage"
 
 function Recents({ clickRecent, recents }) {
   const {
     state: { recentSearches },
     dispatch,
   } = useContext(GitContext)
+  const [value, setValue] = useLocalStorage("recentSearch", recentSearches)
 
   useEffect(() => {
-    const [value, setValue] = useLocalStorage("recentSearch", recentSearches)
     // setValue(recentSearches)
     console.log(value)
   }, [recentSearches])
