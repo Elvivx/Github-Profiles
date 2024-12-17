@@ -1,6 +1,7 @@
 import { useContext, useRef, useEffect, useState } from "react"
 import { GitContext } from "../../context/contexts"
 import Recents from "./RecentSearches"
+import useLocalStorage from "../helper/localStorage"
 
 function Search() {
   const {
@@ -8,6 +9,7 @@ function Search() {
     dispatch,
     getUsers,
   } = useContext(GitContext)
+  const [recent, setRecent] = useLocalStorage("recentSearch", [])
 
   const inputRef = useRef(null)
   const [inputFocus, setInputFocus] = useState(false)
@@ -45,6 +47,10 @@ function Search() {
       getUsers()
     }
   }
+  useEffect(() => {
+    setRecent(recentSearches)
+    console.log(recent)
+  }, [recentSearches])
 
   // recents click function
   const clickRecent = (e) => {
