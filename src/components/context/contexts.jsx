@@ -31,7 +31,6 @@ export const GitContextProvider = ({ children }) => {
     limite_repositorios: 10,
   }
 
-  console.log(axios.create({ baseURL: `https://api.github.com`, headers: { Authorization: `Bearer ${import.meta.env.VITE_GITHUB_CLIENT_ID}` } }))
   const [state, dispatch] = useReducer(Reducer, initialStates)
 
   const getUsers = async () => {
