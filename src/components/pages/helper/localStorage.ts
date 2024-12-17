@@ -1,12 +1,25 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { GitContext } from "../../context/contexts"
 
-export function localStore() {
-  const {
-    state: { recentSearches },
-  } = useContext(GitContext)
+export function useLocalStorage(key: string, item) {
+  // const {
+  //   state: { recentSearches },
+  // } = useContext(GitContext)
 
-  const store = localStorage.setItem("recentSearches", recentSearches)
+  const [value, setValue] = useState(() => {
+    const stored = localStorage.getItem(key)
+    if (stored) {
+      return JSON.parse(stored)
+    }
+    return item
+  })
 
-  const storeVal = window.localStorage.getItem("recentSearches")
+  useEffect(() => {
+    // const store = localStorage.setItem("recentSearches", recentSearches)
+    localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value])
+
+  return [value, setValue]
+  // const storeVal = localStorage.getItem("recentSearches")
+  // console.log(storeVal)
 }
