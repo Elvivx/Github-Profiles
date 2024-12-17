@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { Clock, X } from "lucide-react"
 import { GitContext } from "../../context/contexts"
-import useLocalStorage from "../helper/localStorage"
 
 function Recents({ clickRecent, recents }) {
-  const {
-    state: { recentSearches },
-    dispatch,
-  } = useContext(GitContext)
+  const { dispatch } = useContext(GitContext)
 
   const remove = (id: string) => {
     dispatch({ type: "removeRecentSearch", payload: id })
