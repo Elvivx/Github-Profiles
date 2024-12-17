@@ -38,7 +38,9 @@ function UserItem() {
             <img src={user.avatar_url} alt={user.login} />
           </div>
           <h1>
-            {user.name || "N/A"} {<LinkIcon />}
+            <a href='#' target='_blank' rel='noopener noreferrer'>
+              {user.name || "N/A"} {<LinkIcon />}
+            </a>
           </h1>
           <p>
             <strong>Location: </strong>
