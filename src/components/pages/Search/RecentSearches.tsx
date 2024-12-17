@@ -11,7 +11,7 @@ function Recents({ clickRecent, recents }) {
 
   useEffect(() => {
     const [value, setValue] = useLocalStorage("recentSearch", recentSearches)
-    setValue(recentSearches)
+    // setValue(recentSearches)
     console.log(value)
   }, [recentSearches])
 
