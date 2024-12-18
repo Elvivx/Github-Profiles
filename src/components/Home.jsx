@@ -11,16 +11,14 @@ function Home() {
   } = useContext(GitContext)
 
   const appTheme = useDeviceTheme()
-  console.log(appTheme)
   const app = useRef(document.querySelector("body"))
 
   useEffect(() => {
     dispatch({ type: "theme", payload: appTheme })
     app.current.classList.add(appTheme)
-  }, [appTheme])
+  }, [])
 
   const themeMode = () => {
-    console.warn("shit")
     if (theme === "light") {
       app.current.classList.replace("dark", "light")
       dispatch({ type: "theme", payload: "dark" })
