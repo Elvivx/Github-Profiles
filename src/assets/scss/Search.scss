@@ -38,7 +38,8 @@
     }
   }
   .recents {
-    position: relative;
+    position: absolute;
+    width: 90%;
     border: 1px solid #ff6500;
     padding: 10px 0;
     margin-top: 10px;
