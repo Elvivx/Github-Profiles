@@ -10,11 +10,13 @@
     display: none;
   }
   .result {
+    position: relative;
     border: 2px solid #ff6500;
     border-radius: 20px;
     padding: 30px;
     transition: all 0.2s ease-in-out;
     height: fit-content;
+    z-index: 1;
     &:hover {
       box-shadow: 0 0 5px 10px rgba(255, 0, 0, 0.245);
     }
