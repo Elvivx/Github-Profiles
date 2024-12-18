@@ -69,7 +69,6 @@ section {
   margin: auto !important;
   padding: 20px;
   text-align: center;
-  border: 2px solid red;
   font-size: 1.2rem;
   width: 500px;
   height: 500px;
@@ -81,7 +80,9 @@ section {
   button {
     display: block;
     margin: 10px auto;
+    cursor: pointer;
     border: 2px solid #ae445a;
+    border-radius: 10px !important;
     outline: 0;
     font-size: 1.2rem;
     background: 0;
