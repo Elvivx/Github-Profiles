@@ -4,10 +4,10 @@ import { GitContext } from "./context/contexts"
 import { useNavigate } from "react-router"
 
 function Profile() {
+  const navigate = useNavigate()
   const {
     state: { user },
   } = useContext(GitContext)
-  const navigate = useNavigate()
 
   useEffect(() => {
     if (user.length == 0) navigate(`/`)

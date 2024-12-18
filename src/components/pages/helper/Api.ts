@@ -1,12 +1,17 @@
 import axios from "axios"
 
+const baseUrl = (axios.defaults.baseURL = "https://api.github.com")
+
+const api = axios.create({
+  baseURL: baseUrl,
+})
 function ApiCalls(state, dispatch) {
   const getUsers = async () => {
     try {
       dispatch({ type: "searchError", payload: "" })
       dispatch({ type: "users", payload: [] })
       dispatch({ type: "isLoading" })
-      const user = await axios.get(`https://api.github.com/search/users?q=${state.text}`)
+      const user = await api.get(`/search/users?q=${state.text}`)
 
       if (user.data.items.length < 1) {
         throw new Error("No User with username")
@@ -23,7 +28,7 @@ function ApiCalls(state, dispatch) {
 
   const userInfo = async (info: string) => {
     dispatch({ type: "isLoading" })
-    const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
+    const user = await api.get(`/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
     dispatch({ type: "user", payload: user.data })
     await userRepo(info)
     await userStarred(info)
@@ -33,7 +38,7 @@ function ApiCalls(state, dispatch) {
   const userRepo = async (info: string) => {
     try {
       dispatch({ type: "repoError", payload: "" })
-      const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
+      const repos = await api.get(`/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
 
       if (repos.data.length < 1) {
         throw new Error("No Repos Found")
@@ -47,7 +52,7 @@ function ApiCalls(state, dispatch) {
   const userStarred = async (info: string) => {
     try {
       dispatch({ type: "starredError", payload: "" })
-      const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
+      const starred = await api.get(`/users/${info}/starred?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
 
       if (starred.data.length < 1) {
         throw new Error("No Starred Repos Found")

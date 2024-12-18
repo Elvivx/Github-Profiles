@@ -1,6 +1,5 @@
 import UserRepos from "./userRepos"
 import UserStarred from "./userStarred"
-// import Loader from "../helper/Loader"
 import { useContext, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Error from "../helper/Error"
