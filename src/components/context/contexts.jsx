@@ -1,10 +1,9 @@
-// import axios from "axios"
-import { createContext, useReducer } from "react"
+import React, { createContext, useReducer } from "react"
 import Reducer from "../pages/helper/Reducer"
 import PropTypes from "prop-types"
 import ApiCalls from "../pages/helper/Api"
 
-export const GitContext = createContext()
+export const GitContext = createContext(null)
 export const GitContextProvider = ({ children }) => {
   // Reducer state
   const initialStates = {
@@ -44,6 +43,8 @@ export const GitContextProvider = ({ children }) => {
     e.target.value == "repos" && dispatch({ type: "nav", payload: e.target.value })
     e.target.value == "starred" && dispatch({ type: "nav", payload: e.target.value })
     e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
+
+    if()
   }
 
   const vals = {
