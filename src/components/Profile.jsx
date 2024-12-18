@@ -1,18 +1,13 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import User from "./pages/user/User"
 import { GitContext } from "./context/contexts"
-import { useNavigate } from "react-router"
+import NotFound from "./pages/helper/PageNotFound"
 
 function Profile() {
-  const navigate = useNavigate()
   const {
     state: { user },
   } = useContext(GitContext)
 
-  useEffect(() => {
-    if (user.length == 0) navigate(`/`)
-  }, [])
-
-  return <User />
+  return user.length == 0 ? <NotFound /> : <User />
 }
 export default Profile
