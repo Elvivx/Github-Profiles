@@ -2,6 +2,7 @@ import { useContext, useRef, useEffect, useState } from "react"
 import { GitContext } from "../../context/contexts"
 import Recents from "./RecentSearches"
 import useLocalStorage from "../helper/localStorage"
+// import ApiCalls from "../helper/Api"
 
 function Search() {
   const {
@@ -9,6 +10,8 @@ function Search() {
     dispatch,
     getUsers,
   } = useContext(GitContext)
+  // const { getUsers } = ApiCalls()
+  // console.log(getUsers)
   const [recent, setRecent] = useLocalStorage("recentSearch", [])
 
   const inputRef = useRef(null)

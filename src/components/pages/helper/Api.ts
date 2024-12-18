@@ -2,8 +2,8 @@ import { useContext } from "react"
 import { GitContext } from "../../context/contexts"
 import axios from "axios"
 
-function apiCalls() {
-  const { dispatch } = useContext(GitContext)
+function ApiCalls(state, dispatch) {
+  console.log(state)
 
   const getUsers = async () => {
     try {
@@ -65,4 +65,4 @@ function apiCalls() {
   return { getUsers, userInfo }
 }
 
-export default apiCalls
+export default ApiCalls
