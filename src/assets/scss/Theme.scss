@@ -1,6 +1,11 @@
 .dark {
   background: #0b192c;
+
+  color: #fff;
   .search {
+    input {
+      color: #fff !important;
+    }
     background-color: #1e3e62;
     .recents {
       background: #1e3e62;
