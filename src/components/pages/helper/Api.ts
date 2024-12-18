@@ -1,10 +1,6 @@
-import { useContext } from "react"
-import { GitContext } from "../../context/contexts"
 import axios from "axios"
 
 function ApiCalls(state, dispatch) {
-  console.log(state, dispatch)
-
   const getUsers = async () => {
     try {
       dispatch({ type: "searchError", payload: "" })
@@ -25,7 +21,7 @@ function ApiCalls(state, dispatch) {
     }
   }
 
-  const userInfo = async (info) => {
+  const userInfo = async (info: string) => {
     dispatch({ type: "isLoading" })
     const user = await axios.get(`https://api.github.com/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
     dispatch({ type: "user", payload: user.data })
@@ -34,7 +30,7 @@ function ApiCalls(state, dispatch) {
     dispatch({ type: "loaded" })
   }
 
-  const userRepo = async (info) => {
+  const userRepo = async (info: string) => {
     try {
       dispatch({ type: "repoError", payload: "" })
       const repos = await axios.get(`https://api.github.com/users/${info}/repos?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
@@ -48,7 +44,7 @@ function ApiCalls(state, dispatch) {
     }
   }
 
-  const userStarred = async (info) => {
+  const userStarred = async (info: string) => {
     try {
       dispatch({ type: "starredError", payload: "" })
       const starred = await axios.get(`https://api.github.com/users/${info}/starred?per_page=${state.limite_repositorios}&client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
