@@ -27,12 +27,12 @@ function ApiCalls(state, dispatch) {
   }
 
   const userInfo = async (info: string) => {
-    dispatch({ type: "isLoading" })
+    // dispatch({ type: "isLoading" })
     const user = await api.get(`/users/${info}?client_id=${state.cliente_id}&client_secret=${state.cliente_secret}`)
     dispatch({ type: "user", payload: user.data })
     await userRepo(info)
     await userStarred(info)
-    dispatch({ type: "loaded" })
+    // dispatch({ type: "loaded" })
   }
 
   const userRepo = async (info: string) => {
