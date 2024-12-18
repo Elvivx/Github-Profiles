@@ -1,10 +1,7 @@
 import { useState, useEffect, useContext, useRef } from "react"
 import { GitContext } from "../../context/contexts"
 function useDeviceTheme() {
-  const {
-    // state: { theme },
-    dispatch,
-  } = useContext(GitContext)
+  const { dispatch } = useContext(GitContext)
   // Initialize theme based on the device's current theme
   const getInitialTheme = () => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
 
