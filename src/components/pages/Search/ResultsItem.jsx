@@ -3,6 +3,7 @@ import { GitContext } from "../../context/contexts"
 import { useContext } from "react"
 import { motion } from "framer-motion"
 import { Bookmark } from "lucide-react"
+import PropTypes from "prop-types"
 
 function ResultItem({ user }) {
   const { dispatch, userInfo } = useContext(GitContext)
@@ -23,6 +24,10 @@ function ResultItem({ user }) {
       <h1>{user.login}</h1>
     </motion.div>
   )
+}
+
+ResultItem.propTypes = {
+  user: PropTypes.object.isRequired,
 }
 
 export default ResultItem
