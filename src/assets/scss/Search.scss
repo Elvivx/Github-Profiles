@@ -87,6 +87,9 @@
       text-align: end;
       display: block;
       margin: 5px 10px 5px auto;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
