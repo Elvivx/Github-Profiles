@@ -1,11 +1,12 @@
 import React from "react"
 import { useNavigate } from "react-router"
+import img from "../../../../public/notFound.png"
 function NotFound() {
   const navigate = useNavigate()
   return (
     <>
       <div className='notFound'>
-        The page you are looking for does not exist
+        <img src={img} alt='not Found' />
         <button onClick={() => navigate(`/`)}>Go Back</button>
       </div>
     </>
