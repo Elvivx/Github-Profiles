@@ -38,13 +38,13 @@ export const GitContextProvider = ({ children }) => {
   const btnNavs = (e) => {
     let btns = e.currentTarget.childNodes
     if (!e.target.value) return
+    const value = e.target.value
     btns.forEach((btn) => btn.classList.remove("active"))
     e.target.classList.add("active")
-    e.target.value == "repos" && dispatch({ type: "nav", payload: e.target.value })
-    e.target.value == "starred" && dispatch({ type: "nav", payload: e.target.value })
-    e.target.value == "stats" && dispatch({ type: "nav", payload: e.target.value })
 
-    if()
+    if (["repos", "starred", "stats"].includes(value)) {
+      dispatch({ type: "nav", payload: value })
+    }
   }
 
   const vals = {
