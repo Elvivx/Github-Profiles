@@ -3,7 +3,7 @@ import { GitContext } from "../../context/contexts"
 import axios from "axios"
 
 function ApiCalls(state, dispatch) {
-  console.log(state)
+  console.log(state, dispatch)
 
   const getUsers = async () => {
     try {
