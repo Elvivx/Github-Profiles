@@ -6,7 +6,7 @@ function NotFound() {
   return (
     <>
       <div className='notFound'>
-        <img src={img} alt='not Found' />
+        <img src={img} alt='page not Found' />
         <button onClick={() => navigate(`/`)}>Go Back</button>
       </div>
     </>

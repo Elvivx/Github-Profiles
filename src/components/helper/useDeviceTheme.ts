@@ -27,32 +27,4 @@ function useDeviceTheme() {
   return theme
 }
 
-// export function themer() {
-//   const {
-//     state: { theme },
-//     dispatch,
-//   } = useContext(GitContext)
-
-//   const appTheme = useDeviceTheme()
-//   const app = useRef(document.querySelector("body"))
-//   useEffect(() => {
-//     if (theme !== "") return
-//     dispatch({ type: "theme", payload: appTheme })
-//   }, [theme])
-
-//   const themeMode = () => {
-//     console.log(app.current.classList)
-//     if (theme === "light") {
-//       app.current.classList.replace("dark", "light")
-//       dispatch({ type: "theme", payload: "dark" })
-//     }
-
-//     if (theme === "dark") {
-//       app.current.classList.replace("light", "dark")
-//       dispatch({ type: "theme", payload: "light" })
-//     }
-//   }
-//   return themeMode()
-// }
-
 export default useDeviceTheme
