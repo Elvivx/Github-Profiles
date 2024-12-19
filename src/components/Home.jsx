@@ -29,7 +29,6 @@ function Home() {
       dispatch({ type: "theme", payload: "light" })
     }
   }
-  console.log(!!users.length)
 
   return (
     <>
