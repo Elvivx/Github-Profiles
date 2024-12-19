@@ -1,9 +1,4 @@
-import { useContext, useEffect, useState } from "react"
-import { GitContext } from "../../context/contexts"
-
-// const {
-//   state: { recentSearches },
-// } = useContext(GitContext)
+import { useEffect, useState } from "react"
 
 function useLocalStorage(key: string, initialValue) {
   const [value, setValue] = useState(() => {
@@ -15,7 +10,6 @@ function useLocalStorage(key: string, initialValue) {
   })
 
   useEffect(() => {
-    // const store = localStorage.setItem("recentSearches", recentSearches)
     localStorage.setItem(key, JSON.stringify(value))
   }, [key, value])
 
