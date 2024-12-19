@@ -1,8 +1,8 @@
 import { GitContextProvider } from "./components/context/contexts"
-import Home from "./components/Home"
+import Home from "./components/pages/Home"
 import "./assets/scss/App.scss"
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
-import Profile from "./components/Profile"
+import Profile from "./components/pages/Profile"
 import { AnimatePresence, motion } from "framer-motion"
 
 function App() {

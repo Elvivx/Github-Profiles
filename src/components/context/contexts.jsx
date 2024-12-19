@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react"
-import Reducer from "../pages/helper/Reducer"
+import Reducer from "../helper/Reducer"
 import PropTypes from "prop-types"
-import ApiCalls from "../pages/helper/Api"
+import ApiCalls from "../helper/Api"
 
 export const GitContext = createContext(null)
 export const GitContextProvider = ({ children }) => {

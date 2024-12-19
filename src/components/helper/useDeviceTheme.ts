@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react"
-import { GitContext } from "../../context/contexts"
+import { GitContext } from "../context/contexts"
 function useDeviceTheme() {
   const { dispatch } = useContext(GitContext)
   // Initialize theme based on the device's current theme

@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import User from "../user/User"
 import { GitContext } from "../context/contexts"
-import NotFound from "./pages/helper/PageNotFound"
+import NotFound from "../helper/PageNotFound"
 
 function Profile() {
   const {

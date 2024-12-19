@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Error from "../helper/Error"
 import UserStats from "./UserStats"
-import { GitContext } from "../../context/contexts"
+import { GitContext } from "../context/contexts"
 import { LinkIcon } from "lucide-react"
 
 // Variants for reusable animation configurations
