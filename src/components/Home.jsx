@@ -6,7 +6,7 @@ import { useContext, useEffect, useRef } from "react"
 
 function Home() {
   const {
-    state: { theme },
+    state: { theme, users },
     dispatch,
   } = useContext(GitContext)
 
@@ -29,6 +29,7 @@ function Home() {
       dispatch({ type: "theme", payload: "light" })
     }
   }
+  console.log(!!users.length)
 
   return (
     <>
@@ -75,7 +76,7 @@ function Home() {
         </div>
       </div>
       <Search />
-      <Results />
+      {!!users.length && <Results />}
     </>
   )
 }
