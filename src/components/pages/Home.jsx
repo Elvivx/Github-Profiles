@@ -1,6 +1,6 @@
-import Search from "./pages/Search/Search"
-import Results from "./pages/Search/Results"
-import { GitContext } from "./context/contexts"
+import Search from "./Search/Search"
+import Results from "./Search/Results"
+import { GitContext } from "../context/contexts"
 import useDeviceTheme from "./pages/helper/useDeviceTheme"
 import { useContext, useEffect, useRef } from "react"
 

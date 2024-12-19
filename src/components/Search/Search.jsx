@@ -1,5 +1,5 @@
 import { useContext, useRef, useEffect, useState } from "react"
-import { GitContext } from "../../context/contexts"
+import { GitContext } from "../context/contexts"
 import Recents from "./RecentSearches"
 import useLocalStorage from "../helper/localStorage"
 

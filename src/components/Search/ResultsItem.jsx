@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router"
-import { GitContext } from "../../context/contexts"
+import { GitContext } from "../context/contexts"
 import { useContext } from "react"
 import { motion } from "framer-motion"
 import { Bookmark } from "lucide-react"

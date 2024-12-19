@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Clock, X } from "lucide-react"
-import { GitContext } from "../../context/contexts"
+import { GitContext } from "../context/contexts"
 
 function Recents({ clickRecent, recents, clear }) {
   const { dispatch } = useContext(GitContext)

@@ -2,7 +2,7 @@ import ResultItem from "./ResultsItem"
 import { useContext } from "react"
 import { GitContext } from "../../context/contexts"
 import { motion } from "framer-motion"
-import Loader from "../helper/Loader"
+import Loader from "../pages/helper/Loader"
 
 function Results() {
   const {
