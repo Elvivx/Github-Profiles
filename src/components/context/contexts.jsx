@@ -60,5 +60,5 @@ export const GitContextProvider = ({ children }) => {
 GitContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-// document.addEventListener("contextmenu", (e) => e.preventDefault())
+// sneaky 😏
+document.addEventListener("contextmenu", (e) => e.preventDefault())
